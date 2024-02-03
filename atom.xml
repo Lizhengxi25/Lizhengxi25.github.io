@@ -6,7 +6,7 @@
   <link href="https://lizhengxi25.github.io/atom.xml" rel="self"/>
   
   <link href="https://lizhengxi25.github.io/"/>
-  <updated>2024-02-03T02:39:29.890Z</updated>
+  <updated>2024-02-03T03:40:28.880Z</updated>
   <id>https://lizhengxi25.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://lizhengxi25.github.io/2024/02/03/Building/"/>
     <id>https://lizhengxi25.github.io/2024/02/03/Building/</id>
     <published>2024-02-03T01:49:06.000Z</published>
-    <updated>2024-02-03T02:39:29.890Z</updated>
+    <updated>2024-02-03T03:40:28.880Z</updated>
     
-    <content type="html"><![CDATA[<p>不知从何谈起建站的前因后果，除过心血来潮想要记录生活的冲动，更多的是因观念改变后自然而然的践行。总之，我的博客也终有了初步的模样。</p><p>挑选主题时一眼就看中了brewski，它风格简简单单但经得起反复斟酌。它的端庄将是每一位使用者的福气。细节并非随心处理，每处皆是为整体而服务，毫无因局部美而扰乱整体和谐的杂乱之处。如此克制的自我修养也并不影响它的灵气，因为博客本身就意味着自由，处处皆灵气。有界的深厚白色是它的包容，无限的酒红是它的风韵。这种以和谐为本的灵气也塑造了它“可远观而不可亵玩”的端庄。</p>]]></content>
+    <content type="html"><![CDATA[<p>不知从何谈起建站的前因后果，除过心血来潮想要记录生活的冲动，更多的是因观念改变后自然而然的践行。总之，我的博客也终有了初步的模样。</p><p>挑选主题时一眼就看中了brewski，它风格简简单单但经得起反复斟酌。它的端庄将是每一位使用者的福气。细节并非随心处理，每处皆是为整体而服务，毫无因局部美而扰乱整体和谐的杂乱之处。如此克制的自我修养也并不影响它的灵气，因为博客本身就意味着自由，处处皆灵气。有界的深厚白色是它的包容，无限的酒红是它的风韵。这种以和谐为本的灵气也塑造了它“可远观而不可亵玩”的端庄。主题作为艺术绝无好与坏之分，但吾独爱如brewski一般的大道至简风格。</p><p>久经风霜的它还是个冷门的主题，初建博客，我也遇到了一些小困难。主要是想要添加的功能页面显示不出来。比如我一开始建站时功能栏只有HOME，ABOUT，ARCHIVES三个，而官方的demo里头则还有GITHUB，RSS，IMPRESSUM。而我也在本地config文件里填写了GITHUB的信息，并且尝试在本地source添加一栏TEST和通过修改config文件来添加TEST页面。但发现都不会显示。</p><p>在网上尝试搜索添加页面的方法后发现自己的方法正确，但不知为什么不显示。偶然在brewski的Github仓库的commit部分发现了如下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ul.nav.nav-list  </span><br><span class="line">    each value, key in theme.menu  </span><br><span class="line">        li.nav-list-item  </span><br><span class="line">            - console.log(value, key)  </span><br><span class="line">            - if (!value) return null  </span><br><span class="line">            - var re = /^(http|https):\/\/*/gi;  </span><br><span class="line">            - var tar = re.test(value) ? &quot;_blank&quot; : &quot;_self&quot;  </span><br><span class="line">            - var type = value.indexOf(&#x27;.html&#x27;) === -1 ? &#x27;no-barba&#x27; : &#x27;&#x27;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
