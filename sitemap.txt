@@ -1,5 +1,5 @@
-https://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/
 https://lizhengxi25.github.io/2024/02/03/Building/
+https://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/
 https://lizhengxi25.github.io/Buiding/index.html
 https://lizhengxi25.github.io/About/me.html
 https://lizhengxi25.github.io/archives/index.html
@@ -8,3 +8,4 @@ https://lizhengxi25.github.io/Test/index.html
 https://lizhengxi25.github.io/2024/02/02/hello-world/
 https://lizhengxi25.github.io/Github/index.html
 https://lizhengxi25.github.io/
+https://lizhengxi25.github.io/tags/Other/

@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/</loc>
+    <loc>https://lizhengxi25.github.io/2024/02/03/Building/</loc>
     
-    <lastmod>2024-02-15</lastmod>
+    <lastmod>2024-03-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lizhengxi25.github.io/2024/02/03/Building/</loc>
+    <loc>https://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/</loc>
     
-    <lastmod>2024-02-03</lastmod>
+    <lastmod>2024-02-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -85,11 +85,18 @@
 
   <url>
     <loc>https://lizhengxi25.github.io/</loc>
-    <lastmod>2024-02-15</lastmod>
+    <lastmod>2024-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://lizhengxi25.github.io/tags/Other/</loc>
+    <lastmod>2024-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 
   
