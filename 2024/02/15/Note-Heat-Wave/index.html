@@ -6,17 +6,17 @@
   
   <title>Note-Heat-Wave | James&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G 刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，做不出">
+  <meta name="description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G 刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note-Heat-Wave">
 <meta property="og:url" content="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/index.html">
 <meta property="og:site_name" content="James&#39; Blog">
-<meta property="og:description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G 刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，做不出">
+<meta property="og:description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G 刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-02-15T07:11:01.000Z">
-<meta property="article:modified_time" content="2024-04-15T14:35:00.000Z">
+<meta property="article:modified_time" content="2024-04-16T13:30:03.710Z">
 <meta property="article:author" content="James Li">
-<meta property="article:tag" content="Other">
+<meta property="article:tag" content="Tutorial">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="James' Blog" type="application/atom+xml">
@@ -34,6 +34,8 @@
 
   
   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
 <meta name="generator" content="Hexo 7.1.1"></head>
 
 <body>
@@ -95,7 +97,8 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。</p>
-<p><strong><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1339">洛谷 P1339 [USACO09OCT] Heat Wave G</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1339">洛谷 P1339
+[USACO09OCT] Heat Wave G</a></strong></p>
 <p>刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，做不出来就直接躺平了。他那时侯经常要想一周。其实，就是要自己想，总结出自己的法子，而非纯粹地套用模型。</p>
 <p>外加D教练还没有给我们班讲过图论，我自己的图论题解法都是靠着《深入浅出》、各篇板题的题解外加自己的摸索，总结出来的。各种算法的名字我也不知道，只在学习图的存储和遍历时，学了“链式向前星”。其余的，都是基于深搜广搜，随机应变。</p>
 <p>刚做这道题的时候，觉得这题看着很板，遍历所有的点就可以了。后来发现这题的不同之处在于每条边的边权不一定是1。之前的广搜或者深搜其实有个妙处在于每遍历一层，距离都+1。因此，随着遍历的深入，距离也增加，也就是距离与遍历的深度是单调关系。因此第一次搜到目标点时的距离，便是答案。</p>
@@ -108,11 +111,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/" data-id="clv2ewy4f000520mo39q6hphk" data-title="Note-Heat-Wave" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/" data-id="clv2fznni0006kkmo49s30hu2" data-title="Note-Heat-Wave" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/" rel="tag">Other</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tutorial/" rel="tag">Tutorial</a></li></ul>
 
     </footer>
   </div>
@@ -152,7 +155,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/" rel="tag">Other</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Literature/" rel="tag">Literature</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/" rel="tag">Math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/" rel="tag">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/" rel="tag">Tutorial</a></li></ul>
     </div>
   </div>
 
@@ -162,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Other/" style="font-size: 10px;">Other</a>
+      <a href="/tags/Literature/" style="font-size: 20px;">Literature</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a>
     </div>
   </div>
 
@@ -184,10 +187,6 @@
       <ul>
         
           <li>
-            <a href="/2024/04/16/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
             <a href="/2024/04/15/Fibonacci/">斐波那契数列再理解</a>
           </li>
         
@@ -201,6 +200,10 @@
         
           <li>
             <a href="/2024/02/15/Note-Heat-Wave/">Note-Heat-Wave</a>
+          </li>
+        
+          <li>
+            <a href="/2024/02/03/Building/">建站小记</a>
           </li>
         
       </ul>
