@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>James&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:title" content="James&#39; Blog">
+<meta property="og:url" content="http://lizhengxi25.github.io/index.html">
+<meta property="og:site_name" content="James&#39; Blog">
+<meta property="og:locale">
+<meta property="article:author" content="James Li">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="James' Blog" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -39,7 +39,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">James&#39; Blog</a>
       </h1>
       
     </div>
@@ -57,10 +57,10 @@
         
           <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Lizhengxi25.github.io"></form>
       </div>
     </div>
   </div>
@@ -108,10 +108,276 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/16/hello-world/" data-id="clv2eo5ht0000yomo3n0lfk4o" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://lizhengxi25.github.io/2024/04/16/hello-world/" data-id="clv2ewy4h000820moejmjfszz" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Fibonacci" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/15/Fibonacci/" class="article-date">
+  <time class="dt-published" datetime="2024-04-14T23:56:11.000Z" itemprop="datePublished">2024-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/15/Fibonacci/">斐波那契数列再理解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>$$a + b$$</p>
+<p>$$L_p  &#x3D; (\sum_{i&#x3D;1}^m |x_i - y_i |^{p}  )^{ {\tfrac{1} {p} } }$$</p>
+<p>$$<br>\lim_{x \to 0} (1 + x)^{1 \over x} &#x3D; e<br>$$</p>
+<p>$$ evidence_{i}&#x3D;\sum_{j}W_{ij}x_{j}+b_{i} $$</p>
+<p>IBDP CS 的一项实现朴素递归（见第一部分）求解斐波那契数列的作业激发了我对其计算时间复杂度的思考。经计算，发现其时间<br>复杂度为 $O(m)$ , $m &#x3D; S_{n - 1}$，其中$S_{n - 1}$为斐波那契数列前$n - 1$项和。在此，首先我想证明朴素递归求解斐波那契数列第 $n$ 项，${F_n}$的时间复杂度为斐波那契数列前$n-1$项和，$S_{n - 1}$。其次，从该证明，我们也可以从另一角度理解斐波那契数列的本质。</p>
+<h2 id="一"><a href="#一" class="headerlink" title="一"></a>一</h2><p>首先，我先明确朴素递归求解斐波那契数列第$n$项，$F_n$的定义（该方法下文统称“朴素递归”）。</p>
+<p>代码定义：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Fibonacci</span> <span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Fibonacci</span>(n - <span class="number">1</span>) + <span class="built_in">Fibonacci</span>(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此外，该函数时间复杂度为O(1)，因此递归的时间复杂度是函数调用次数。</p>
+<h2 id="二"><a href="#二" class="headerlink" title="二"></a>二</h2><p>首先，我们来从上到下分解${F_n}$。但注意，分解时，需保证每一次分解，即每一层，出现且仅出现两项。</p>
+<p>$$<br>F_n &#x3D;<br>$$</p>
+<p>$$F_{n - 1} + F_{n - 2} &#x3D; $$</p>
+<p>$$F_{n - 2} + F_{n - 2} + F_{n - 3} &#x3D; $$</p>
+<p>$$F_{n - 3} + F_{n - 3} + F_{n - 3} + F_{n - 4} + F_{n - 4} &#x3D; $$</p>
+<p>$$…$$</p>
+<p>即：</p>
+<p>$$F_n &#x3D; $$</p>
+<p>$$F_{n - 1} + F_{n - 2} &#x3D; $$</p>
+<p>$$2F_{n - 2} + F_{n - 3} &#x3D; $$</p>
+<p>$$3F_{n - 3} + 2F_{n - 4} &#x3D; $$</p>
+<p>$$…$$</p>
+<p>若规定斐波那契数列的第$1$项$F_1$与第$2$项$F_2$为基数，不难得出，对于第$n$项，都能分解成$n - 1$层。</p>
+<p>同时，规定第${i}$层系数较大的一项为${x_i}$，较小一项为${y_i}$，${i} \in {[1, n - 1]}$。并且，由于每层仅分解系数最大的一项，在程序实现过程中也仅调用${x_i}$次朴素递归函数，所以该朴素递归递归的时间复杂度为每层较大系数之和，即$\sum_{i &#x3D; 1}^{n - 1}{ {x_i} }$。</p>
+<p>下面，我将证明该系数和斐波那契数列。对于由第${i - 1}$ 到第 ${i}$ 层的变换，${i} \in {[3, n - 1]}$，有:</p>
+<p>$$\begin{equation}{x_i} &#x3D; {x_{i - 1}} + {y_{i - 1}}\end{equation}$$<br>$$\begin{equation}{y_i} &#x3D; {x_{i - 1}}\end{equation}$$</p>
+<p>将二式带入一式</p>
+<p>$${x_i} &#x3D; {x_{i - 1}} + {x_{i - 2}}, {i} \in {[3, n - 1]}$$</p>
+<p>且</p>
+<p>$${x_1} &#x3D; {x_2} &#x3D; 1$$</p>
+<p>就此，已完成${x_i}$为斐波那契数列的证明。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/04/15/Fibonacci/" data-id="clv2ewy4c000120mofvmh4a81" data-title="斐波那契数列再理解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-zhihu-24-3-17" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/17/zhihu-24-3-17/" class="article-date">
+  <time class="dt-published" datetime="2024-03-17T02:04:25.000Z" itemprop="datePublished">2024-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/17/zhihu-24-3-17/">浅谈对黄蓉、郭芙的名字的理解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>射雕中有个很有意思的细节，冯蘅、黄蓉、郭芙三人的名全是草字头，这是否有什么深意呢？</p>
+<p>首先，将黄蓉和郭芙的名字结合，便是“芙蓉”。黄药师给黄蓉取名“蓉”，体现了他“药师”之号。芙蓉，乃莲，花之君子，华实齐生。一方面体现黄药师对女儿成为人中龙凤、才貌并全的期待。另一方面，莲象征自洁，有种独立、自我的象征。出淤泥而不染、濯清涟而不妖，有种独立于俗世之外，自好自爱自娱自乐的情怀。也有种骄傲的情绪在内。黄蓉也不负“爹爹”重望，成为了如她名字一样的人。</p>
+<p>而在古代男尊女卑的环境下，黄药师给女儿取了一个独立自主的名字，也是因为他自己蔑视礼教，挑战传统。这么看，黄药师对于那个时代是进步的，是超前的。</p>
+<p>而郭芙的名字，像是黄蓉取的，芙蓉芙蓉，她希望女儿能成为像自己一样的人，体现了她的爱女之切。这也很好地解释她对郭芙的娇生惯养。希望女儿像自己一样便是从小缺乏母爱的黄蓉抚养女儿的宗旨；很有意思地是，杨过“恋母”则是另一个极端。他对女人有好感都是将其与小龙女作比较，觉得她很像自己的师傅，因此喜欢她。二人一个是从来没有感受到母爱，一个是一直深深爱着自己的母亲一般的师傅。从这个角度想，二人之间的隔阂便也少不了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/03/17/zhihu-24-3-17/" data-id="clv2ewy4i000b20mo98i670nj" data-title="浅谈对黄蓉、郭芙的名字的理解" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-zhihu-24-3-15" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/15/zhihu-24-3-15/" class="article-date">
+  <time class="dt-published" datetime="2024-03-15T02:26:23.000Z" itemprop="datePublished">2024-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/15/zhihu-24-3-15/">洪七公的人格分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>这个问题我觉得有两方面主要原因：一洪七公的为人，二是他的处事。</p>
+<p>首先，所谓“该杀”与“不该杀”可以从法律与道德两个角度来解释。但我们所讨论的对象是武林中的人物，因此法律层面的东西是没有意义被讨论的。而从道德的角度，由于每个人价值体系的不同，对于予夺生杀的大事，自是复杂且主观的。不过，武林虽是逍遥法外，但其内部的规矩、道德也实时约束着各路豪杰。并且，宋朝作为一个各个阶级都被强烈的“正家之法”所约束的、有着严肃的道德准则的时代，再逍遥的武林也终究是属于这个集合之内，也必定受其影响。</p>
+<p>那么，“该杀”与“不该杀”既然是一个道德问题，我们需要明确，这个是在什么样的人之间，以什么道德体系，来评价这个问题。这句话是洪七公在华山之巅对于裘千仞的发问所做出的义正词严的回答。裘千仞虽是“恶人”的形象，但当时在被逼至绝境、在生死面前，发出的灵魂拷问，一是我认为当时的他是敞开心扉的。他表达了他对这个世界的疑问与对众人也曾杀害无辜的“伪君子”的嘲弄与不屑。同时，他早年本性不恶，也有过对于未遵循师傅的教诲的忏悔，我认为他对“善恶是非”是有过深刻的思考的。他作恶多端、通敌卖国的选择，是他对这个世界充满恶而无善的绝望的体现。因此，我认为裘千仞本身并非有着扭曲的价值体系，只是站在了世界所规定的道德的对立面；并且，通过该章节“是非善恶”的题目及内容对于价值体系的探讨，我认为裘千仞此处发出的问题是基于逻辑与哲学的、也是真诚的，并非无端取闹。</p>
+<p>同样，结合射雕的结尾，丘处机对于四绝的评价：</p>
+<blockquote>
+<p>“黄药师行为乖僻，虽然出自愤世嫉俗，心中实有难言之痛，但自行其是，从来不为旁人着想，我所不取。欧阳锋作恶多端，那是不必说了。段皇爷慈和宽厚，若是君临一方，原可造福百姓，可是他为了一己小小恩怨，就此遁世隐居，亦算不得是大仁大勇之人。只有洪七公洪帮主行侠仗义，扶危济困，我对他才佩服得五体投地。华山二次论剑之期转瞬即至，即令有人在武功上胜过洪帮主，可是天下豪杰之士，必奉洪帮主为当今武林中的第一人。”</p>
+</blockquote>
+<p>这段评价为该章节定了基调，也可以理解为金庸本人对于四绝的评价以及对于全书的一个解释。不过，我想阐述的是，全真教的正统性决定了该语录的正统性。全真教的正统性毋庸置疑，通过书中角色对其评价、与神雕中郭靖送“邪”杨过去全真派学武体现的对其的认可，我认为全真教不仅是武学的正统，更是武林中道德的典范。</p>
+<p>通过以上的论证，我认为可以得出，“该杀”与“不该杀”的问题，是基于在武林内被大众所认可的道德准则与规范，而非个人的价值体系。因此，拥有与当时的武林道德相吻合的价值体系，是能对“该杀”与“不该杀”问题问心无愧的必要但不充分条件。</p>
+<p>我并不能很全面地总结出武林里的道德准则，毕竟它不是条条法律般的纲领，它是一种内在的道德与人性的体现。不过，我想要用真、善、美来形容它的特性。真便是真诚、信，善是善良、仁，美是情意。信义、仁义、情义是很大的概念，也能够基本形容武林中的道德准则。而洪七公是它们的完美结合。穆念慈救了小乞丐，洪七公报之以三天的武功传授；因自己的贪吃误事对不起他人而砍下食指等等；体现了洪七公的信义。洪七公在船上救了欧阳锋，是仁义的体现。洪七公感慨与郭靖黄蓉的缘分一场，授之以武功、救之于水火，是情义的体现。整部书中，洪七公自始自终找不到任何与这些相悖的证据。结合丘处机的评价，我认为，洪七公身上毋庸置疑地有着与武林道德相吻合的价值体系。</p>
+<p>我上文提到拥有与武林道德相吻合的价值体系是对“该杀”与“不该杀”问题问心无愧的必要但不充分条件，加上有着对于自己价值体系的理性地执行的条件，我认为就能成为对“该杀”与“不该杀”问题问心无愧的充分且必要条件。（在“理性”这个词的选用上我的确犹豫了，我想表达的意思是正确地、有理有据地执行）</p>
+<p>洪七公与武林中许多角色一个鲜明的区别是他不会去仅凭意与情绪气去揣测他人。这一点最明显的是江南七怪、郭靖，小龙女等性情耿直之人，也包括丘处机、杨过等有一定的头脑与智谋，但终不如黄蓉像诸葛亮般料事如神的人。他们的自行揣测造成了无数不可逆转的误会。但洪七公则不，洪七公可以准确地知道他人的意图，如识破黄蓉想骗他教郭靖武功时的种种话术中的意图：看出想让他教郭靖武功只是第一层，他能够跟上黄蓉的思路并处处反驳回击，这是他的真本事。黄蓉能智取除了她爹爹的以外的所有人，而在洪七公面前她未曾得手（的确，我更认为洪七公教郭靖武功是因为他真心欣赏郭靖，报答黄蓉的菜肴只是一个借口）。包括丐帮的继承者问题。段皇爷也是如此。这也是他们能够做为丐帮帮主、大理国君的文韬武略、安邦定国的智慧。这便是洪七公对于社会老道且深刻的理解与他超乎凡人的大智慧。</p>
+<p>我很愿意将洪七公、段皇爷与刘备类比，而郭靖小龙女等更像是关羽张飞（人也在变，后面郭靖也成为了一代大侠）。东邪西毒老顽童有一身盖世武功，但终是微弱的个体。但南帝北丐中神通都是像三国中的君王一般，以智慧与勇气较量于天下英雄。中神通在射雕中出现极少，我就不多讨论。而南帝和北丐的对比，与刘备的类比，对于解释我们的最终问题很有帮助。段皇爷是一位慈悲心肠、文治武功、胸怀天下，他也符合武林中的道德标准。然而，正如丘处机的评价，他因为个人的恩怨，并没有理性地执行他的道德信念（当然我并不是在阐释他没有遵循的原因，而是在对这个事实进行概括）。他因为嫉妒而不救瑛姑的孩子，他也为此自责至出家。这便是他性格的差异，并没有遵循我所谓的武林道德（因此，瑛姑也才因觉得他无情无义而记恨于他）。而洪七公不同，不知道各位有没有注意，在射雕与神雕中，洪七公从来没有处死一人，只惩罚过梁子翁与欧阳克，甚至从不记恨于别人。我们往往因为洪七公阳刚正义的性格与武功风格，更多地看到他侠者形象，忽略了他厚德载物的君子一面。永远给别人第二次机会，是真正强者的如海心胸，是他们顶天立地的以德服人之道。（这一点很像《哈利波特》里的邓布利多）</p>
+<p>所以，回到原本的问题，不难得出，洪七公与武林道德相吻合的人格，厚德载物的处事方式，可以让他杀死以武林道德标准评判之下的恶人，也不会因私人恩怨仇杀或误杀。</p>
+<p>当然，我并不是在将洪七公神话，他并不是没有缺点，任何道德准则都有收益与受损的一方，只是他符合了当时武林的道德准则（当然也是现在的）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/03/15/zhihu-24-3-15/" data-id="clv2ewy4i000a20mo9oto3fm3" data-title="洪七公的人格分析" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Note-Heat-Wave" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/02/15/Note-Heat-Wave/" class="article-date">
+  <time class="dt-published" datetime="2024-02-15T07:11:01.000Z" itemprop="datePublished">2024-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/02/15/Note-Heat-Wave/">Note-Heat-Wave</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。</p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1339">洛谷 P1339 [USACO09OCT] Heat Wave G</a></strong></p>
+<p>刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，做不出来就直接躺平了。他那时侯经常要想一周。其实，就是要自己想，总结出自己的法子，而非纯粹地套用模型。</p>
+<p>外加D教练还没有给我们班讲过图论，我自己的图论题解法都是靠着《深入浅出》、各篇板题的题解外加自己的摸索，总结出来的。各种算法的名字我也不知道，只在学习图的存储和遍历时，学了“链式向前星”。其余的，都是基于深搜广搜，随机应变。</p>
+<p>刚做这道题的时候，觉得这题看着很板，遍历所有的点就可以了。后来发现这题的不同之处在于每条边的边权不一定是1。之前的广搜或者深搜其实有个妙处在于每遍历一层，距离都+1。因此，随着遍历的深入，距离也增加，也就是距离与遍历的深度是单调关系。因此第一次搜到目标点时的距离，便是答案。</p>
+<p>然而，对于这道题，边权不是恒为1，因此，两点距离并不与遍历的深度呈单调关系。于是，我想到枚举起始点与某点距离，用优先队列维护。比如，先将起始点的临界点入队，枚举距离，若有一点正好离终点的距离是i，那么，起始点离他的最短距离便是i，就可以打标记表示访问过了，并将其入队。</p>
+<p>在声明优化之前，先强调一下，对于不重复点的一条路上，两点距离仍与遍历的深度呈单调关系，因为边权不为负数。</p>
+<p>当我们枚举距离时，会有很多空距离，白白浪费时间。而对于优先队列，队首一定是最近的点，因此每次只需要取出队首元素进行延申即可。当遇到目标点时，此时的距离就是最短距离。注意：队列中取出的点记得删。</p>
+<p>附上代码记录成长：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN (int) (2505)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXM (int) (6205)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, s, t, ans = <span class="number">1e9</span>;</span><br><span class="line"><span class="type">char</span> vis[MAXN];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">VT</span> &#123;</span><br><span class="line">	<span class="type">int</span> end, w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">T</span> &#123;</span><br><span class="line">	<span class="type">int</span> name, w;</span><br><span class="line">	<span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> T &amp; other) <span class="type">const</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> w &gt; other.w;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">vector &lt;VT&gt; edge[MAXN];</span><br><span class="line">priority_queue &lt;T&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;n, &amp;m, &amp;s, &amp;t);</span><br><span class="line">	<span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>, w = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;x, &amp;y, &amp;w);</span><br><span class="line">		edge[x].<span class="built_in">push_back</span>((VT)&#123;y, w&#125;);</span><br><span class="line">		edge[y].<span class="built_in">push_back</span>((VT)&#123;x, w&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	q.<span class="built_in">push</span>((T)&#123;s, <span class="number">0</span>&#125;);</span><br><span class="line">	<span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		T tmp = q.<span class="built_in">top</span>();</span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="keyword">if</span> (vis[tmp.name]) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span> vis[tmp.name] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (tmp.name == t) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, tmp.w);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edge[tmp.name].<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (vis[edge[tmp.name][i].end]) <span class="keyword">continue</span>;</span><br><span class="line">			q.<span class="built_in">push</span>((T)&#123;edge[tmp.name][i].end, edge[tmp.name][i].w + tmp.w&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/" data-id="clv2ewy4f000520mo39q6hphk" data-title="Note-Heat-Wave" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/" rel="tag">Other</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Building" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/02/03/Building/" class="article-date">
+  <time class="dt-published" datetime="2024-02-03T01:49:06.000Z" itemprop="datePublished">2024-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/02/03/Building/">建站小记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>不知从何谈起建站的前因后果，除过心血来潮想要记录生活的冲动，更多的是因观念改变后自然而然的践行。总之，我的博客也终有了初步的模样。</p>
+<p>挑选主题时一眼就看中了brewski，它风格简简单单但经得起反复斟酌。它的端庄将是每一位使用者的福气。细节并非随心处理，每处皆是为整体而服务，毫无因局部美而扰乱整体和谐的杂乱之处。如此克制的自我修养也并不影响它的灵气，因为博客本身就意味着自由，处处皆灵气。有界的深厚白色是它的包容，无限的酒红是它的风韵。这种以和谐为本的灵气也塑造了它“可远观而不可亵玩”的端庄。主题作为艺术绝无好与坏之分，但吾独爱如brewski一般的大道至简风格。</p>
+<p>久经风霜的它还是个冷门的主题，初建博客，我也遇到了一些小困难。主要是想要添加的功能页面显示不出来。比如我一开始建站时功能栏只有HOME，ABOUT，ARCHIVES三个，而官方的demo里头则还有GITHUB，RSS，IMPRESSUM。而我也在本地config文件里填写了GITHUB的信息，并且尝试在本地source添加一栏TEST和通过修改config文件来添加TEST页面。但发现都不会显示。</p>
+<p>在网上尝试搜索添加页面的方法后发现自己的方法正确，但不知为什么不显示。后来偶然在brewski的Github仓库的commit部分发现了如下代码（原格式是pug，目前还没搞懂如何高亮pug，暂时用javascript凑活一下）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ul.<span class="property">nav</span>.<span class="property">nav</span>-list  </span><br><span class="line">    each value, key <span class="keyword">in</span> theme.<span class="property">menu</span>  </span><br><span class="line">        li.<span class="property">nav</span>-list-item  </span><br><span class="line">            - <span class="variable language_">console</span>.<span class="title function_">log</span>(value, key)  </span><br><span class="line">            - <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="literal">null</span>  </span><br><span class="line">            - <span class="keyword">var</span> re = <span class="regexp">/^(http|https):\/\/*/gi</span>;  </span><br><span class="line">            - <span class="keyword">var</span> tar = re.<span class="title function_">test</span>(value) ? <span class="string">&quot;_blank&quot;</span> : <span class="string">&quot;_self&quot;</span>  </span><br><span class="line">            - <span class="keyword">var</span> type = value.<span class="title function_">indexOf</span>(<span class="string">&#x27;.html&#x27;</span>) === -<span class="number">1</span> ? <span class="string">&#x27;no-barba&#x27;</span> : <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>menu里的每个元素都会被检查一遍，如果没有则返回null。</p>
+<p>并且，我之前每次生成页面的时候，发现home和about都显示了对应的路径，但Impressum显示的是null。刚好，我在config文件里并没有写Impressum的信息。</p>
+<p>因此，我推测是由于信息未填写全，中断了menu。果然，在我注释掉Impressum后，我的GITHUB和TEST就显示了出来。</p>
+<p>另一个补充是我后来把主题的配置信息写在theme内的config文件里，而非主文件夹下的config文件里写一个theme_config。这样做一方面是便于换主题，另一方面，模块化也是一种良好的代码习惯。</p>
+<p align="right">2024-02-03</p>
+
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/02/03/Building/" data-id="clv2ewy4e000320mocnh909q8" data-title="建站小记" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/" rel="tag">Other</a></li></ul>
+
     </footer>
   </div>
   
@@ -130,15 +396,10 @@
 
   
     
-
-  
-    
-  
-    
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/" rel="tag">Other</a></li></ul>
     </div>
   </div>
 
@@ -146,12 +407,47 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Other/" style="font-size: 10px;">Other</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2024/04/16/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/15/Fibonacci/">斐波那契数列再理解</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/17/zhihu-24-3-17/">浅谈对黄蓉、郭芙的名字的理解</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/15/zhihu-24-3-15/">洪七公的人格分析</a>
+          </li>
+        
+          <li>
+            <a href="/2024/02/15/Note-Heat-Wave/">Note-Heat-Wave</a>
           </li>
         
       </ul>
@@ -167,7 +463,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2024 John Doe<br>
+      &copy; 2024 James Li<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
