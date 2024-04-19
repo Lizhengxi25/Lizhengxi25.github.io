@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数据处理概述 | James&#39; Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="摘要 工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并以个人经历与训练为本，以实操的角度探讨数据分析中高质量的代码框架。 一 数学部分 有效数位与科学计数法 概念 一个数据的 有效数位 (significant figures) 是将其写成科学计数法后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据处理概述">
+<meta property="og:url" content="http://lizhengxi25.github.io/2024/04/19/DataAnalysis/index.html">
+<meta property="og:site_name" content="James&#39; Blog">
+<meta property="og:description" content="摘要 工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并以个人经历与训练为本，以实操的角度探讨数据分析中高质量的代码框架。 一 数学部分 有效数位与科学计数法 概念 一个数据的 有效数位 (significant figures) 是将其写成科学计数法后">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-04-19T12:28:08.000Z">
+<meta property="article:modified_time" content="2024-04-19T15:17:05.029Z">
+<meta property="article:author" content="James Li">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="James' Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">James&#39; Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Lizhengxi25.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-DataAnalysis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/19/DataAnalysis/" class="article-date">
+  <time class="dt-published" datetime="2024-04-19T12:28:08.000Z" itemprop="datePublished">2024-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数据处理概述
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要">摘要</h2>
+<p>工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并以个人经历与训练为本，以实操的角度探讨数据分析中高质量的代码框架。</p>
+<h2 id="一">一</h2>
+<h3 id="数学部分">数学部分</h3>
+<h4 id="有效数位与科学计数法">有效数位与科学计数法</h4>
+<h5 id="概念">概念</h5>
+<p>一个数据的 <strong>有效数位 (significant figures)</strong>
+是将其写成科学计数法后的数字的总位数，用来描述数据的精度。区分表示数量级的数字与有效数字是十分重要的，它有以下规则：</p>
+<ul>
+<li>对于数据中的0的规则：如缺少它则与原来的数大小不相等，那么它便是占位零，属于表示数量级的数字，并非有效数字，如<span
+class="math inline">\(200\)</span>的有效数字为<span
+class="math inline">\(1\)</span>位——<span
+class="math inline">\(2\)</span>；如缺少它则原来的数大小相等，那么它便是表示精度的数字，属于有效数字，如<span
+class="math inline">\(0.50\)</span>的有效数位为<span
+class="math inline">\(2\)</span>位——<span
+class="math inline">\(5.0\)</span>。</li>
+<li>写成用科学计数法表示的数时，系数<span
+class="math inline">\(a\)</span>需要保证<span class="math inline">\(a
+\in [1,10)\)</span>且<span
+class="math inline">\(a\)</span>不为分数。</li>
+</ul>
+<h5 id="运算规则">运算规则：</h5>
+<ul>
+<li>加法与减法运算中，结果的有效数位与运算数字中有效数位最低一项的有效数位一致。</li>
+<li>乘法、除法、指数运算，结果的小数数位与运算数字中小数数位最低一项的小数数位一致。</li>
+<li>运算结果需进行四舍五入。</li>
+</ul>
+<h4 id="误差分析">误差分析</h4>
+<h5 id="误差-error">误差 (error)</h5>
+<h6 id="误差种类">误差种类</h6>
+<ul>
+<li>系统误差</li>
+<li>随机误差</li>
+</ul>
+<h5 id="不确定性-uncertainty">不确定性 (uncertainty)</h5>
+<h6 id="测量读数不确定性">测量读数不确定性</h6>
+<p>测量量 +- 最小分度值除以2： <span class="math inline">\(a = a_0 \pm
+\Delta{a}, \Delta{a} = {min / 2}\)</span><br />
+其中，结果的精度需要与<span
+class="math inline">\(\Delta{a}\)</span>一致，一般保留<span
+class="math inline">\(1\)</span>位小数。</p>
+<h6 id="重复实验不确定性">重复实验不确定性</h6>
+<ul>
+<li>平均值：<span class="math inline">\(\overline{x} =
+\frac{1}{n}{\sum_{i = 1}^{n}{x_i}}\)</span></li>
+<li>标准误差：<span class="math inline">\(\delta = \sqrt{\frac{\sum_{i =
+1}^{n}{(\overline{x} - x_i)^2}}{n - 1}}\)</span></li>
+<li>误差：<span class="math inline">\(\Delta{x} = \frac{x_{max} -
+x_{min}}{2}\)</span></li>
+</ul>
+<h6 id="不确定性种类">不确定性种类</h6>
+<ul>
+<li>绝对不确定性：<span class="math inline">\(y =
+\Delta{a}\)</span></li>
+<li>分式不确定性：<span class="math inline">\(y =
+\frac{\Delta{a}}{a_0}\)</span></li>
+<li>比例不确定性：<span class="math inline">\(y =
+\frac{\Delta{a}}{a_0}\times{100\%}\)</span></li>
+</ul>
+<h6 id="不确定性合并">不确定性合并</h6>
+<ul>
+<li>加法与减法运算：<span class="math inline">\(c = a \pm b, \Delta{c}
+=\Delta{a} + \Delta{b}\)</span></li>
+<li>乘法与除法运算：<span class="math inline">\(y = \frac{ab}{c},
+{\frac{\Delta{y}}{y} = \frac{\Delta{a}}{a} + \frac{\Delta{b}}{b} +
+\frac{\Delta{c}}{c}}\)</span></li>
+<li>指数运算：<span class="math inline">\(c = {a^n}, \frac{\Delta{c}}{c}
+= \vert{n\frac{\Delta{a}}{a}}\vert\)</span></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/04/19/DataAnalysis/" data-id="clv6t1z770000eomo89sc4gaw" data-title="数据处理概述" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/" rel="tag">Math</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/04/15/Fibonacci/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">斐波那契数列再理解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Literature/" rel="tag">Literature</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/" rel="tag">Math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/" rel="tag">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/" rel="tag">Tutorial</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Literature/" style="font-size: 20px;">Literature</a> <a href="/tags/Math/" style="font-size: 20px;">Math</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/04/19/DataAnalysis/">数据处理概述</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/15/Fibonacci/">斐波那契数列再理解</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/17/zhihu-24-3-17/">浅谈对黄蓉、郭芙的名字的理解</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/15/zhihu-24-3-15/">洪七公的人格分析</a>
+          </li>
+        
+          <li>
+            <a href="/2024/02/15/Note-Heat-Wave/">Note-Heat-Wave</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 James Li<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
