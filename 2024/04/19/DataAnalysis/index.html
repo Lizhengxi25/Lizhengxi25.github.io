@@ -6,18 +6,20 @@
   
   <title>数据处理概述 | James&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="摘要 工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并以个人经历与训练为本，以实操的角度探讨数据分析中高质量的代码框架。 一、数据处理 数学部分 有效数位与科学计数法 概念 一个数据的 有效数位 (significant figures) 是将其写成科">
+  <meta name="description" content="摘要 工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并从个人经历出发，以实操的角度探讨数据分析中高质量的代码框架。 一、数据处理 数学部分 有效数位与科学计数法 概念 一个数据的 有效数位 (significant figures) 是将其写成科学计数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据处理概述">
 <meta property="og:url" content="http://lizhengxi25.github.io/2024/04/19/DataAnalysis/index.html">
 <meta property="og:site_name" content="James&#39; Blog">
-<meta property="og:description" content="摘要 工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并以个人经历与训练为本，以实操的角度探讨数据分析中高质量的代码框架。 一、数据处理 数学部分 有效数位与科学计数法 概念 一个数据的 有效数位 (significant figures) 是将其写成科">
+<meta property="og:description" content="摘要 工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并从个人经历出发，以实操的角度探讨数据分析中高质量的代码框架。 一、数据处理 数学部分 有效数位与科学计数法 概念 一个数据的 有效数位 (significant figures) 是将其写成科学计数">
 <meta property="og:locale">
+<meta property="og:image" content="http://lizhengxi25.github.io/images/Graphing.jpg">
 <meta property="article:published_time" content="2024-04-19T12:28:08.000Z">
-<meta property="article:modified_time" content="2024-04-19T15:23:24.966Z">
+<meta property="article:modified_time" content="2024-04-20T07:40:32.656Z">
 <meta property="article:author" content="James Li">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lizhengxi25.github.io/images/Graphing.jpg">
   
     <link rel="alternate" href="/atom.xml" title="James' Blog" type="application/atom+xml">
   
@@ -97,7 +99,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h2 id="摘要">摘要</h2>
-<p>工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并以个人经历与训练为本，以实操的角度探讨数据分析中高质量的代码框架。</p>
+<p>工程思维是一名学者内化知识与外化学问的必要素养。在严谨的工程过程中，数据处理是衔接实验与理论的重要步骤。本文将以IBDP物理学科所授知识与方法为基础，总结基本的数据处理原则与方法；并从个人经历出发，以实操的角度探讨数据分析中高质量的代码框架。</p>
 <h2 id="一数据处理">一、数据处理</h2>
 <h3 id="数学部分">数学部分</h3>
 <h4 id="有效数位与科学计数法">有效数位与科学计数法</h4>
@@ -105,22 +107,14 @@
 <p>一个数据的 <strong>有效数位 (significant figures)</strong>
 是将其写成科学计数法后的数字的总位数，用来描述数据的精度。区分表示数量级的数字与有效数字是十分重要的，它有以下规则：</p>
 <ul>
-<li>对于数据中的0的规则：如缺少它则与原来的数大小不相等，那么它便是占位零，属于表示数量级的数字，并非有效数字，如<span
-class="math inline">\(200\)</span>的有效数字为<span
-class="math inline">\(1\)</span>位——<span
-class="math inline">\(2\)</span>；如缺少它则原来的数大小相等，那么它便是表示精度的数字，属于有效数字，如<span
-class="math inline">\(0.50\)</span>的有效数位为<span
-class="math inline">\(2\)</span>位——<span
-class="math inline">\(5.0\)</span>。</li>
-<li>写成用科学计数法表示的数时，系数<span
-class="math inline">\(a\)</span>需要保证<span class="math inline">\(a
-\in [1,10)\)</span>且<span
-class="math inline">\(a\)</span>不为分数。</li>
+<li>对于数据中的0的规则：如缺少它则与原来的数大小不相等，那么它便是占位零，属于表示数量级的数字，并非有效数字，如<span class="math inline">\(200\)</span>的有效数字为<span class="math inline">\(1\)</span>位——<span class="math inline">\(2\)</span>；如缺少它则原来的数大小相等，那么它便是表示精度的数字，属于有效数字，如<span class="math inline">\(0.50\)</span>的有效数位为<span class="math inline">\(2\)</span>位——<span class="math inline">\(5.0\)</span>。</li>
+<li>写成用科学计数法表示的数时，系数<span class="math inline">\(a\)</span>需要保证<span class="math inline">\(a
+\in [1,10)\)</span>且<span class="math inline">\(a\)</span>不为分数。</li>
 </ul>
 <h5 id="运算规则">运算规则</h5>
 <ul>
-<li>加法与减法运算中，结果的有效数位与运算数字中有效数位最低一项的有效数位一致。</li>
-<li>乘法、除法、指数运算，结果的小数数位与运算数字中小数数位最低一项的小数数位一致。</li>
+<li>加法与减法运算中，结果的小数数位与运算数字中小数数位最低一项的小数数位一致。</li>
+<li>乘法、除法、指数运算，结果的有效数位与运算数字中有效数位最低一项的有效数位一致。</li>
 <li>运算结果需进行四舍五入。</li>
 </ul>
 <h4 id="误差分析">误差分析</h4>
@@ -131,13 +125,11 @@ class="math inline">\(a\)</span>不为分数。</li>
 <li>随机误差</li>
 </ul>
 <h5 id="不确定性-uncertainty">不确定性 (uncertainty)</h5>
-<h6 id="测量读数不确定性">测量读数不确定性</h6>
+<h6 id="读数不确定性计算">读数不确定性计算</h6>
 <p>测量量 +- 最小分度值除以2： <span class="math inline">\(a = a_0 \pm
-\Delta{a}, \Delta{a} = {min / 2}\)</span><br />
-其中，结果的精度需要与<span
-class="math inline">\(\Delta{a}\)</span>一致，一般保留<span
-class="math inline">\(1\)</span>位小数。</p>
-<h6 id="重复实验不确定性">重复实验不确定性</h6>
+\Delta{a}, \Delta{a} = {min / 2}\)</span><br>
+其中，结果的精度需要与<span class="math inline">\(\Delta{a}\)</span>一致，一般保留<span class="math inline">\(1\)</span>位小数。</p>
+<h6 id="重复实验不确定性计算">重复实验不确定性计算</h6>
 <ul>
 <li>平均值：<span class="math inline">\(\overline{x} =
 \frac{1}{n}{\sum_{i = 1}^{n}{x_i}}\)</span></li>
@@ -146,7 +138,7 @@ class="math inline">\(1\)</span>位小数。</p>
 <li>误差：<span class="math inline">\(\Delta{x} = \frac{x_{max} -
 x_{min}}{2}\)</span></li>
 </ul>
-<h6 id="不确定性种类">不确定性种类</h6>
+<h6 id="不确定性的分类">不确定性的分类</h6>
 <ul>
 <li>绝对不确定性：<span class="math inline">\(y =
 \Delta{a}\)</span></li>
@@ -155,7 +147,7 @@ x_{min}}{2}\)</span></li>
 <li>比例不确定性：<span class="math inline">\(y =
 \frac{\Delta{a}}{a_0}\times{100\%}\)</span></li>
 </ul>
-<h6 id="不确定性合并">不确定性合并</h6>
+<h6 id="不确定性的合并">不确定性的合并</h6>
 <ul>
 <li>加法与减法运算：<span class="math inline">\(c = a \pm b, \Delta{c}
 =\Delta{a} + \Delta{b}\)</span></li>
@@ -165,14 +157,35 @@ x_{min}}{2}\)</span></li>
 <li>指数运算：<span class="math inline">\(c = {a^n}, \frac{\Delta{c}}{c}
 = \vert{n\frac{\Delta{a}}{a}}\vert\)</span></li>
 </ul>
+<h3 id="实验部分">实验部分</h3>
+<p>一个实验至少需要改变6次自变量。每一次改变自变量得到因变量时，都需要做3-5次重复实验，取平均值，计算不确定性。</p>
 <h3 id="应用部分">应用部分</h3>
+<h4 id="图像与误差棒-error-bars">图像与误差棒 (error bars)</h4>
+<figure>
+<img src="/images/Graphing.jpg" alt="图像样例">
+<figcaption aria-hidden="true">图像样例</figcaption>
+</figure>
+<h5 id="误差棒">误差棒</h5>
+<p>误差棒的绘制用于描述不确定性，一般包含x轴和y轴两个方向。</p>
+<h5 id="拟合">拟合</h5>
+<ul>
+<li>最差拟合：两条符合正确拟合范围的线，一条最陡，一条最平缓。</li>
+<li>最优拟合：最能描述多点分布的线</li>
+</ul>
+<p>在线性化拟合之后，通过求出斜率的不确定性和交点的不确定性，可以得到拟合的不确定性。斜率与交点的不确定性都与求不确定性的方法相同，而求解过程中的极值便为两条最差拟合直线。</p>
+<ul>
+<li>斜率的不确定性为<span class="math inline">\(m_{best} + \Delta{m} =
+m_{best} + \frac{m_{max} - m_{min}}{2}\)</span></li>
+<li>交点的不确定性为<span class="math inline">\(b_{best} + \Delta{b} =
+b_{best} + \frac{b_{max} - b_{min}}{2}\)</span>。</li>
+</ul>
 <h2 id="二代码构建">二、代码构建</h2>
 <p>未完待续、敬请期待</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lizhengxi25.github.io/2024/04/19/DataAnalysis/" data-id="clv6t1z770000eomo89sc4gaw" data-title="数据处理概述" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://lizhengxi25.github.io/2024/04/19/DataAnalysis/" data-id="clv7rm8k30003e4mo8oe68j2k" data-title="数据处理概述" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
