@@ -15,7 +15,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://lizhengxi25.github.io/images/Graphing.jpg">
 <meta property="article:published_time" content="2024-04-19T12:28:08.000Z">
-<meta property="article:modified_time" content="2024-04-24T14:54:14.765Z">
+<meta property="article:modified_time" content="2024-04-25T15:43:11.735Z">
 <meta property="article:author" content="James Li">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -129,10 +129,16 @@
 <li>随机误差</li>
 </ul>
 <h5 id="不确定性-uncertainty">不确定性 (uncertainty)</h5>
+<p>最终结果的值需要保持小数点后的数位与不确定性数位一致。</p>
 <h6 id="读数不确定性计算">读数不确定性计算</h6>
-<p>测量量 +- 最小分度值除以2： <span class="math inline">\(a = a_0 \pm
-\Delta{a}, \Delta{a} = {min / 2}\)</span><br>
-其中，结果的精度需要与<span class="math inline">\(\Delta{a}\)</span>一致，一般保留<span class="math inline">\(1\)</span>位小数。</p>
+<p>测量量 +- 不确定性：</p>
+<ul>
+<li>带刻度的测量工具：<span class="math inline">\(a = a_0 \pm \Delta{a},
+\Delta{a} = {min / 2}\)</span><br>
+</li>
+<li>不带刻度的测量工具：<span class="math inline">\(a\)</span>为可测量范围的最低有效数位。</li>
+</ul>
+<p>其中，结果的精度需要与<span class="math inline">\(\Delta{a}\)</span>一致，一般保留<span class="math inline">\(1\)</span>位小数。</p>
 <h6 id="重复实验不确定性计算">重复实验不确定性计算</h6>
 <ul>
 <li>平均值：<span class="math inline">\(\overline{x} =
@@ -161,6 +167,7 @@ x_{min}}{2}\)</span></li>
 <li>指数运算：<span class="math inline">\(c = {a^n}, \frac{\Delta{c}}{c}
 = \vert{n\frac{\Delta{a}}{a}}\vert\)</span></li>
 </ul>
+<p>请注意，在不确定性合并时，如果某一个不确定性与另一个量级差距过大，则可以忽略较小量级的那一个不确定性。</p>
 <h3 id="实验部分">实验部分</h3>
 <p>一个实验至少需要改变6次自变量。每一次改变自变量得到因变量时，都需要做3-5次重复实验，取平均值，计算不确定性。</p>
 <h3 id="应用部分">应用部分</h3>
