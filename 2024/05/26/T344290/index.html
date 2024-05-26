@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>环形序列 | James&#39; Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="学校题单里头的一道题，2023年的6月第一次做这道题，往后隔一两个月回顾之前的题目时总会再次看看它，但始终没有做出来。近日想把之前的题单再刷一遍，尤其是把之前没有做出来的题再做一遍。很开心能看到自己做之前很多不会的题都更轻松了。也在昨晚想出了这道题的解法，今天写完并在此记录。 环状序列 题目描述 给定长度 \(n\) 的环状整数序列 \(a_1, a_2, \ldots, a_n\)。对于任">
+<meta property="og:type" content="article">
+<meta property="og:title" content="环形序列">
+<meta property="og:url" content="http://lizhengxi25.github.io/2024/05/26/T344290/index.html">
+<meta property="og:site_name" content="James&#39; Blog">
+<meta property="og:description" content="学校题单里头的一道题，2023年的6月第一次做这道题，往后隔一两个月回顾之前的题目时总会再次看看它，但始终没有做出来。近日想把之前的题单再刷一遍，尤其是把之前没有做出来的题再做一遍。很开心能看到自己做之前很多不会的题都更轻松了。也在昨晚想出了这道题的解法，今天写完并在此记录。 环状序列 题目描述 给定长度 \(n\) 的环状整数序列 \(a_1, a_2, \ldots, a_n\)。对于任">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-26T08:47:23.000Z">
+<meta property="article:modified_time" content="2024-05-26T09:51:02.981Z">
+<meta property="article:author" content="James Li">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="James' Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">James&#39; Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/Lizhengxi25"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Lizhengxi25.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-T344290" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/26/T344290/" class="article-date">
+  <time class="dt-published" datetime="2024-05-26T08:47:23.000Z" itemprop="datePublished">2024-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      环形序列
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><em>学校题单里头的一道题，2023年的6月第一次做这道题，往后隔一两个月回顾之前的题目时总会再次看看它，但始终没有做出来。近日想把之前的题单再刷一遍，尤其是把之前没有做出来的题再做一遍。很开心能看到自己做之前很多不会的题都更轻松了。也在昨晚想出了这道题的解法，今天写完并在此记录。</em></p>
+<h1 id="环状序列">环状序列</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定长度 <span class="math inline">\(n\)</span> 的环状整数序列 <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span>。对于任意元素 <span class="math inline">\(a_i\)</span>（<span class="math inline">\(1 \le i
+&lt; n\)</span>），它的下一项元素是 <span class="math inline">\(a_{i+1}\)</span>；特殊地，<span class="math inline">\(a_n\)</span> 的下一项是 <span class="math inline">\(a_1\)</span>。</p>
+<p>现在，我们要将环状序列切割为一个有头有尾的长度 <span class="math inline">\(n\)</span> 的一般序列 —— 首先选定 <span class="math inline">\(a_k\)</span> 为序列第一个元素，然后依次将 <span class="math inline">\(a_{k+1}, a_{k+2}, \ldots, a_n\)</span>
+放在序列的末尾，之后再将依次 <span class="math inline">\(a_1, a_2,
+\ldots, a_{k-1}\)</span>
+放在序列的末尾。显然，选取不同的元素作为序列的第一个元素，我们将得到不同的长度
+<span class="math inline">\(n\)</span> 的序列。</p>
+<p>请计算，在这 <span class="math inline">\(n\)</span>
+个序列中，有哪些序列所对应的前缀和序列是非负的。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行包含整数 <span class="math inline">\(n\)</span>，表示初始的环状序列的长度。</p>
+<p>第二行包含 <span class="math inline">\(n\)</span> 个整数 <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span>，描述环状序列。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>一个整数，表示满足要求的非环状序列的数量。</p>
+<h2 id="样例-1">样例 #1</h2>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">-3 5 1 2</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1">样例输出 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<h2 id="提示">提示</h2>
+<p><strong>【样例解释】</strong></p>
+<p>共有 <span class="math inline">\(4\)</span> 个非环状序列的方案： -
+<span class="math inline">\(-3, 5, 1, 2\)</span>（前缀和序列为 <span class="math inline">\(-3, 2, 3, 5\)</span>） - <span class="math inline">\(5, 1, 2, -3\)</span>（前缀和序列为 <span class="math inline">\(5, 6, 8, 5\)</span>） - <span class="math inline">\(1, 2, -3, 5\)</span>（前缀和序列为 <span class="math inline">\(1, 3, 0, 5\)</span>） - <span class="math inline">\(2, -3, 5, 1\)</span>（前缀和序列为 <span class="math inline">\(2, -1, 4, 5\)</span>）</p>
+<p>其中第 <span class="math inline">\(2 \sim 3\)</span> 个满足要求。</p>
+<p><strong>【数据范围】</strong></p>
+<p>对于 <span class="math inline">\(25\%\)</span> 的数据，<span class="math inline">\(n \le 10^3\)</span>；<br>
+对于 <span class="math inline">\(75\%\)</span> 的数据，<span class="math inline">\(n \le 10^4\)</span>；<br>
+对于 <span class="math inline">\(100\%\)</span> 的数据，<span class="math inline">\(1 \le n \le 10^6\)</span>，<span class="math inline">\(|a_i| \le 10^3\)</span>。</p>
+<h2 id="题解">题解</h2>
+<p>由于数据范围是 <span class="math inline">\(10^6\)</span>
+这个级别，我们需要用 <span class="math inline">\(O(n)\)</span> 或者
+<span class="math inline">\(O(nlogn)\)</span>
+的算法来实现这道题。暴力的方法时间复杂度是 <span class="math inline">\(O(n^2)\)</span>
+：模拟每个非环状序列，并用前缀和检查是否符合要求。这种模拟的思路并不好优化，因为对于每一种非环状序列都需要对整个序列进行判定，这种判定已经是
+<span class="math inline">\(10^6\)</span>
+的时间复杂度了，所以不好继续优化了。</p>
+<p>如果一个问题无法正向地高效解决，也许我们可以换个角度想想。我原始的思路是这样的：如果这个序列全是非负数，那么这个序列就没有任何判定的必要，因为每一种非环状序列都符合要求。然而，如果有负数，那么它会影响它相邻的元素。因此，也许我们可以对序列中的每一个负数进行操作。</p>
+<p>顺着这个思路，我们继续想。对于一个负数自己，我们可以确定的是以它为开头的序列一定是一个“非法”序列，那么这个负数是如何进而影响其他相邻的元素的呢？这个负数对相邻的元素的影响便只有两种情况：向左边的元素进行影响和向右边的元素进行影响。这里要注意，题目中这个序列的方向是一定的，即只能将序列的前面的部分移动到后面，不能出现反转这种操作。</p>
+<p>向左边的元素进行影响时，每触及到某一个元素，都计算一个累加的和。如果累加和小于
+<span class="math inline">\(0\)</span>，说明以这些数为前缀序列的序列都是“非法的”。然而，究竟有几个序列能以这些数为前缀呢？显然这个序列是唯一的。换种说法，对于这个问题而言，一个序列的开头的第一个元素已经决定了这个序列。因此，只要一个负数能影响某些数，使得这些数的累加和小于
+<span class="math inline">\(0\)</span>，那么以这些数为前缀的序列，都是“非法序列”。如：<span class="math inline">\({a_i}\)</span> 是一个负数，它所能影响到 <span class="math inline">\({a_j}, j \le i\)</span>，那么有 <span class="math inline">\(i - j + 1\)</span> 个序列是非法的，即以 <span class="math inline">\(j\)</span> 到 <span class="math inline">\(i\)</span> 之间（包括 <span class="math inline">\(j\)</span> 和 <span class="math inline">\(i\)</span>
+）任意一个元素开头的序列都是“非法序列”。不过需要注意的是，这个区间中每一个元素都必须是内被
+<span class="math inline">\(a_i\)</span>
+所影响的。否则，如果所累加的和大于 <span class="math inline">\(0\)</span>，说明这个负数向左的影响力已经到头了。而也许某一些更左边的数能使前缀和为负，不难证明从
+<span class="math inline">\(j\)</span>
+到那个数之间，一定存在负数。而那个负数就是独立于当前这个负数的，因此它需要被作为另一个负数单独考虑。</p>
+<p>而向右边的元素进行影响，是没有意义的，因为所被影响的作为某一个序列的前缀的序列，所对应的那个序列是同一个序列，就像模拟那样。而这不是“找开头”这种思路所要求的。毕竟对于一个负数而言，以它开头的序列一定是一个“非法序列”。</p>
+<p>当然这里还有包含的情况，比如一个负数向左进行影响时，遇到了另一个负数。能遇到这个负数说明了以下两点：第一、在遇到这个负数之前，正在考虑的这个原负数的影响从未中断。第二、这个负数不会使影响中断。也就是说，如果一个负数被另一个负数包含了，那么这个负数就不需要被单独考虑了。</p>
+<h3 id="具体做法">具体做法</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">1e6</span> + <span class="number">5</span>; <span class="comment">// 最大值</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n; </span><br><span class="line"><span class="type">int</span> a[MAXN * <span class="number">2</span>]; <span class="comment">// 大小为 MAXN * 2 是为了倍长</span></span><br><span class="line"><span class="type">int</span> cnt; <span class="comment">// 多少个非法序列</span></span><br><span class="line"><span class="type">char</span> ans[MAXN]; <span class="comment">// ans[i] 表示以 i 开头的序列是非法序列。由于只需要表示 0 或者 1，用char即可</span></span><br></pre></td></tr></table></figure>
+<p>对于环状问题，先倍长序列。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    cin &gt;&gt; a[i];</span><br><span class="line">    a[i + n] = a[i]; <span class="comment">//到时候使用后面的序列作为需要考虑的序列，前面的序列只是为了方面写代码，所创造的虚拟序列。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后从后之前寻找负数并依次考虑。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span> * n; i &gt;= n + <span class="number">1</span>; --i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (a[i] &gt;= <span class="number">0</span>) <span class="keyword">continue</span>; <span class="comment">// 判断是否当前是负数</span></span><br><span class="line">    <span class="type">int</span> s = <span class="number">0</span>, j = i;</span><br><span class="line">    <span class="keyword">for</span> (; j &gt;= i - n + <span class="number">1</span>; --j) &#123;</span><br><span class="line">        s += a[j];</span><br><span class="line">        <span class="keyword">if</span> (s &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j &lt;= n) ans[j] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> ans[j - n] = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    i = j; <span class="comment">// 覆盖访问过的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>统计以下以哪些元素开头的序列是非法序列</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    cnt += ans[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; n - cnt &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="ac代码">AC代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, a[MAXN * <span class="number">2</span>], cnt;</span><br><span class="line"><span class="type">char</span> ans[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">		a[i + n] = a[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span> * n; i &gt;= n + <span class="number">1</span>; --i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (a[i] &gt;= <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="type">int</span> s = <span class="number">0</span>, j = i;</span><br><span class="line">		<span class="keyword">for</span> (; j &gt;= i - n + <span class="number">1</span>; --j) &#123;</span><br><span class="line">			s += a[j];</span><br><span class="line">			<span class="keyword">if</span> (s &lt; <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (j &lt;= n) ans[j] = <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> ans[j - n] = <span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		i = j;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">		cnt += ans[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; n - cnt &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/05/26/T344290/" data-id="clwnd0rhq0000b0mo4ki7grg3" data-title="环形序列" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/05/12/SMT/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">SMT</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E5%8A%A1/" rel="tag">杂务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 15px;">数学</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 15px;">文学</a> <a href="/tags/%E6%9D%82%E5%8A%A1/" style="font-size: 10px;">杂务</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/26/T344290/">环形序列</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/12/SMT/">SMT</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/19/DataAnalysis/">数据处理概述</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/15/Fibonacci/">斐波那契数列再理解</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/17/zhihu-24-3-17/">浅谈对黄蓉、郭芙的名字的理解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 James Li<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
