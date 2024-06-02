@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>归档: 2024 | James&#39; Blog</title>
+  <title>二分总结 | James&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="James&#39; Blog">
-<meta property="og:url" content="http://lizhengxi25.github.io/archives/2024/index.html">
+  <meta name="description" content="在打比赛写二分的时侯，常常会思考二分的一些边界情况，虽然在纸上模拟模拟也费不了太多事。不过，还是想在这里简单地总结一下二分的写法。基本上二分用来处理极值问题，一般是“某某条件下最大&#x2F;小值”。 如果要求最大值，临时值 \(mid\) 符合条件，则有可能作为答案，所以 \(l &#x3D; mid\)，去尝试更大的值。而若不符合条件，则不可能作为答案，所以 \(r &#x3D; mid - 1\)。最后 \(l\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二分总结">
+<meta property="og:url" content="http://lizhengxi25.github.io/2024/05/31/binary-search/index.html">
 <meta property="og:site_name" content="James&#39; Blog">
+<meta property="og:description" content="在打比赛写二分的时侯，常常会思考二分的一些边界情况，虽然在纸上模拟模拟也费不了太多事。不过，还是想在这里简单地总结一下二分的写法。基本上二分用来处理极值问题，一般是“某某条件下最大&#x2F;小值”。 如果要求最大值，临时值 \(mid\) 符合条件，则有可能作为答案，所以 \(l &#x3D; mid\)，去尝试更大的值。而若不符合条件，则不可能作为答案，所以 \(r &#x3D; mid - 1\)。最后 \(l\">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-31T13:00:02.000Z">
+<meta property="article:modified_time" content="2024-06-02T06:17:46.646Z">
 <meta property="article:author" content="James Li">
 <meta name="twitter:card" content="summary">
   
@@ -73,191 +77,63 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/31/binary-search/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-31T13:00:02.000Z" itemprop="datePublished">5月 31</time>
+        <section id="main"><article id="post-binary-search" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/31/binary-search/" class="article-date">
+  <time class="dt-published" datetime="2024-05-31T13:00:02.000Z" itemprop="datePublished">2024-05-31</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/31/binary-search/">二分总结</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      二分总结
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/26/T344290/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-26T08:47:23.000Z" itemprop="datePublished">5月 26</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/26/T344290/">环状序列</a>
-    </h1>
-  
+        <p>在打比赛写二分的时侯，常常会思考二分的一些边界情况，虽然在纸上模拟模拟也费不了太多事。不过，还是想在这里简单地总结一下二分的写法。基本上二分用来处理极值问题，一般是“某某条件下最大/小值”。</p>
+<p>如果要求最大值，临时值 <span class="math inline">\(mid\)</span>
+符合条件，则有可能作为答案，所以 <span class="math inline">\(l =
+mid\)</span>，去尝试更大的值。而若不符合条件，则不可能作为答案，所以
+<span class="math inline">\(r = mid - 1\)</span>。最后 <span class="math inline">\(l\)</span> 就是最终答案。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> l = <span class="number">1</span>, r = n;</span><br><span class="line"><span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">    <span class="type">int</span> mid = (r + l + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">check</span>(mid) == <span class="literal">true</span>) l = mid;</span><br><span class="line">    <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> ans = l;</span><br></pre></td></tr></table></figure>
+<p>如果要求最小值，临时值 <span class="math inline">\(mid\)</span>
+符合条件，则有可能作为答案，所以 <span class="math inline">\(r =
+mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作为答案，所以
+<span class="math inline">\(l = mid + 1\)</span>。最后 <span class="math inline">\(l\)</span> 就是最终答案。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> l = <span class="number">1</span>, r = n;</span><br><span class="line"><span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">    <span class="type">int</span> mid = (r + l) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">check</span>(mid) == <span class="literal">true</span>) l = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> r = mid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> ans = l;</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/12/SMT/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-12T02:28:38.000Z" itemprop="datePublished">5月 12</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/12/SMT/">SMT</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/19/DataAnalysis/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-04-19T12:28:08.000Z" itemprop="datePublished">4月 19</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/05/31/binary-search/" data-id="clwx5i3z3000088mog3qh1lm0" data-title="二分总结" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/04/19/DataAnalysis/">数据处理概述</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/15/Fibonacci/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-04-14T23:56:11.000Z" itemprop="datePublished">4月 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/04/15/Fibonacci/">斐波那契数列再理解</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/17/zhihu-24-3-17/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-03-17T02:04:25.000Z" itemprop="datePublished">3月 17</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/17/zhihu-24-3-17/">浅谈对黄蓉、郭芙的名字的理解</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/15/zhihu-24-3-15/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-03-15T02:26:23.000Z" itemprop="datePublished">3月 15</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/15/zhihu-24-3-15/">洪七公的人格分析</a>
-    </h1>
   
+    <a href="/2024/05/26/T344290/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">环状序列</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/15/Note-Heat-Wave/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-02-15T07:11:01.000Z" itemprop="datePublished">2月 15</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/15/Note-Heat-Wave/">Note-Heat-Wave</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/03/Building/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-02-03T01:49:06.000Z" itemprop="datePublished">2月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/03/Building/">建站小记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
 
 </section>
