@@ -187,6 +187,103 @@ mjx-container[display="true"] + br {
       <div class="outer">
         <section id="main">
   
+    <article id="post-lambda-recursion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/08/29/lambda-recursion/" class="article-date">
+  <time class="dt-published" datetime="2024-08-29T06:32:55.000Z" itemprop="datePublished">2024-08-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/08/29/lambda-recursion/">关于 lambda 表达式的递归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><em>有位恩师曾对我说过：“做研究最重要的是品位，写的文章要成为范式。不论水平高低，都要有这样的治学信心和野心。”写了半年的博客，除过几篇算法竞赛的题解，没有下笔写一篇关于计算机的文章——没什么拿的出手的小研究以撰写成文。而今天这篇《关于
+lambda
+表达式的递归》，是基于当前自己很满意的一个小探究。它代表了“品”与“位”：一行代码的简洁是大道至简之品；语言基础的奥妙是追本溯源之位。它并不是从无到有的发现，而是一份精心的探究。</em></p>
+<p><em>单纯的应用是当下世界对计算机这门学科的认知。我固然承认这一种看法并理解应用是它的现实价值所在。但是，每一门学科研究至已臻化境、每一门技艺打磨到炉火纯青后都会展现它的艺术美。而我希望在我的求学与治学之路上，能够拾起沿途的每一份美感并留以记录。此篇作为我的计算机研究系列博客的处女作，希望它能作为给自己的范式昭示未来能够坚持贯彻的修养——追求美感。</em></p>
+<h2 id="引入">引入</h2>
+<p>本文所指的 lambda 表达式递归是指不含任何赋值操作的 lambda
+表达式递归。在 python 中，lambda
+表达式是函数的一种表达形式，由于只占一行，它大大提高了代码的简洁性，但不可避免地降低了代码的可读性和可维护性。一般地，在编写简单的模块时，可以用
+lambda 表达式合理地简化代码。当然，以应用思维去思考 lambda
+表达式和本文的主题递归便会发现 lambda
+表达式的递归绝不是可读性和可维护性高的代码。不过，lambda
+表达式的递归更多地是一种理论和代表着一种思维：通过对 lambda
+表达式的探究，我们可以窥见 python 语言本身的巧妙的设计。</p>
+<h2 id="结论">结论</h2>
+<p>递归 t 次、每次对 k 执行 calc() 函数运算、递归终止条件为
+condition(k)、递归终止条件为真时返回值为 1 的 lambda
+表达式递归如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (stop_num <span class="keyword">if</span> condition(k) <span class="keyword">else</span> calc(n(n, k - <span class="number">1</span>), k)), t))</span><br><span class="line">lambda_recursion (iritation_times)</span><br></pre></td></tr></table></figure>
+<p>函数 lambda_recursion
+只是一个方便展示的演示函数（对于核心的函数递归而言可有可无）。</p>
+<p>更具体些，以递归计算阶乘为例，lambda 表达式的递归如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k), t))</span><br><span class="line">lambda_recursion (iritation_times)</span><br></pre></td></tr></table></figure>
+<h2 id="理论">理论</h2>
+<p>在探究 lambda 表达式时，很重要的一个点是 python
+的函数的变量性。也就是说，在 python
+中，函数可以作为一个变量，这就意味着函数可以作为一个变量被赋值、赋值、被传递于另一个函数、被另一个函数返回……更具体些，未执行的函数可以作为一个变量，而这个变量便是成为了这个函数，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_func</span> (k)</span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line">f = demo_func</span><br><span class="line"></span><br><span class="line">f(<span class="number">25</span>)</span><br><span class="line"></span><br><span class="line">F = f(demo_func)</span><br><span class="line"></span><br><span class="line">F(<span class="number">25</span>)</span><br></pre></td></tr></table></figure>
+<p>有：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">25</span><br><span class="line">25</span><br></pre></td></tr></table></figure>
+<h2 id="逐层抽象">逐层抽象</h2>
+<p>仍以递归解决阶乘问题为例子，展开对 lambda
+表达式递归的分析。为了简化思考和调试的复杂程度，可以先用赋值和 def
+来模拟 lambda 表达式递归。由于 lambda
+表达式递归中不能出现赋值操作，每一个函数内不能出现对自己的调用。而递归的定义便是一个函数对自己的调用。这正是难点所在，也是看似的矛盾之处。而破局之处便在于对作用域的精妙运用。我们必须清楚，在
+lambda
+表达式递归的问题中，一个函数内的作用域只包含函数内的元素。也就是说，在函数的外层和本层没有任何元素，是空的。不难证明，由于限制了赋值操作，外层不可能有任何元素存在，而函数本层也没有定义这个函数。这时，我们只能着手于对函数内的元素进行操作。</p>
+<p>当我们关注一个函数内部时，我们便很容易忽视函数的参数。而这恰恰是解决纯粹的
+lambda
+表达式递归的最关键之处。我们可以对一个函数传入另一个函数，而在函数内部执行这个被传入的函数，同时将这个函数作为参数传入——这样就做到了递归。接下来，我们可以再写一个类似思路的函数，同样传入一个函数，再调用它。只不过这个新写的函数将作为一个启动器，启动整个递归。最终，在简单封装成一个参数唯一的最终函数即可。例子如下：</p>
+<h3 id="具体层">具体层</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">A</span> (n, k):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;in A: n=<span class="subst">&#123;n&#125;</span>, k=<span class="subst">&#123;k&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> n(n, k - <span class="number">1</span>) * k</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">B</span> (n, k):</span><br><span class="line">    <span class="keyword">return</span> n(n, k)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">C</span> (k):</span><br><span class="line">    <span class="keyword">return</span> B(A, k)</span><br><span class="line"></span><br><span class="line">ANS = C (<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(ANS)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=5</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=4</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=3</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=2</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=1</span><br><span class="line">120</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，函数 A 是核心递归函数，n 作为一个函数被传入，k
+表示递归的层。函数 B 是启动函数，本质上和 A 一样，只是没有终止条件。函数
+C 是最终函数，使用函数 B 和 A，只有一个参数——层数。注意，函数 C
+里出现的函数 A 和函数 B 不能用调用这个词来描述，因为函数 A 和函数 B
+完全可以被写进 C。这里只是为了方便展示才单独写函数 A 和函数 B。</p>
+<h3 id="结合-lambda-表达式">结合 lambda 表达式</h3>
+<p>进一步抽象，将上面的函数写成 lambda 表达式的形式，如下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k)</span><br><span class="line">b = <span class="keyword">lambda</span> n, k: n(n, k)</span><br><span class="line">c = <span class="keyword">lambda</span> k: (b)(a, k)</span><br></pre></td></tr></table></figure>
+<h3 id="整合-lambda-表达式">整合 lambda 表达式</h3>
+<p>将用 def 定义的函数写成 lambda 表达式的形式可以更方便地整合成一个
+lambda 表达式。也就是上文所说，函数 a 和函数 b 可以被写进函数
+c。所以只需要把函数 c 中的 b 和 a 换成它们所对应的 lambda
+表达式即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k), t))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/08/29/lambda-recursion/" data-id="cm0f2ytkq00002omo8rsq8618" data-title="关于 lambda 表达式的递归" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-《世间始终你好》与《射雕英雄传》" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/06/12/%E3%80%8A%E4%B8%96%E9%97%B4%E5%A7%8B%E7%BB%88%E4%BD%A0%E5%A5%BD%E3%80%8B%E4%B8%8E%E3%80%8A%E5%B0%84%E9%9B%95%E8%8B%B1%E9%9B%84%E4%BC%A0%E3%80%8B/" class="article-date">
@@ -328,7 +425,6 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p><em>学校题单里头的一道题，2023年的6月第一次做这道题，往后隔一两个月回顾之前的题目时总会再次看看它，但始终没有做出来。近日想把之前的题单再刷一遍，尤其是把之前没有做出来的题再做一遍。很开心能看到自己做之前很多不会的题都更轻松了。也在昨晚想出了这道题的解法，今天写完并在此记录。</em></p>
-<h1 id="环状序列">环状序列</h1>
 <h2 id="题目描述">题目描述</h2>
 <p>给定长度 <span class="math inline">\(n\)</span> 的环状整数序列 <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span>。对于任意元素 <span class="math inline">\(a_i\)</span>（<span class="math inline">\(1 \le i
 &lt; n\)</span>），它的下一项元素是 <span class="math inline">\(a_{i+1}\)</span>；特殊地，<span class="math inline">\(a_n\)</span> 的下一项是 <span class="math inline">\(a_1\)</span>。</p>
@@ -881,74 +977,12 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
 
 
   
-    <article id="post-Building" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/02/03/Building/" class="article-date">
-  <time class="dt-published" datetime="2024-02-03T01:49:06.000Z" itemprop="datePublished">2024-02-03</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/02/03/Building/">建站小记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p align="right">
-2024-02-03
-</p>
-<p>不知从何谈起建站的前因后果，除过心血来潮想要记录生活的冲动，更多的是因观念改变后自然而然的践行。总之，我的博客也终有了初步的模样。</p>
-<p>挑选主题时一眼就看中了brewski，它风格简简单单但经得起反复斟酌。它的端庄将是每一位使用者的福气。细节并非随心处理，每处皆是为整体而服务，毫无因局部美而扰乱整体和谐的杂乱之处。如此克制的自我修养也并不影响它的灵气，因为博客本身就意味着自由，处处皆灵气。有界的深厚白色是它的包容，无限的酒红是它的风韵。这种以和谐为本的灵气也塑造了它“可远观而不可亵玩”的端庄。主题作为艺术绝无好与坏之分，但吾独爱如brewski一般的大道至简风格。</p>
-<p>久经风霜的它还是个冷门的主题，初建博客，我也遇到了一些小困难。主要是想要添加的功能页面显示不出来。比如我一开始建站时功能栏只有HOME，ABOUT，ARCHIVES三个，而官方的demo里头则还有GITHUB，RSS，IMPRESSUM。而我也在本地config文件里填写了GITHUB的信息，并且尝试在本地source添加一栏TEST和通过修改config文件来添加TEST页面。但发现都不会显示。</p>
-<p>在网上尝试搜索添加页面的方法后发现自己的方法正确，但不知为什么不显示。后来偶然在brewski的Github仓库的commit部分发现了如下代码（原格式是pug，目前还没搞懂如何高亮pug，暂时用javascript凑活一下）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ul.<span class="property">nav</span>.<span class="property">nav</span>-list  </span><br><span class="line">    each value, key <span class="keyword">in</span> theme.<span class="property">menu</span>  </span><br><span class="line">        li.<span class="property">nav</span>-list-item  </span><br><span class="line">            - <span class="variable language_">console</span>.<span class="title function_">log</span>(value, key)  </span><br><span class="line">            - <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="literal">null</span>  </span><br><span class="line">            - <span class="keyword">var</span> re = <span class="regexp">/^(http|https):\/\/*/gi</span>;  </span><br><span class="line">            - <span class="keyword">var</span> tar = re.<span class="title function_">test</span>(value) ? <span class="string">&quot;_blank&quot;</span> : <span class="string">&quot;_self&quot;</span>  </span><br><span class="line">            - <span class="keyword">var</span> type = value.<span class="title function_">indexOf</span>(<span class="string">&#x27;.html&#x27;</span>) === -<span class="number">1</span> ? <span class="string">&#x27;no-barba&#x27;</span> : <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>menu里的每个元素都会被检查一遍，如果没有则返回null。</p>
-<p>并且，我之前每次生成页面的时候，发现home和about都显示了对应的路径，但Impressum显示的是null。刚好，我在config文件里并没有写Impressum的信息。</p>
-<p>因此，我推测是由于信息未填写全，中断了menu。果然，在我注释掉Impressum后，我的GITHUB和TEST就显示了出来。</p>
-<p>另一个补充是我后来把主题的配置信息写在theme内的config文件里，而非主文件夹下的config文件里写一个theme_config。这样做一方面是便于换主题，另一方面，模块化也是一种良好的代码习惯。</p>
-<hr>
-<p align="right">
-2024-04-15
-</p>
-<p>想在博客里加入数学公式，8小时配置渲染器未果，收拾文章仓皇而逃。平生自有博客以来第一次惨败，在此记上一笔。</p>
-<hr>
-<p align="right">
-2024-04-16
-</p>
-<p>老老实实从WSL换到Windows，先用landscape主题凑活用一下。</p>
-<hr>
-<p align="right">
-2024-04-17
-</p>
-<p>对2024-04-15至2024-04-16博客调整做一个总结。很高兴自己在第一天苦战多时后，知道了hexo3以上就不能用hexo-renderer-kramed打数学公式了。并从hexo-renderer-pandoc的syntax-error报错中意识到有可能版本的问题，并尝试修改，最终成功。这是对问题的诊断与严谨的验证无疑一种进步与好兆头。虽然当下暂未证实是nodejs版本问题，但从结果看，应该就是版本的不兼容，这就留给日后验证吧。从中，我也意识到了无脑试的坏处————人会逐渐不理智、走火入魔。一个好的工程师应该制定好实验与测试方案，并非无脑尝试。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lizhengxi25.github.io/2024/02/03/Building/" data-id="cm0amr2hr0001rgmo66ekfj43" data-title="建站小记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E8%AE%B0/" rel="tag">杂记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 
 </section>
         
@@ -961,7 +995,7 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E8%AE%B0/" rel="tag">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E8%AE%B0/" rel="tag">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -971,7 +1005,7 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 20px;">文学</a> <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 10px;">杂记</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+      <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 20px;">文学</a> <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 10px;">杂记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 10px;">计算机</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
     </div>
   </div>
 
@@ -980,7 +1014,7 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -991,6 +1025,10 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/08/29/lambda-recursion/">关于 lambda 表达式的递归</a>
+          </li>
         
           <li>
             <a href="/2024/06/12/%E3%80%8A%E4%B8%96%E9%97%B4%E5%A7%8B%E7%BB%88%E4%BD%A0%E5%A5%BD%E3%80%8B%E4%B8%8E%E3%80%8A%E5%B0%84%E9%9B%95%E8%8B%B1%E9%9B%84%E4%BC%A0%E3%80%8B/">《世间始终你好》与《射雕英雄传》</a>
@@ -1006,10 +1044,6 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
         
           <li>
             <a href="/2024/05/12/SMT/">SMT</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/19/DataAnalysis/">数据处理概述</a>
           </li>
         
       </ul>

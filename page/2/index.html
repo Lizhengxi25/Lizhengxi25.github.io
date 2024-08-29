@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   
   
-  <title>归档: 2024/3 | James&#39; Blog</title>
+  <title>James&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:type" content="website">
 <meta property="og:title" content="James&#39; Blog">
-<meta property="og:url" content="http://lizhengxi25.github.io/archives/2024/03/index.html">
+<meta property="og:url" content="http://lizhengxi25.github.io/page/2/index.html">
 <meta property="og:site_name" content="James&#39; Blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="James Li">
@@ -75,57 +75,79 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/17/zhihu-24-3-17/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-03-17T02:04:25.000Z" itemprop="datePublished">3月 17</time>
+    <article id="post-Building" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/02/03/Building/" class="article-date">
+  <time class="dt-published" datetime="2024-02-03T01:49:06.000Z" itemprop="datePublished">2024-02-03</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/17/zhihu-24-3-17/">浅谈对黄蓉、郭芙的名字的理解</a>
+      <a class="p-name article-title" href="/2024/02/03/Building/">建站小记</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/15/zhihu-24-3-15/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-03-15T02:26:23.000Z" itemprop="datePublished">3月 15</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/15/zhihu-24-3-15/">洪七公的人格分析</a>
-    </h1>
-  
+        <p align="right">
+2024-02-03
+</p>
+<p>不知从何谈起建站的前因后果，除过心血来潮想要记录生活的冲动，更多的是因观念改变后自然而然的践行。总之，我的博客也终有了初步的模样。</p>
+<p>挑选主题时一眼就看中了brewski，它风格简简单单但经得起反复斟酌。它的端庄将是每一位使用者的福气。细节并非随心处理，每处皆是为整体而服务，毫无因局部美而扰乱整体和谐的杂乱之处。如此克制的自我修养也并不影响它的灵气，因为博客本身就意味着自由，处处皆灵气。有界的深厚白色是它的包容，无限的酒红是它的风韵。这种以和谐为本的灵气也塑造了它“可远观而不可亵玩”的端庄。主题作为艺术绝无好与坏之分，但吾独爱如brewski一般的大道至简风格。</p>
+<p>久经风霜的它还是个冷门的主题，初建博客，我也遇到了一些小困难。主要是想要添加的功能页面显示不出来。比如我一开始建站时功能栏只有HOME，ABOUT，ARCHIVES三个，而官方的demo里头则还有GITHUB，RSS，IMPRESSUM。而我也在本地config文件里填写了GITHUB的信息，并且尝试在本地source添加一栏TEST和通过修改config文件来添加TEST页面。但发现都不会显示。</p>
+<p>在网上尝试搜索添加页面的方法后发现自己的方法正确，但不知为什么不显示。后来偶然在brewski的Github仓库的commit部分发现了如下代码（原格式是pug，目前还没搞懂如何高亮pug，暂时用javascript凑活一下）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ul.<span class="property">nav</span>.<span class="property">nav</span>-list  </span><br><span class="line">    each value, key <span class="keyword">in</span> theme.<span class="property">menu</span>  </span><br><span class="line">        li.<span class="property">nav</span>-list-item  </span><br><span class="line">            - <span class="variable language_">console</span>.<span class="title function_">log</span>(value, key)  </span><br><span class="line">            - <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="literal">null</span>  </span><br><span class="line">            - <span class="keyword">var</span> re = <span class="regexp">/^(http|https):\/\/*/gi</span>;  </span><br><span class="line">            - <span class="keyword">var</span> tar = re.<span class="title function_">test</span>(value) ? <span class="string">&quot;_blank&quot;</span> : <span class="string">&quot;_self&quot;</span>  </span><br><span class="line">            - <span class="keyword">var</span> type = value.<span class="title function_">indexOf</span>(<span class="string">&#x27;.html&#x27;</span>) === -<span class="number">1</span> ? <span class="string">&#x27;no-barba&#x27;</span> : <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>menu里的每个元素都会被检查一遍，如果没有则返回null。</p>
+<p>并且，我之前每次生成页面的时候，发现home和about都显示了对应的路径，但Impressum显示的是null。刚好，我在config文件里并没有写Impressum的信息。</p>
+<p>因此，我推测是由于信息未填写全，中断了menu。果然，在我注释掉Impressum后，我的GITHUB和TEST就显示了出来。</p>
+<p>另一个补充是我后来把主题的配置信息写在theme内的config文件里，而非主文件夹下的config文件里写一个theme_config。这样做一方面是便于换主题，另一方面，模块化也是一种良好的代码习惯。</p>
+<hr>
+<p align="right">
+2024-04-15
+</p>
+<p>想在博客里加入数学公式，8小时配置渲染器未果，收拾文章仓皇而逃。平生自有博客以来第一次惨败，在此记上一笔。</p>
+<hr>
+<p align="right">
+2024-04-16
+</p>
+<p>老老实实从WSL换到Windows，先用landscape主题凑活用一下。</p>
+<hr>
+<p align="right">
+2024-04-17
+</p>
+<p>对2024-04-15至2024-04-16博客调整做一个总结。很高兴自己在第一天苦战多时后，知道了hexo3以上就不能用hexo-renderer-kramed打数学公式了。并从hexo-renderer-pandoc的syntax-error报错中意识到有可能版本的问题，并尝试修改，最终成功。这是对问题的诊断与严谨的验证无疑一种进步与好兆头。虽然当下暂未证实是nodejs版本问题，但从结果看，应该就是版本的不兼容，这就留给日后验证吧。从中，我也意识到了无脑试的坏处————人会逐渐不理智、走火入魔。一个好的工程师应该制定好实验与测试方案，并非无脑尝试。</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/02/03/Building/" data-id="cm0amr2hr0001rgmo66ekfj43" data-title="建站小记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E8%AE%B0/" rel="tag">杂记</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
+
   
 
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         
