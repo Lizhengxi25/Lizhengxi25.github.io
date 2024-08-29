@@ -254,7 +254,7 @@ problem.</p>
 <h2 id="结论">结论</h2>
 <p>递归 <span class="math inline">\(t\)</span> 次、每次对 <span class="math inline">\(k\)</span> 执行 <code>calc()</code>
 函数运算、递归终止条件为
-<code>ondition(k)</code>、递归终止条件为真时返回值为 <span class="math inline">\(1\)</span> 的 <code>lambda</code>
+<code>condition(k)</code>、递归终止条件为真时返回值为 <span class="math inline">\(1\)</span> 的 <code>lambda</code>
 表达式递归如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (stop_num <span class="keyword">if</span> condition(k) <span class="keyword">else</span> calc(n(n, k - <span class="number">1</span>), k)), t))</span><br><span class="line">lambda_recursion (iritation_times)</span><br></pre></td></tr></table></figure>
 <p>函数 <code>lambda_recursion</code>
@@ -1133,5 +1133,21 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
 
 
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>

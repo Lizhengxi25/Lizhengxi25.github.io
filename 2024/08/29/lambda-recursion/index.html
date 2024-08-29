@@ -14,7 +14,7 @@
 <meta property="og:description" content="有位恩师曾对我说过：“做研究最重要的是品位，写的文章要成为范式。不论水平高低，都要有这样的治学信心和野心。”写了半年的博客，除过几篇算法竞赛的题解，没有下笔写一篇关于计算机的文章——没什么拿的出手的小研究以撰写成文。而今天这篇《关于 lambda 表达式的递归》，是基于当前自己很满意的一个小探究。它代表了“品”与“位”：一行代码的简洁是大道至简之品；语言基础的奥妙是追本溯源之位。它并不是从无到">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-29T06:32:55.000Z">
-<meta property="article:modified_time" content="2024-08-29T14:21:38.401Z">
+<meta property="article:modified_time" content="2024-08-29T14:27:07.363Z">
 <meta property="article:author" content="James Li">
 <meta property="article:tag" content="计算机">
 <meta name="twitter:card" content="summary">
@@ -145,7 +145,7 @@ problem.</p>
 <h2 id="结论">结论</h2>
 <p>递归 <span class="math inline">\(t\)</span> 次、每次对 <span class="math inline">\(k\)</span> 执行 <code>calc()</code>
 函数运算、递归终止条件为
-<code>ondition(k)</code>、递归终止条件为真时返回值为 <span class="math inline">\(1\)</span> 的 <code>lambda</code>
+<code>condition(k)</code>、递归终止条件为真时返回值为 <span class="math inline">\(1\)</span> 的 <code>lambda</code>
 表达式递归如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (stop_num <span class="keyword">if</span> condition(k) <span class="keyword">else</span> calc(n(n, k - <span class="number">1</span>), k)), t))</span><br><span class="line">lambda_recursion (iritation_times)</span><br></pre></td></tr></table></figure>
 <p>函数 <code>lambda_recursion</code>
@@ -332,5 +332,21 @@ problem.</p>
 
 
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>
