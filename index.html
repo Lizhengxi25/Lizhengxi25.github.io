@@ -214,57 +214,95 @@ lambda
 表达式的递归》，是基于当前自己很满意的一个小探究。它代表了“品”与“位”：一行代码的简洁是大道至简之品；语言基础的奥妙是追本溯源之位。它并不是从无到有的发现，而是一份精心的探究。</em></p>
 <p><em>单纯的应用是当下世界对计算机这门学科的认知。我固然承认这一种看法并理解应用是它的现实价值所在。但是，每一门学科研究至已臻化境、每一门技艺打磨到炉火纯青后都会展现它的艺术美。而我希望在我的求学与治学之路上，能够拾起沿途的每一份美感并留以记录。此篇作为我的计算机研究系列博客的处女作，希望它能作为给自己的范式昭示未来能够坚持贯彻的修养——追求美感。</em></p>
 <h2 id="引入">引入</h2>
-<p>本文所指的 lambda 表达式递归是指不含任何赋值操作的 lambda
-表达式递归。在 python 中，lambda
+<p>有关于 <code>lambda</code> 表达式递归的话题来自 <span class="math inline">\(UCB CS61A homework 3\)</span> 的任务 <span class="math inline">\(6\)</span>。原任务如下：</p>
+<h3 id="q6-anonymous-factorial">Q6: Anonymous Factorial</h3>
+<blockquote>
+<p>This question demonstrates that it's possible to write recursive
+functions without assigning them a name in the global frame.</p>
+</blockquote>
+<p><strong>The recursive factorial function can be written as a single
+expression by using a conditional expression.</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fact = <span class="keyword">lambda</span> n: <span class="number">1</span> <span class="keyword">if</span> n == <span class="number">1</span> <span class="keyword">else</span> mul(n, fact(sub(n, <span class="number">1</span>)))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fact(<span class="number">5</span>)</span><br><span class="line"><span class="number">120</span></span><br></pre></td></tr></table></figure>
+<p>However, this implementation relies on the fact (no pun intended)
+that <code>fact</code> has a name, to which we refer in the body of
+<code>fact</code>. To write a recursive function, we have always given
+it a name using a <code>def</code> or assignment statement so that we
+can refer to the function within its own body. In this question, your
+job is to define <code>fact</code> recursively without giving it a
+name!</p>
+<p>Write an expression that computes n factorial using only call
+expressions, conditional expressions, and <code>lambda</code>
+expressions (no assignment or <code>def</code> statements).</p>
+<blockquote>
+<p>Note: You are not allowed to use make_anonymous_factorial in your
+return expression.</p>
+</blockquote>
+<p>The <code>sub</code> and <code>mul</code> functions from the operator
+module are the only built-in functions required to solve this
+problem.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> sub, mul</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_anonymous_factorial</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the value of an expression that computes factorial.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; make_anonymous_factorial()(5)</span></span><br><span class="line"><span class="string">    120</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; from construct_check import check</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; # ban any assignments or recursion</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#x27;make_anonymous_factorial&#x27;,</span></span><br><span class="line"><span class="string">    ...     [&#x27;Assign&#x27;, &#x27;AnnAssign&#x27;, &#x27;AugAssign&#x27;, &#x27;NamedExpr&#x27;, &#x27;FunctionDef&#x27;, &#x27;Recursion&#x27;])</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;YOUR_EXPRESSION_HERE&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Use Ok to test your code:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 ok -q make_anonymous_factorial</span><br></pre></td></tr></table></figure>
+<p>本文所指的 <code>lambda</code> 表达式递归是指不含任何赋值操作的
+<code>lambda</code> 表达式递归。在 python 中，<code>lambda</code>
 表达式是函数的一种表达形式，由于只占一行，它大大提高了代码的简洁性，但不可避免地降低了代码的可读性和可维护性。一般地，在编写简单的模块时，可以用
-lambda 表达式合理地简化代码。当然，以应用思维去思考 lambda
-表达式和本文的主题递归便会发现 lambda
-表达式的递归绝不是可读性和可维护性高的代码。不过，lambda
-表达式的递归更多地是一种理论和代表着一种思维：通过对 lambda
+<code>lambda</code> 表达式合理地简化代码。当然，以应用思维去思考
+<code>lambda</code> 表达式和本文的主题递归便会发现 <code>lambda</code>
+表达式的递归绝不是可读性和可维护性高的代码。不过，<code>lambda</code>
+表达式的递归更多地是一种理论和代表着一种思维：通过对 <code>lambda</code>
 表达式的探究，我们可以窥见 python 语言本身的巧妙的设计。</p>
 <h2 id="结论">结论</h2>
-<p>递归 t 次、每次对 k 执行 calc() 函数运算、递归终止条件为
-condition(k)、递归终止条件为真时返回值为 1 的 lambda
+<p>递归 <span class="math inline">\(t\)</span> 次、每次对 <span class="math inline">\(k\)</span> 执行 <code>calc()</code>
+函数运算、递归终止条件为
+<code>ondition(k)</code>、递归终止条件为真时返回值为 <span class="math inline">\(1\)</span> 的 <code>lambda</code>
 表达式递归如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (stop_num <span class="keyword">if</span> condition(k) <span class="keyword">else</span> calc(n(n, k - <span class="number">1</span>), k)), t))</span><br><span class="line">lambda_recursion (iritation_times)</span><br></pre></td></tr></table></figure>
-<p>函数 lambda_recursion
+<p>函数 <code>lambda_recursion</code>
 只是一个方便展示的演示函数（对于核心的函数递归而言可有可无）。</p>
-<p>更具体些，以递归计算阶乘为例，lambda 表达式的递归如下：</p>
+<p>更具体些，以递归计算阶乘为例，<code>lambda</code>
+表达式的递归如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k), t))</span><br><span class="line">lambda_recursion (iritation_times)</span><br></pre></td></tr></table></figure>
 <h2 id="理论">理论</h2>
-<p>在探究 lambda 表达式时，很重要的一个点是 python
+<p>在探究 <code>lambda</code> 表达式时，很重要的一个点是 python
 的函数的变量性。也就是说，在 python
 中，函数可以作为一个变量，这就意味着函数可以作为一个变量被赋值、赋值、被传递于另一个函数、被另一个函数返回……更具体些，未执行的函数可以作为一个变量，而这个变量便是成为了这个函数，如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_func</span> (k)</span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line">f = demo_func</span><br><span class="line"></span><br><span class="line">f(<span class="number">25</span>)</span><br><span class="line"></span><br><span class="line">F = f(demo_func)</span><br><span class="line"></span><br><span class="line">F(<span class="number">25</span>)</span><br></pre></td></tr></table></figure>
 <p>有：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">25</span><br><span class="line">25</span><br></pre></td></tr></table></figure>
 <h2 id="逐层抽象">逐层抽象</h2>
-<p>仍以递归解决阶乘问题为例子，展开对 lambda
-表达式递归的分析。为了简化思考和调试的复杂程度，可以先用赋值和 def
-来模拟 lambda 表达式递归。由于 lambda
+<p>仍以递归解决阶乘问题为例子，展开对 <code>lambda</code>
+表达式递归的分析。为了简化思考和调试的复杂程度，可以先用赋值和
+<code>def</code> 来模拟 <code>lambda</code> 表达式递归。由于
+<code>lambda</code>
 表达式递归中不能出现赋值操作，每一个函数内不能出现对自己的调用。而递归的定义便是一个函数对自己的调用。这正是难点所在，也是看似的矛盾之处。而破局之处便在于对作用域的精妙运用。我们必须清楚，在
-lambda
+<code>lambda</code>
 表达式递归的问题中，一个函数内的作用域只包含函数内的元素。也就是说，在函数的外层和本层没有任何元素，是空的。不难证明，由于限制了赋值操作，外层不可能有任何元素存在，而函数本层也没有定义这个函数。这时，我们只能着手于对函数内的元素进行操作。</p>
 <p>当我们关注一个函数内部时，我们便很容易忽视函数的参数。而这恰恰是解决纯粹的
-lambda
+<code>lambda</code>
 表达式递归的最关键之处。我们可以对一个函数传入另一个函数，而在函数内部执行这个被传入的函数，同时将这个函数作为参数传入——这样就做到了递归。接下来，我们可以再写一个类似思路的函数，同样传入一个函数，再调用它。只不过这个新写的函数将作为一个启动器，启动整个递归。最终，在简单封装成一个参数唯一的最终函数即可。例子如下：</p>
 <h3 id="具体层">具体层</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">A</span> (n, k):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;in A: n=<span class="subst">&#123;n&#125;</span>, k=<span class="subst">&#123;k&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> n(n, k - <span class="number">1</span>) * k</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">B</span> (n, k):</span><br><span class="line">    <span class="keyword">return</span> n(n, k)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">C</span> (k):</span><br><span class="line">    <span class="keyword">return</span> B(A, k)</span><br><span class="line"></span><br><span class="line">ANS = C (<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(ANS)</span><br></pre></td></tr></table></figure>
 <p>执行结果如下：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=5</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=4</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=3</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=2</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=1</span><br><span class="line">120</span><br></pre></td></tr></table></figure>
-<p>在上面的代码中，函数 A 是核心递归函数，n 作为一个函数被传入，k
-表示递归的层。函数 B 是启动函数，本质上和 A 一样，只是没有终止条件。函数
-C 是最终函数，使用函数 B 和 A，只有一个参数——层数。注意，函数 C
-里出现的函数 A 和函数 B 不能用调用这个词来描述，因为函数 A 和函数 B
-完全可以被写进 C。这里只是为了方便展示才单独写函数 A 和函数 B。</p>
+<p>在上面的代码中，函数 <code>A</code> 是核心递归函数，<span class="math inline">\(n\)</span> 作为一个函数被传入，<span class="math inline">\(k\)</span> 表示递归的层。函数 <code>B</code>
+是启动函数，本质上和 <code>A</code> 一样，只是没有终止条件。函数
+<code>C</code> 是最终函数，使用函数 <code>B</code> 和
+<code>A</code>，只有一个参数——层数。注意，函数 <code>C</code>
+里出现的函数 <code>A</code> 和函数 <code>B</code>
+不能用调用这个词来描述，因为函数 <code>A</code> 和函数 <code>B</code>
+完全可以被写进 <code>C</code>。这里只是为了方便展示才单独写函数
+<code>A</code> 和函数 <code>B</code>。</p>
 <h3 id="结合-lambda-表达式">结合 lambda 表达式</h3>
-<p>进一步抽象，将上面的函数写成 lambda 表达式的形式，如下。</p>
+<p>进一步抽象，将上面的函数写成 <code>lambda</code>
+表达式的形式，如下。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k)</span><br><span class="line">b = <span class="keyword">lambda</span> n, k: n(n, k)</span><br><span class="line">c = <span class="keyword">lambda</span> k: (b)(a, k)</span><br></pre></td></tr></table></figure>
 <h3 id="整合-lambda-表达式">整合 lambda 表达式</h3>
-<p>将用 def 定义的函数写成 lambda 表达式的形式可以更方便地整合成一个
-lambda 表达式。也就是上文所说，函数 a 和函数 b 可以被写进函数
-c。所以只需要把函数 c 中的 b 和 a 换成它们所对应的 lambda
-表达式即可。</p>
+<p>将用 <span class="math inline">\(def\)</span> 定义的函数写成
+<code>lambda</code> 表达式的形式可以更方便地整合成一个
+<code>lambda</code> 表达式。也就是上文所说，函数 <code>a</code> 和函数
+<code>b</code> 可以被写进函数 <code>c</code>。所以只需要把函数
+<code>c</code> 中的 <code>b</code> 和 <code>a</code> 换成它们所对应的
+<code>lambda</code> 表达式即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k), t))</span><br></pre></td></tr></table></figure>
 
       
@@ -1095,21 +1133,5 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
 
 
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 </html>
