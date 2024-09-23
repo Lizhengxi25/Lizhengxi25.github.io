@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Investigation on the shortest road to the cafeteria using vectors | James&#39; Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="## Introduction In our school, we will pass through a hollow square from our classroom to the cafeteria. There are two ways to go through this area: one is directly go down into the square and go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Investigation on the shortest road to the cafeteria using vectors">
+<meta property="og:url" content="http://lizhengxi25.github.io/2024/09/23/shst-rd-cafe/index.html">
+<meta property="og:site_name" content="James&#39; Blog">
+<meta property="og:description" content="## Introduction In our school, we will pass through a hollow square from our classroom to the cafeteria. There are two ways to go through this area: one is directly go down into the square and go">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://lizhengxi25.github.io/2024/09/23/shst-rd-cafe/image.jpg">
+<meta property="article:published_time" content="2024-09-23T15:00:10.000Z">
+<meta property="article:modified_time" content="2024-09-23T15:05:49.154Z">
+<meta property="article:author" content="James Li">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lizhengxi25.github.io/2024/09/23/shst-rd-cafe/image.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="James' Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">James&#39; Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/Lizhengxi25"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Lizhengxi25.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-shst-rd-cafe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/23/shst-rd-cafe/" class="article-date">
+  <time class="dt-published" datetime="2024-09-23T15:00:10.000Z" itemprop="datePublished">2024-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Investigation on the shortest road to the cafeteria using vectors
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="image.jpg" alt="graph"> ## Introduction In
+our school, we will pass through a hollow square from our classroom to
+the cafeteria. There are two ways to go through this area: one is
+directly go down into the square and go up; another is not go down but
+circumvent on the ground. In fact, there are other similar roads shown
+in the graph - through <span class="math inline">\(AO\)</span> and <span class="math inline">\(OB\)</span> - just like the road in the hollow
+square but with different heights (I refer to "the road in the hollow
+square" as the lowest one). I'm interested in which one is the shortest
+road (referred to as distance) and I'm going to investigate this
+question using vectors.</p>
+<h2 id="modeling">Modeling</h2>
+<p>As shown in the graph, I build a plane coordinate system with the
+origin point <span class="math inline">\(O(0, 0, 0)\)</span> at the
+beginning location. Point <span class="math inline">\(P(m, m,
+0)\)</span> is the endpoint, where <span class="math inline">\(m\)</span> refers to the side length of the
+square. Assuming the downwards and upwards road ideally, we have their
+direction vectors: <span class="math display">\[
+\left [ \begin{matrix}
+1\\
+1\\
+-1
+\end{matrix} \right ]
+\space
+\left [ \begin{matrix}
+1\\
+1\\
+1
+\end{matrix} \right ]
+\]</span> and we have their vectors: <span class="math display">\[
+\begin{aligned}
+\vec{u}
+&amp;=
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+-1
+\end{matrix} \right ]
+\\
+\vec{v}
+&amp;=
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+1
+\end{matrix} \right ]
+\end{aligned}
+\]</span> Notice that both vectors have the same coefficient <span class="math inline">\(\lambda\)</span> because they have the equal
+length. In addition, the domain of <span class="math inline">\(\lambda\)</span> should be in <span class="math inline">\([0, \frac{m}{2}]\)</span> because the length of
+the downwards (upwards) road must not be more than half of the length of
+the edge (or diagonal).</p>
+<p>Then, we can express point <span class="math inline">\(A\)</span> and
+<span class="math inline">\(B\)</span> using known vectors and points.
+<span class="math display">\[
+\begin{aligned}
+A &amp;= (\lambda, \lambda, - \lambda)\\
+B &amp;= P - \vec{v}\\
+&amp;= (m - \lambda, m - \lambda, - \lambda)\\
+\vec{AB} &amp;=
+\left [ \begin{matrix}
+m - 2\lambda\\
+m - 2 \lambda\\
+0
+\end{matrix} \right ]
+\end{aligned}
+\]</span> Notice that <span class="math inline">\(m - 2 \lambda \in [0,
+m]\)</span>. Further, we can derive vectors <span class="math inline">\(\vec{AC}\)</span> and <span class="math inline">\(\vec{CB}\)</span>. <span class="math display">\[
+\begin{aligned}
+\vec{AC} &amp;= t
+\left [ \begin{matrix}
+1\\
+0\\
+0
+\end{matrix} \right ]
+\\
+\vec{CB} &amp;= t
+\left [ \begin{matrix}
+0\\
+1\\
+0
+\end{matrix} \right ]\\\\
+\vec{AV} + \vec{CB} &amp;= \vec{AB}
+\\\\
+t\left [ \begin{matrix}
+1\\
+1\\
+0
+\end{matrix} \right ]
+&amp;=
+\left [ \begin{matrix}
+m - 2\lambda\\
+m - 2 \lambda\\
+0
+\end{matrix} \right ]
+\\\\
+t &amp;=
+m - 2 \lambda
+\\
+\vec{AC} &amp;= (m - 2 \lambda)
+\left [ \begin{matrix}
+1\\
+0\\
+0
+\end{matrix} \right ]
+\\
+\vec{CB} &amp;= (m - 2 \lambda)
+\left [ \begin{matrix}
+0\\
+1\\
+0
+\end{matrix} \right ]\\
+\end{aligned}
+\]</span> Now, we obtain all of the vectors and variables we need to
+deeply investigate the shortest distance. For having an easier look,
+they are shown collectively here: <span class="math display">\[
+\begin{aligned}
+P &amp; \space (m, m, 0)\\
+A &amp; \space (\lambda, \lambda, - \lambda)\\
+B &amp; \space (m - \lambda, m - \lambda, - \lambda)\\
+\\
+\vec{u}
+&amp;=
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+-1
+\end{matrix} \right ]
+\\
+\vec{v}
+&amp;=
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+1
+\end{matrix} \right ]
+\\
+\vec{AC} &amp;= (m - 2 \lambda)
+\left [ \begin{matrix}
+1\\
+0\\
+0
+\end{matrix} \right ]
+\\
+\vec{CB} &amp;= (m - 2 \lambda)
+\left [ \begin{matrix}
+0\\
+1\\
+0
+\end{matrix} \right ]\\
+\end{aligned}
+\]</span> ### Functions and equations A pathway to point P is: <span class="math display">\[
+\begin{aligned}
+P &amp;= \vec{u} + \vec{AC} + \vec{CB} + \vec{v}\\
+&amp;= \lambda
+\left [ \begin{matrix}
+1\\
+1\\
+-1
+\end{matrix} \right ]
++
+(m - 2 \lambda)
+\left [ \begin{matrix}
+1\\
+0\\
+0
+\end{matrix} \right ]
++
+(m - 2 \lambda)
+\left [ \begin{matrix}
+0\\
+1\\
+0
+\end{matrix} \right ]
++
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+1
+\end{matrix} \right ]
+\end{aligned}
+\]</span> The distance <span class="math inline">\(d\)</span> can be
+expressed as: <span class="math display">\[
+\begin{aligned}
+d &amp;=
+\left | \vec{u} \right |
++ \left | \vec{AC} \right |
++ \left | \vec{CB} \right |
++ \left | \vec{v} \right |
+\\
+&amp;=
+\lambda \sqrt{3}
++ \left | m - 2 \lambda \right |
++ \left | m - 2 \lambda \right |
++ \lambda \sqrt{3}
+\\
+&amp;=
+2 (\lambda \sqrt{3}
++ \left | m - 2 \lambda \right |)\\
+&amp;=
+2 (m + (\sqrt{3} - 2) \lambda)\\
+\end{aligned}
+\]</span> Therefore, the function of distance <span class="math inline">\(d\)</span> is constantly declining as the increase
+of the coefficient <span class="math inline">\(\lambda\)</span>.</p>
+<p>The function will have the minimal value when <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\frac{m}{2}\)</span>. That is <span class="math inline">\(\sqrt{3} m\)</span>.</p>
+<p>The function will have the maximal value when <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(0\)</span>. That is <span class="math inline">\(2
+m\)</span>. ## Conclusion The question is resolved using mathematical
+analysis. The more we go down to the hollow square, the less the
+distance we pass through. The minimal distance is <span class="math inline">\(\sqrt{3} m\)</span> while the maximal is <span class="math inline">\(2 m\)</span>. In the future, we should walk down
+into the hollow square when we go to the cafeteria.</p>
+<p>Through this investigation, I realized that the design of the hollow
+square is not only for beauty but also for shorter distances. That is,
+walks into the beauty, walks into the truth (minimal distance).</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/09/23/shst-rd-cafe/" data-id="cm1f540pi0000qkmof69p9lj0" data-title="Investigation on the shortest road to the cafeteria using vectors" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/08/29/lambda-recursion/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">关于 lambda 表达式的递归</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E8%AE%B0/" rel="tag">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 15px;">文学</a> <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 10px;">杂记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 10px;">计算机</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 15px;">题解</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/09/23/shst-rd-cafe/">Investigation on the shortest road to the cafeteria using vectors</a>
+          </li>
+        
+          <li>
+            <a href="/2024/08/29/lambda-recursion/">关于 lambda 表达式的递归</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/12/%E3%80%8A%E4%B8%96%E9%97%B4%E5%A7%8B%E7%BB%88%E4%BD%A0%E5%A5%BD%E3%80%8B%E4%B8%8E%E3%80%8A%E5%B0%84%E9%9B%95%E8%8B%B1%E9%9B%84%E4%BC%A0%E3%80%8B/">《世间始终你好》与《射雕英雄传》</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/31/binary-search/">二分总结</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/26/T344290/">环状序列</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 James Li<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>

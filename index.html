@@ -187,6 +187,262 @@ mjx-container[display="true"] + br {
       <div class="outer">
         <section id="main">
   
+    <article id="post-shst-rd-cafe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/23/shst-rd-cafe/" class="article-date">
+  <time class="dt-published" datetime="2024-09-23T15:00:10.000Z" itemprop="datePublished">2024-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/09/23/shst-rd-cafe/">Investigation on the shortest road to the cafeteria using vectors</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="image.jpg" alt="graph"> ## Introduction In
+our school, we will pass through a hollow square from our classroom to
+the cafeteria. There are two ways to go through this area: one is
+directly go down into the square and go up; another is not go down but
+circumvent on the ground. In fact, there are other similar roads shown
+in the graph - through <span class="math inline">\(AO\)</span> and <span class="math inline">\(OB\)</span> - just like the road in the hollow
+square but with different heights (I refer to "the road in the hollow
+square" as the lowest one). I'm interested in which one is the shortest
+road (referred to as distance) and I'm going to investigate this
+question using vectors.</p>
+<h2 id="modeling">Modeling</h2>
+<p>As shown in the graph, I build a plane coordinate system with the
+origin point <span class="math inline">\(O(0, 0, 0)\)</span> at the
+beginning location. Point <span class="math inline">\(P(m, m,
+0)\)</span> is the endpoint, where <span class="math inline">\(m\)</span> refers to the side length of the
+square. Assuming the downwards and upwards road ideally, we have their
+direction vectors: <span class="math display">\[
+\left [ \begin{matrix}
+1\\
+1\\
+-1
+\end{matrix} \right ]
+\space
+\left [ \begin{matrix}
+1\\
+1\\
+1
+\end{matrix} \right ]
+\]</span> and we have their vectors: <span class="math display">\[
+\begin{aligned}
+\vec{u}
+&amp;=
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+-1
+\end{matrix} \right ]
+\\
+\vec{v}
+&amp;=
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+1
+\end{matrix} \right ]
+\end{aligned}
+\]</span> Notice that both vectors have the same coefficient <span class="math inline">\(\lambda\)</span> because they have the equal
+length. In addition, the domain of <span class="math inline">\(\lambda\)</span> should be in <span class="math inline">\([0, \frac{m}{2}]\)</span> because the length of
+the downwards (upwards) road must not be more than half of the length of
+the edge (or diagonal).</p>
+<p>Then, we can express point <span class="math inline">\(A\)</span> and
+<span class="math inline">\(B\)</span> using known vectors and points.
+<span class="math display">\[
+\begin{aligned}
+A &amp;= (\lambda, \lambda, - \lambda)\\
+B &amp;= P - \vec{v}\\
+&amp;= (m - \lambda, m - \lambda, - \lambda)\\
+\vec{AB} &amp;=
+\left [ \begin{matrix}
+m - 2\lambda\\
+m - 2 \lambda\\
+0
+\end{matrix} \right ]
+\end{aligned}
+\]</span> Notice that <span class="math inline">\(m - 2 \lambda \in [0,
+m]\)</span>. Further, we can derive vectors <span class="math inline">\(\vec{AC}\)</span> and <span class="math inline">\(\vec{CB}\)</span>. <span class="math display">\[
+\begin{aligned}
+\vec{AC} &amp;= t
+\left [ \begin{matrix}
+1\\
+0\\
+0
+\end{matrix} \right ]
+\\
+\vec{CB} &amp;= t
+\left [ \begin{matrix}
+0\\
+1\\
+0
+\end{matrix} \right ]\\\\
+\vec{AV} + \vec{CB} &amp;= \vec{AB}
+\\\\
+t\left [ \begin{matrix}
+1\\
+1\\
+0
+\end{matrix} \right ]
+&amp;=
+\left [ \begin{matrix}
+m - 2\lambda\\
+m - 2 \lambda\\
+0
+\end{matrix} \right ]
+\\\\
+t &amp;=
+m - 2 \lambda
+\\
+\vec{AC} &amp;= (m - 2 \lambda)
+\left [ \begin{matrix}
+1\\
+0\\
+0
+\end{matrix} \right ]
+\\
+\vec{CB} &amp;= (m - 2 \lambda)
+\left [ \begin{matrix}
+0\\
+1\\
+0
+\end{matrix} \right ]\\
+\end{aligned}
+\]</span> Now, we obtain all of the vectors and variables we need to
+deeply investigate the shortest distance. For having an easier look,
+they are shown collectively here: <span class="math display">\[
+\begin{aligned}
+P &amp; \space (m, m, 0)\\
+A &amp; \space (\lambda, \lambda, - \lambda)\\
+B &amp; \space (m - \lambda, m - \lambda, - \lambda)\\
+\\
+\vec{u}
+&amp;=
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+-1
+\end{matrix} \right ]
+\\
+\vec{v}
+&amp;=
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+1
+\end{matrix} \right ]
+\\
+\vec{AC} &amp;= (m - 2 \lambda)
+\left [ \begin{matrix}
+1\\
+0\\
+0
+\end{matrix} \right ]
+\\
+\vec{CB} &amp;= (m - 2 \lambda)
+\left [ \begin{matrix}
+0\\
+1\\
+0
+\end{matrix} \right ]\\
+\end{aligned}
+\]</span> ### Functions and equations A pathway to point P is: <span class="math display">\[
+\begin{aligned}
+P &amp;= \vec{u} + \vec{AC} + \vec{CB} + \vec{v}\\
+&amp;= \lambda
+\left [ \begin{matrix}
+1\\
+1\\
+-1
+\end{matrix} \right ]
++
+(m - 2 \lambda)
+\left [ \begin{matrix}
+1\\
+0\\
+0
+\end{matrix} \right ]
++
+(m - 2 \lambda)
+\left [ \begin{matrix}
+0\\
+1\\
+0
+\end{matrix} \right ]
++
+\lambda
+\left [ \begin{matrix}
+1\\
+1\\
+1
+\end{matrix} \right ]
+\end{aligned}
+\]</span> The distance <span class="math inline">\(d\)</span> can be
+expressed as: <span class="math display">\[
+\begin{aligned}
+d &amp;=
+\left | \vec{u} \right |
++ \left | \vec{AC} \right |
++ \left | \vec{CB} \right |
++ \left | \vec{v} \right |
+\\
+&amp;=
+\lambda \sqrt{3}
++ \left | m - 2 \lambda \right |
++ \left | m - 2 \lambda \right |
++ \lambda \sqrt{3}
+\\
+&amp;=
+2 (\lambda \sqrt{3}
++ \left | m - 2 \lambda \right |)\\
+&amp;=
+2 (m + (\sqrt{3} - 2) \lambda)\\
+\end{aligned}
+\]</span> Therefore, the function of distance <span class="math inline">\(d\)</span> is constantly declining as the increase
+of the coefficient <span class="math inline">\(\lambda\)</span>.</p>
+<p>The function will have the minimal value when <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\frac{m}{2}\)</span>. That is <span class="math inline">\(\sqrt{3} m\)</span>.</p>
+<p>The function will have the maximal value when <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(0\)</span>. That is <span class="math inline">\(2
+m\)</span>. ## Conclusion The question is resolved using mathematical
+analysis. The more we go down to the hollow square, the less the
+distance we pass through. The minimal distance is <span class="math inline">\(\sqrt{3} m\)</span> while the maximal is <span class="math inline">\(2 m\)</span>. In the future, we should walk down
+into the hollow square when we go to the cafeteria.</p>
+<p>Through this investigation, I realized that the design of the hollow
+square is not only for beauty but also for shorter distances. That is,
+walks into the beauty, walks into the truth (minimal distance).</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lizhengxi25.github.io/2024/09/23/shst-rd-cafe/" data-id="cm1f540pi0000qkmof69p9lj0" data-title="Investigation on the shortest road to the cafeteria using vectors" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-lambda-recursion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/08/29/lambda-recursion/" class="article-date">
@@ -966,57 +1222,6 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
 
 
   
-    <article id="post-Note-Heat-Wave" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/02/15/Note-Heat-Wave/" class="article-date">
-  <time class="dt-published" datetime="2024-02-15T07:11:01.000Z" itemprop="datePublished">2024-02-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/02/15/Note-Heat-Wave/">Note-Heat-Wave</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。</p>
-<p><strong><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1339">洛谷 P1339
-[USACO09OCT] Heat Wave G</a></strong></p>
-<p>刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，做不出来就直接躺平了。他那时侯经常要想一周。其实，就是要自己想，总结出自己的法子，而非纯粹地套用模型。</p>
-<p>外加D教练还没有给我们班讲过图论，我自己的图论题解法都是靠着《深入浅出》、各篇板题的题解外加自己的摸索，总结出来的。各种算法的名字我也不知道，只在学习图的存储和遍历时，学了“链式向前星”。其余的，都是基于深搜广搜，随机应变。</p>
-<p>刚做这道题的时候，觉得这题看着很板，遍历所有的点就可以了。后来发现这题的不同之处在于每条边的边权不一定是1。之前的广搜或者深搜其实有个妙处在于每遍历一层，距离都+1。因此，随着遍历的深入，距离也增加，也就是距离与遍历的深度是单调关系。因此第一次搜到目标点时的距离，便是答案。</p>
-<p>然而，对于这道题，边权不是恒为1，因此，两点距离并不与遍历的深度呈单调关系。于是，我想到枚举起始点与某点距离，用优先队列维护。比如，先将起始点的临界点入队，枚举距离，若有一点正好离终点的距离是i，那么，起始点离他的最短距离便是i，就可以打标记表示访问过了，并将其入队。</p>
-<p>在声明优化之前，先强调一下，对于不重复点的一条路上，两点距离仍与遍历的深度呈单调关系，因为边权不为负数。</p>
-<p>当我们枚举距离时，会有很多空距离，白白浪费时间。而对于优先队列，队首一定是最近的点，因此每次只需要取出队首元素进行延申即可。当遇到目标点时，此时的距离就是最短距离。注意：队列中取出的点记得删。</p>
-<p>附上代码记录成长：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN (int) (2505)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXM (int) (6205)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, s, t, ans = <span class="number">1e9</span>;</span><br><span class="line"><span class="type">char</span> vis[MAXN];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">VT</span> &#123;</span><br><span class="line">	<span class="type">int</span> end, w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">T</span> &#123;</span><br><span class="line">	<span class="type">int</span> name, w;</span><br><span class="line">	<span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> T &amp; other) <span class="type">const</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> w &gt; other.w;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">vector &lt;VT&gt; edge[MAXN];</span><br><span class="line">priority_queue &lt;T&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;n, &amp;m, &amp;s, &amp;t);</span><br><span class="line">	<span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>, w = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;x, &amp;y, &amp;w);</span><br><span class="line">		edge[x].<span class="built_in">push_back</span>((VT)&#123;y, w&#125;);</span><br><span class="line">		edge[y].<span class="built_in">push_back</span>((VT)&#123;x, w&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	q.<span class="built_in">push</span>((T)&#123;s, <span class="number">0</span>&#125;);</span><br><span class="line">	<span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		T tmp = q.<span class="built_in">top</span>();</span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="keyword">if</span> (vis[tmp.name]) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span> vis[tmp.name] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (tmp.name == t) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, tmp.w);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edge[tmp.name].<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (vis[edge[tmp.name][i].end]) <span class="keyword">continue</span>;</span><br><span class="line">			q.<span class="built_in">push</span>((T)&#123;edge[tmp.name][i].end, edge[tmp.name][i].w + tmp.w&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/" data-id="cm0f38a4s0008nkmoeg3g8z2x" data-title="Note-Heat-Wave" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1035,7 +1240,7 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E8%AE%B0/" rel="tag">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E8%AE%B0/" rel="tag">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -1045,7 +1250,7 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 20px;">文学</a> <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 10px;">杂记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 10px;">计算机</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+      <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 15px;">文学</a> <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 10px;">杂记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 10px;">计算机</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 15px;">题解</a>
     </div>
   </div>
 
@@ -1054,7 +1259,7 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -1065,6 +1270,10 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/09/23/shst-rd-cafe/">Investigation on the shortest road to the cafeteria using vectors</a>
+          </li>
         
           <li>
             <a href="/2024/08/29/lambda-recursion/">关于 lambda 表达式的递归</a>
@@ -1080,10 +1289,6 @@ mid\)</span>，去尝试更小的值。而若不符合条件，则不可能作�
         
           <li>
             <a href="/2024/05/26/T344290/">环状序列</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/12/SMT/">SMT</a>
           </li>
         
       </ul>
