@@ -1,277 +1,113 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Note-Heat-Wave | James&#39; Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G 刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Note-Heat-Wave">
-<meta property="og:url" content="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/index.html">
-<meta property="og:site_name" content="James&#39; Blog">
-<meta property="og:description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G 刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-02-15T07:11:01.000Z">
-<meta property="article:modified_time" content="2024-05-12T02:25:55.984Z">
-<meta property="article:author" content="James Li">
-<meta property="article:tag" content="题解">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="James' Blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="keywords" content="Hexo Theme Redefine"><meta name="author" content="James"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="canonical" href="http://Lizhengxi25.github.io/2024/02/15/note-heat-wave/"><meta name="robots" content="index,follow"><meta name="googlebot" content="index,follow"><meta name="revisit-after" content="1 days"><meta name="description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G  刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时"><meta property="og:type" content="article"><meta property="og:title" content="Note-Heat-Wave"><meta property="og:url" content="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/index.html"><meta property="og:site_name" content="James&#39; Blog"><meta property="og:description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G  刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2024-02-15T07:11:01.000Z"><meta property="article:modified_time" content="2024-05-12T02:25:55.984Z"><meta property="article:author" content="James Li"><meta property="article:tag" content="题解"><meta name="twitter:card" content="summary"><link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg"><meta name="theme-color" content="#A31F34"><link rel="shortcut icon" href="/images/redefine-favicon.svg"><title>Note-Heat-Wave | James&#39; Blog</title><link rel="stylesheet" href="/fonts/Chillax/chillax.css"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/assets/build/styles.css"><link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css"><link rel="stylesheet" href="/fonts/Geist/geist.css"><script id="hexo-configurations">window.config={hostname:"lizhengxi25.github.io",root:"/",language:"en"},window.theme={articles:{style:{font_size:"16px",line_height:1.5,image_border_radius:"14px",image_alignment:"center",image_caption:!1,link_icon:!0,title_alignment:"left",headings_top_spacing:{h1:"3.2rem",h2:"2.4rem",h3:"1.9rem",h4:"1.6rem",h5:"1.4rem",h6:"1.3rem"}},word_count:{enable:!0,count:!0,min2read:!0},author_label:{enable:!0,auto:!1,list:[]},code_block:{copy:!0,style:"mac",highlight_theme:{light:"github",dark:"vs2015"},font:{enable:!1,family:null,url:null}},toc:{enable:!0,max_depth:4,number:!1,expand:!0,init_open:!0},copyright:{enable:!0,default:"cc_by_nc_sa"},lazyload:!0,recommendation:{enable:!1,title:"推荐阅读",limit:3,mobile_limit:2,placeholder:"/images/wallhaven-wqery6-light.webp",skip_dirs:[]}},colors:{primary:"#A31F34",secondary:null,default_mode:"light"},global:{fonts:{chinese:{enable:!1,family:null,url:null},english:{enable:!1,family:null,url:null},title:{enable:!1,family:null,url:null}},content_max_width:"1000px",sidebar_width:"210px",hover:{shadow:!0,scale:!1},scroll_progress:{bar:!0,percentage:!0},website_counter:{url:"https://cn.vercount.one/js",enable:!0,site_pv:!0,site_uv:!1,post_pv:!0},single_page:!0,preloader:{enable:!1,custom_message:null},open_graph:!0,google_analytics:{enable:!1,id:null}},home_banner:{enable:!0,style:"fixed",image:{light:"/images/wallhaven-wqery6-light.webp",dark:"/images/wallhaven-wqery6-dark.webp"},title:"James' Blog",subtitle:{text:["言或自生天趣，事当曲尽人情"],hitokoto:{enable:!1,show_author:!1,api:"https://v1.hitokoto.cn"},typing_speed:100,backing_speed:80,starting_delay:500,backing_delay:1500,loop:!0,smart_backspace:!0},text_color:{light:"#fff",dark:"#d1d1b6"},text_style:{title_size:"2.8rem",subtitle_size:"1.5rem",line_height:1.2},custom_font:{enable:!1,family:null,url:null},social_links:{enable:!1,style:"default",links:{github:null,instagram:null,zhihu:null,twitter:null,email:null},qrs:{weixin:null}}},plugins:{feed:{enable:!1},aplayer:{enable:!1,type:"fixed",audios:[{name:null,artist:null,url:null,cover:null,lrc:null}]},mermaid:{enable:!1,version:"9.3.0"}},version:"2.7.3",navbar:{auto_hide:!1,color:{left:"#f78736",right:"#367df7",transparency:35},width:{home:"1200px",pages:"1000px"},links:{Home:{path:"/",icon:"fa-regular fa-house"},Categories:{icon:"fa-solid fa-folder",path:"/categories/"},About:{icon:"fa-regular fa-user",submenus:{Me:"/about",Github:"https://github.com/Lizhengxi25",Blog:"https://lizhengxi25.github.io",Friends:"/friends"}}},search:{enable:!1,preload:!0},tags:{Tags:{icon:"fa-solid fa-tags",path:"/tags/"}}},page_templates:{friends_column:2,tags_style:"blur"},home:{sidebar:{enable:!0,position:"left",first_item:"menu",announcement:null,show_on_mobile:!0,links:null},article_date_format:"auto",excerpt_length:200,categories:{enable:!0,limit:3},tags:{enable:!0,limit:3}},footerStart:"2022/8/17 11:45:14"},window.lang_ago={second:"%s seconds ago",minute:"%s minutes ago",hour:"%s hours ago",day:"%s days ago",week:"%s weeks ago",month:"%s months ago",year:"%s years ago"},window.data={masonry:!1}</script><link rel="stylesheet" href="/fontawesome/fontawesome.min.css"><link rel="stylesheet" href="/fontawesome/brands.min.css"><link rel="stylesheet" href="/fontawesome/solid.min.css"><link rel="stylesheet" href="/fontawesome/regular.min.css"><meta name="generator" content="Hexo 7.1.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
 
-<meta name="generator" content="Hexo 7.1.1"></head>
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">James&#39; Blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          
-            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/Lizhengxi25"><span class="fa fa-github"></span></a>
-          
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Lizhengxi25.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
 
-      <div class="outer">
-        <section id="main"><article id="post-Note-Heat-Wave" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/02/15/Note-Heat-Wave/" class="article-date">
-  <time class="dt-published" datetime="2024-02-15T07:11:01.000Z" itemprop="datePublished">2024-02-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Note-Heat-Wave
-    </h1>
-  
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。</p>
-<p><strong><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1339">洛谷 P1339
-[USACO09OCT] Heat Wave G</a></strong></p>
-<p>刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，做不出来就直接躺平了。他那时侯经常要想一周。其实，就是要自己想，总结出自己的法子，而非纯粹地套用模型。</p>
-<p>外加D教练还没有给我们班讲过图论，我自己的图论题解法都是靠着《深入浅出》、各篇板题的题解外加自己的摸索，总结出来的。各种算法的名字我也不知道，只在学习图的存储和遍历时，学了“链式向前星”。其余的，都是基于深搜广搜，随机应变。</p>
-<p>刚做这道题的时候，觉得这题看着很板，遍历所有的点就可以了。后来发现这题的不同之处在于每条边的边权不一定是1。之前的广搜或者深搜其实有个妙处在于每遍历一层，距离都+1。因此，随着遍历的深入，距离也增加，也就是距离与遍历的深度是单调关系。因此第一次搜到目标点时的距离，便是答案。</p>
-<p>然而，对于这道题，边权不是恒为1，因此，两点距离并不与遍历的深度呈单调关系。于是，我想到枚举起始点与某点距离，用优先队列维护。比如，先将起始点的临界点入队，枚举距离，若有一点正好离终点的距离是i，那么，起始点离他的最短距离便是i，就可以打标记表示访问过了，并将其入队。</p>
-<p>在声明优化之前，先强调一下，对于不重复点的一条路上，两点距离仍与遍历的深度呈单调关系，因为边权不为负数。</p>
-<p>当我们枚举距离时，会有很多空距离，白白浪费时间。而对于优先队列，队首一定是最近的点，因此每次只需要取出队首元素进行延申即可。当遇到目标点时，此时的距离就是最短距离。注意：队列中取出的点记得删。</p>
-<p>附上代码记录成长：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN (int) (2505)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXM (int) (6205)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, s, t, ans = <span class="number">1e9</span>;</span><br><span class="line"><span class="type">char</span> vis[MAXN];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">VT</span> &#123;</span><br><span class="line">	<span class="type">int</span> end, w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">T</span> &#123;</span><br><span class="line">	<span class="type">int</span> name, w;</span><br><span class="line">	<span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> T &amp; other) <span class="type">const</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> w &gt; other.w;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">vector &lt;VT&gt; edge[MAXN];</span><br><span class="line">priority_queue &lt;T&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;n, &amp;m, &amp;s, &amp;t);</span><br><span class="line">	<span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>, w = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;x, &amp;y, &amp;w);</span><br><span class="line">		edge[x].<span class="built_in">push_back</span>((VT)&#123;y, w&#125;);</span><br><span class="line">		edge[y].<span class="built_in">push_back</span>((VT)&#123;x, w&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	q.<span class="built_in">push</span>((T)&#123;s, <span class="number">0</span>&#125;);</span><br><span class="line">	<span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		T tmp = q.<span class="built_in">top</span>();</span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="keyword">if</span> (vis[tmp.name]) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span> vis[tmp.name] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (tmp.name == t) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, tmp.w);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edge[tmp.name].<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (vis[edge[tmp.name][i].end]) <span class="keyword">continue</span>;</span><br><span class="line">			q.<span class="built_in">push</span>((T)&#123;edge[tmp.name][i].end, edge[tmp.name][i].w + tmp.w&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/" data-id="cm0f38a4s0008nkmoeg3g8z2x" data-title="Note-Heat-Wave" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2024/03/15/zhihu-24-3-15/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          洪七公的人格分析
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2024/02/03/Building/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">建站小记</div>
-    </a>
-  
-</nav>
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
 
-  
-</article>
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
 
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E8%AE%B0/" rel="tag">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="tag-list-count">3</span></li></ul>
-    </div>
-  </div>
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
 
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 15px;">文学</a> <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 10px;">杂记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 10px;">计算机</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 15px;">题解</a>
-    </div>
-  </div>
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a><span class="archive-list-count">2</span></li></ul>
-    </div>
-  </div>
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
 
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/09/23/shst-rd-cafe/">Investigation on the shortest road to the cafeteria using vectors</a>
-          </li>
-        
-          <li>
-            <a href="/2024/08/29/lambda-recursion/">关于 lambda 表达式的递归</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/12/%E3%80%8A%E4%B8%96%E9%97%B4%E5%A7%8B%E7%BB%88%E4%BD%A0%E5%A5%BD%E3%80%8B%E4%B8%8E%E3%80%8A%E5%B0%84%E9%9B%95%E8%8B%B1%E9%9B%84%E4%BC%A0%E3%80%8B/">《世间始终你好》与《射雕英雄传》</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/31/binary-search/">二分总结</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/26/T344290/">环状序列</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 James Li<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+.MathJax path {
+  stroke-width: 3;
+}
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
 
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
-</html>
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span></div><main class="page-container" id="swup"><div class="main-content-container flex flex-col justify-between min-h-dvh"><div class="main-content-header"><header class="navbar-container px-6 md:px-12"><div class="navbar-content transition-navbar"><div class="left"><a class="logo-title" href="/">James&#39; Blog</a></div><div class="right"><div class="desktop"><ul class="navbar-list"><li class="navbar-item"><a href="/"><i class="fa-regular fa-house fa-fw"></i> HOME</a></li><li class="navbar-item"><a href="/categories/"><i class="fa-solid fa-folder fa-fw"></i> CATEGORIES</a></li><li class="navbar-item"><a class="has-dropdown" href="#" onclick="&#34;return" false;&#34;><i class="fa-regular fa-user fa-fw"></i> ABOUT <i class="fa-solid fa-chevron-down fa-fw"></i></a><ul class="sub-menu"><li><a href="/about">ME</a></li><li><a target="_blank" rel="noopener" href="https://github.com/Lizhengxi25">GITHUB</a></li><li><a href="https://lizhengxi25.github.io">BLOG</a></li><li><a href="/friends">FRIENDS</a></li></ul></li></ul></div><div class="mobile"><div class="icon-item navbar-bar"><div class="navbar-bar-middle"></div></div></div></div></div><div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between"><ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start"><li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full"><a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full" href="/"><span>HOME </span><i class="fa-regular fa-house fa-sm fa-fw"></i></a></li><li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full"><a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full" href="/categories/"><span>CATEGORIES </span><i class="fa-solid fa-folder fa-sm fa-fw"></i></a></li><li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full"><div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full" navbar-data-toggle="submenu-About"><span>ABOUT </span><i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i></div><div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About"><div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="text-third-text-color text-xl" href="/about">ME</a></div><div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="text-third-text-color text-xl" target="_blank" rel="noopener" href="https://github.com/Lizhengxi25">GITHUB</a></div><div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="text-third-text-color text-xl" href="https://lizhengxi25.github.io">BLOG</a></div><div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="text-third-text-color text-xl" href="/friends">FRIENDS</a></div></div></li></ul><div class="statistics flex justify-around my-2.5"><a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags"><div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div><div class="label text-third-text-color text-sm">Tags</div></a><a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories"><div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div><div class="label text-third-text-color text-sm">Categories</div></a><a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives"><div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div><div class="label text-third-text-color text-sm">Posts</div></a></div></div><div class="window-mask"></div></header></div><div class="main-content-body"><div class="main-content"><div class="post-page-container flex relative justify-between box-border w-full h-full"><div class="article-content-container"><div class="article-title relative w-full"><div class="w-full flex items-center pt-6 justify-start"><h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Note-Heat-Wave</h1></div></div><div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8"><div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]"><img src="/images/redefine-avatar.svg"></div><div class="info flex flex-col justify-between"><div class="author flex items-center"><span class="name text-default-text-color text-lg font-semibold">James</span> <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-pen-fancy"></i>&nbsp; <span class="desktop">2024-02-15 15:11:01</span> <span class="mobile">2024-02-15 15:11:01</span> <span class="hover-info">Created</span> </span><span class="article-date article-meta-item"><i class="fa-regular fa-wrench"></i>&nbsp; <span class="desktop">2024-05-12 10:25:55</span> <span class="mobile">2024-05-12 10:25:55</span> <span class="hover-info">Updated</span> </span><span class="article-tags article-meta-item"><i class="fa-regular fa-tags"></i>&nbsp;<ul><li><a href="/tags/%E9%A2%98%E8%A7%A3/">题解</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fa-regular fa-typewriter"></i>&nbsp;<span>870 Words</span> </span><span class="article-min2read article-meta-item"><i class="fa-regular fa-clock"></i>&nbsp;<span>3 Mins</span> </span><span class="article-pv article-meta-item"><i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8"><p>写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。</p><p><strong><a class="link" target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1339">洛谷 P1339 [USACO09OCT] Heat Wave G <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p><p>刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，做不出来就直接躺平了。他那时侯经常要想一周。其实，就是要自己想，总结出自己的法子，而非纯粹地套用模型。</p><p>外加D教练还没有给我们班讲过图论，我自己的图论题解法都是靠着《深入浅出》、各篇板题的题解外加自己的摸索，总结出来的。各种算法的名字我也不知道，只在学习图的存储和遍历时，学了“链式向前星”。其余的，都是基于深搜广搜，随机应变。</p><p>刚做这道题的时候，觉得这题看着很板，遍历所有的点就可以了。后来发现这题的不同之处在于每条边的边权不一定是1。之前的广搜或者深搜其实有个妙处在于每遍历一层，距离都+1。因此，随着遍历的深入，距离也增加，也就是距离与遍历的深度是单调关系。因此第一次搜到目标点时的距离，便是答案。</p><p>然而，对于这道题，边权不是恒为1，因此，两点距离并不与遍历的深度呈单调关系。于是，我想到枚举起始点与某点距离，用优先队列维护。比如，先将起始点的临界点入队，枚举距离，若有一点正好离终点的距离是i，那么，起始点离他的最短距离便是i，就可以打标记表示访问过了，并将其入队。</p><p>在声明优化之前，先强调一下，对于不重复点的一条路上，两点距离仍与遍历的深度呈单调关系，因为边权不为负数。</p><p>当我们枚举距离时，会有很多空距离，白白浪费时间。而对于优先队列，队首一定是最近的点，因此每次只需要取出队首元素进行延申即可。当遇到目标点时，此时的距离就是最短距离。注意：队列中取出的点记得删。</p><p>附上代码记录成长：</p><div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN (int) (2505)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXM (int) (6205)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, s, t, ans = <span class="number">1e9</span>;</span><br><span class="line"><span class="type">char</span> vis[MAXN];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">VT</span> {</span><br><span class="line">	<span class="type">int</span> end, w;</span><br><span class="line">};</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">T</span> {</span><br><span class="line">	<span class="type">int</span> name, w;</span><br><span class="line">	<span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> T &amp; other) <span class="type">const</span> {</span><br><span class="line">		<span class="keyword">return</span> w &gt; other.w;</span><br><span class="line">	}</span><br><span class="line">};</span><br><span class="line">vector &lt;VT&gt; edge[MAXN];</span><br><span class="line">priority_queue &lt;T&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>{</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;n, &amp;m, &amp;s, &amp;t);</span><br><span class="line">	<span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>, w = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) {</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x, &amp;y, &amp;w);</span><br><span class="line">		edge[x].<span class="built_in">push_back</span>((VT){y, w});</span><br><span class="line">		edge[y].<span class="built_in">push_back</span>((VT){x, w});</span><br><span class="line">	}</span><br><span class="line">	q.<span class="built_in">push</span>((T){s, <span class="number">0</span>});</span><br><span class="line">	<span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) {</span><br><span class="line">		T tmp = q.<span class="built_in">top</span>();</span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="keyword">if</span> (vis[tmp.name]) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span> vis[tmp.name] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (tmp.name == t) {</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, tmp.w);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edge[tmp.name].<span class="built_in">size</span>(); ++i) {</span><br><span class="line">			<span class="keyword">if</span> (vis[edge[tmp.name][i].end]) <span class="keyword">continue</span>;</span><br><span class="line">			q.<span class="built_in">push</span>((T){edge[tmp.name][i].end, edge[tmp.name][i].w + tmp.w});</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div></div><div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8"><div class="article-copyright-info-container"><ul><li><strong>Title:</strong> Note-Heat-Wave</li><li><strong>Author:</strong> James</li><li><strong>Created at :</strong> 2024-02-15 15:11:01</li><li><strong>Updated at :</strong> 2024-05-12 10:25:55</li><li><strong>Link:</strong> https://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/</li><li><strong>License: </strong>This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.</li></ul></div></div><ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden"><li class="tag-item mx-0.5"><a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>&nbsp;</li></ul><div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8"><div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2"><a class="prev" rel="prev" href="/2024/03/15/zhihu-24-3-15/"><span class="left arrow-icon flex justify-center items-center"><i class="fa-solid fa-chevron-left"></i> </span><span class="title flex justify-center items-center"><span class="post-nav-title-item">洪七公的人格分析</span> <span class="post-nav-item">Prev posts</span></span></a></div><div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2"><a class="next" rel="next" href="/2024/02/03/Building/"><span class="title flex justify-center items-center"><span class="post-nav-title-item">建站小记</span> <span class="post-nav-item">Next posts</span> </span><span class="right arrow-icon flex justify-center items-center"><i class="fa-solid fa-chevron-right"></i></span></a></div></div><div class="comment-container px-2 sm:px-6 md:px-8 pb-8"><div class="comments-container mt-10 w-full"><div id="comment-anchor" class="w-full h-2.5"></div><div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">Comments</div><div id="waline"></div><script type="module" data-swup-reload-script>import{init}from"/js/libs/waline.mjs";function loadWaline(){init({el:"#waline",serverURL:"https://example.example.com",lang:"zh-CN",dark:'body[class~="dark-mode"]',reaction:!1,requiredMeta:["nick","mail"],emoji:[]})}"undefined"!=typeof swup?loadWaline():window.addEventListener("DOMContentLoaded",loadWaline)</script></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><div class="toc-title">On this page</div><div class="page-title">Note-Heat-Wave</div></div></div></div></div></div></div><div class="main-content-footer"><footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color"><div class="info-container py-3 text-center"><div class="text-center">&copy; <span>2022</span> - 2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration:0.5s;color:#f54545"></i>&nbsp;&nbsp;<a href="/">James</a><p class="post-count space-x-0.5"><span>12 posts in total </span><span>13.8k words in total</span></p></div><script data-swup-reload-script src="https://cn.vercount.one/js"></script><div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right"><span id="busuanzi_container_site_pv" class="lg:!block"><span class="text-sm">TOTAL PAGE VIEWS</span> <span id="busuanzi_value_site_pv"></span></span></div><div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left"><span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span> <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span></div><div>Blog up for <span class="odometer" id="runtime_days"></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec</div><script data-swup-reload-script>try{function odometer_init(){document.querySelectorAll(".odometer").forEach(e=>{new Odometer({el:e,format:"( ddd).dd",duration:200})})}odometer_init()}catch(e){}</script></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="article-tools-list"><li class="right-bottom-tools page-aside-toggle"><i class="fa-regular fa-outdent"></i></li><li class="go-comment"><i class="fa-regular fa-comments"></i></li></ul></div></div><div class="right-side-tools-container"><div class="side-tools-container"><ul class="hidden-tools-list"><li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center"><i class="fa-regular fa-magnifying-glass-plus"></i></li><li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center"><i class="fa-regular fa-magnifying-glass-minus"></i></li><li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center"><i class="fa-regular fa-moon"></i></li><li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center"><i class="fa-regular fa-arrow-down"></i></li></ul><ul class="visible-tools-list"><li class="right-bottom-tools toggle-tools-list flex justify-center items-center"><i class="fa-regular fa-cog fa-spin"></i></li><li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center"><i class="arrow-up fas fa-arrow-up"></i> <span class="percent"></span></li></ul></div></div><div class="image-viewer-container"><img src=""></div></main><script src="/js/libs/Swup.min.js"></script><script src="/js/libs/SwupSlideTheme.min.js"></script><script src="/js/libs/SwupScriptsPlugin.min.js"></script><script src="/js/libs/SwupProgressPlugin.min.js"></script><script src="/js/libs/SwupScrollPlugin.min.js"></script><script src="/js/libs/SwupPreloadPlugin.min.js"></script><script>const swup=new Swup({plugins:[new SwupScriptsPlugin({optin:!0}),new SwupProgressPlugin,new SwupScrollPlugin({offset:80}),new SwupSlideTheme({mainElement:".main-content-body"}),new SwupPreloadPlugin],containers:["#swup"]})</script><script src="/js/tools/imageViewer.js" type="module"></script><script src="/js/utils.js" type="module"></script><script src="/js/main.js" type="module"></script><script src="/js/layouts/navbarShrink.js" type="module"></script><script src="/js/tools/scrollTopBottom.js" type="module"></script><script src="/js/tools/lightDarkSwitch.js" type="module"></script><script src="/js/layouts/categoryList.js" type="module"></script><script src="/js/tools/codeBlock.js" type="module"></script><script src="/js/layouts/lazyload.js" type="module"></script><script src="/js/tools/runtime.js"></script><script src="/js/libs/odometer.min.js"></script><link rel="stylesheet" href="/assets/odometer-theme-minimal.css"><script src="/js/libs/Typed.min.js"></script><script src="/js/plugins/typed.js" type="module"></script><script src="/js/libs/anime.min.js"></script><script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script><script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script><script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script><script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script><script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script></body></html>
