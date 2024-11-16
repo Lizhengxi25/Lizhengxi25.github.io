@@ -18,17 +18,17 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G  刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时">
+        <meta name="description" content="Writing a solution for myself—let&#39;s call it a note. Since it&#39;s written for myself, I should be honest and kind to myself. I won&#39;t make too many excuses, but I also want to leave a mark of my youth.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Note-Heat-Wave">
+<meta property="og:title" content="Note on &quot;Heat Wave&quot;">
 <meta property="og:url" content="http://lizhengxi25.github.io/2024/02/15/Note-Heat-Wave/index.html">
 <meta property="og:site_name" content="James&#39; Blog">
-<meta property="og:description" content="写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。 洛谷 P1339 [USACO09OCT] Heat Wave G  刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时">
+<meta property="og:description" content="Writing a solution for myself—let&#39;s call it a note. Since it&#39;s written for myself, I should be honest and kind to myself. I won&#39;t make too many excuses, but I also want to leave a mark of my youth.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-15T07:11:01.000Z">
-<meta property="article:modified_time" content="2024-05-12T02:25:55.984Z">
+<meta property="article:modified_time" content="2024-11-16T13:18:50.940Z">
 <meta property="article:author" content="James Li">
-<meta property="article:tag" content="题解">
+<meta property="article:tag" content="Solution">
 <meta name="twitter:card" content="summary">
     
     
@@ -41,7 +41,7 @@
     
     <title>
         
-            Note-Heat-Wave | James&#39; Blog
+            Note on &#34;Heat Wave&#34; | James&#39; Blog
         
     </title>
 
@@ -593,11 +593,11 @@ mjx-container[display="true"] + br {
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
@@ -627,7 +627,7 @@ mjx-container[display="true"] + br {
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Note-Heat-Wave</h1>
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Note on &#34;Heat Wave&#34;</h1>
                 </div>
             
             </div>
@@ -655,8 +655,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-05-12 10:25:55</span>
-            <span class="mobile">2024-05-12 10:25:55</span>
+            <span class="desktop">2024-11-16 21:18:50</span>
+            <span class="mobile">2024-11-16 21:18:50</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -668,7 +668,7 @@ mjx-container[display="true"] + br {
             <ul>
                 
                     <li>
-                        <a href="/tags/%E9%A2%98%E8%A7%A3/">题解</a>&nbsp;
+                        <a href="/tags/Solution/">Solution</a>&nbsp;
                     </li>
                 
             </ul>
@@ -678,12 +678,12 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>870 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>702 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>3 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>4 Mins</span>
         </span>
     
     
@@ -702,17 +702,56 @@ mjx-container[display="true"] + br {
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <p>写给自己的题解，就叫做笔记吧。既然是给自己写的，自当对自己坦诚与爱。不做过多的辩解，但也要给自己留下一个青春的印记。</p>
-<p><strong><a class="link" target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1339">洛谷 P1339
+            <p>Writing a solution for myself—let's call it a note. Since it's
+written for myself, I should be honest and kind to myself. I won't make
+too many excuses, but I also want to leave a mark of my youth.</p>
+<p><strong><a class="link" target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1339">Luogu P1339
 [USACO09OCT] Heat Wave G <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-<p>刚学图论的那段时间，看了许多知乎与cf上关于刷题的建议。众多大佬建议刷题时要少看题解，或者不看题解。做不出来的题就以后再做。D教练也告诉我们：我们现在对于题目的容忍度已经比他那是低太多，一道题顶多4四个小时，做不出来就直接躺平了。他那时侯经常要想一周。其实，就是要自己想，总结出自己的法子，而非纯粹地套用模型。</p>
-<p>外加D教练还没有给我们班讲过图论，我自己的图论题解法都是靠着《深入浅出》、各篇板题的题解外加自己的摸索，总结出来的。各种算法的名字我也不知道，只在学习图的存储和遍历时，学了“链式向前星”。其余的，都是基于深搜广搜，随机应变。</p>
-<p>刚做这道题的时候，觉得这题看着很板，遍历所有的点就可以了。后来发现这题的不同之处在于每条边的边权不一定是1。之前的广搜或者深搜其实有个妙处在于每遍历一层，距离都+1。因此，随着遍历的深入，距离也增加，也就是距离与遍历的深度是单调关系。因此第一次搜到目标点时的距离，便是答案。</p>
-<p>然而，对于这道题，边权不是恒为1，因此，两点距离并不与遍历的深度呈单调关系。于是，我想到枚举起始点与某点距离，用优先队列维护。比如，先将起始点的临界点入队，枚举距离，若有一点正好离终点的距离是i，那么，起始点离他的最短距离便是i，就可以打标记表示访问过了，并将其入队。</p>
-<p>在声明优化之前，先强调一下，对于不重复点的一条路上，两点距离仍与遍历的深度呈单调关系，因为边权不为负数。</p>
-<p>当我们枚举距离时，会有很多空距离，白白浪费时间。而对于优先队列，队首一定是最近的点，因此每次只需要取出队首元素进行延申即可。当遇到目标点时，此时的距离就是最短距离。注意：队列中取出的点记得删。</p>
-<p>附上代码记录成长：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN (int) (2505)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXM (int) (6205)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, s, t, ans = <span class="number">1e9</span>;</span><br><span class="line"><span class="type">char</span> vis[MAXN];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">VT</span> {</span><br><span class="line">	<span class="type">int</span> end, w;</span><br><span class="line">};</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">T</span> {</span><br><span class="line">	<span class="type">int</span> name, w;</span><br><span class="line">	<span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> T &amp; other) <span class="type">const</span> {</span><br><span class="line">		<span class="keyword">return</span> w &gt; other.w;</span><br><span class="line">	}</span><br><span class="line">};</span><br><span class="line">vector &lt;VT&gt; edge[MAXN];</span><br><span class="line">priority_queue &lt;T&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>{</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;n, &amp;m, &amp;s, &amp;t);</span><br><span class="line">	<span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>, w = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) {</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x, &amp;y, &amp;w);</span><br><span class="line">		edge[x].<span class="built_in">push_back</span>((VT){y, w});</span><br><span class="line">		edge[y].<span class="built_in">push_back</span>((VT){x, w});</span><br><span class="line">	}</span><br><span class="line">	q.<span class="built_in">push</span>((T){s, <span class="number">0</span>});</span><br><span class="line">	<span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) {</span><br><span class="line">		T tmp = q.<span class="built_in">top</span>();</span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="keyword">if</span> (vis[tmp.name]) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span> vis[tmp.name] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (tmp.name == t) {</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, tmp.w);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edge[tmp.name].<span class="built_in">size</span>(); ++i) {</span><br><span class="line">			<span class="keyword">if</span> (vis[edge[tmp.name][i].end]) <span class="keyword">continue</span>;</span><br><span class="line">			q.<span class="built_in">push</span>((T){edge[tmp.name][i].end, edge[tmp.name][i].w + tmp.w});</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>When I was first learning graph theory, I read many recommendations
+on Zhihu and Codeforces about practicing problem-solving. Many experts
+suggested that when practicing, one should minimize or avoid reading
+solutions. If you can't solve a problem, come back to it later. Coach D
+also told us: Our tolerance for tough problems is much lower than it was
+in his time. Nowadays, if we can't solve a problem within four hours, we
+just give up. Back then, he would often ponder a problem for a week.
+Essentially, you have to think independently and develop your own
+methods rather than purely applying templates.</p>
+<p>Moreover, Coach D hasn't taught our class graph theory yet. My
+approaches to graph problems are based on the book "An In-Depth and
+Simple Approach," solutions to various standard problems, and my own
+explorations. I don't even know the names of many algorithms. When
+learning about graph storage and traversal, I learned the "Forward Star"
+method. The rest is based on depth-first search (DFS) and breadth-first
+search (BFS), adapting as needed.</p>
+<p>When I first attempted this problem, I thought it seemed standard—you
+just traverse all the nodes. Later, I realized the difference in this
+problem is that the weight of each edge is not necessarily 1.
+Previously, BFS or DFS had the nice property that each layer traversed
+increases the distance by 1. Therefore, as the traversal goes deeper,
+the distance increases—the distance has a monotonic relationship with
+the depth of traversal. Thus, the first time we reach the target node,
+the distance is the answer.</p>
+<p>However, in this problem, the edge weights are not all 1, so the
+distance between two nodes does not have a monotonic relationship with
+the depth of traversal. So I thought of enumerating the distances from
+the starting point to each node, maintaining them using a priority
+queue. For example, first enqueue the adjacent nodes of the starting
+point, enumerate the distances, and if there's a node whose distance to
+the endpoint is exactly ( i ), then the shortest distance from the
+starting point to that node is ( i ). We can mark it as visited and
+enqueue it.</p>
+<p>Before discussing optimization, let me emphasize that along a path
+without repeated nodes, the distance between two nodes still has a
+monotonic relationship with the depth of traversal because the edge
+weights are non-negative.</p>
+<p>When we enumerate distances, there can be many empty distances,
+wasting time. However, with a priority queue, the node at the front is
+always the closest, so each time we only need to dequeue the front
+element and expand from it. When we reach the target node, the current
+distance is the shortest distance. Note: Remember to remove nodes that
+have been dequeued.</p>
+<p>Here's the code, recording my progress:</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN 2505</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXM 6205</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, s, t, ans = <span class="number">1e9</span>;</span><br><span class="line"><span class="type">char</span> vis[MAXN];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span> {</span><br><span class="line">    <span class="type">int</span> end, w;</span><br><span class="line">};</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> {</span><br><span class="line">    <span class="type">int</span> name, w;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Node&amp; other) <span class="type">const</span> {</span><br><span class="line">        <span class="keyword">return</span> w &gt; other.w;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line">vector&lt;Edge&gt; edge[MAXN];</span><br><span class="line">priority_queue&lt;Node&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;n, &amp;m, &amp;s, &amp;t);</span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>, w = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) {</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x, &amp;y, &amp;w);</span><br><span class="line">        edge[x].<span class="built_in">push_back</span>({y, w});</span><br><span class="line">        edge[y].<span class="built_in">push_back</span>({x, w});</span><br><span class="line">    }</span><br><span class="line">    q.<span class="built_in">push</span>({s, <span class="number">0</span>});</span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) {</span><br><span class="line">        Node tmp = q.<span class="built_in">top</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (vis[tmp.name]) <span class="keyword">continue</span>;</span><br><span class="line">        vis[tmp.name] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (tmp.name == t) {</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, tmp.w);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; edge[tmp.name].<span class="built_in">size</span>(); ++i) {</span><br><span class="line">            <span class="keyword">if</span> (vis[edge[tmp.name][i].end]) <span class="keyword">continue</span>;</span><br><span class="line">            q.<span class="built_in">push</span>({edge[tmp.name][i].end, edge[tmp.name][i].w + tmp.w});</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
 
         </div>
 
@@ -720,14 +759,14 @@ mjx-container[display="true"] + br {
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> Note-Heat-Wave</li>
+        <li><strong>Title:</strong> Note on &#34;Heat Wave&#34;</li>
         <li><strong>Author:</strong> James</li>
         <li><strong>Created at
                 :</strong> 2024-02-15 15:11:01</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-05-12 10:25:55
+                    :</strong> 2024-11-16 21:18:50
             </li>
         
         <li>
@@ -753,7 +792,7 @@ mjx-container[display="true"] + br {
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>&nbsp;
+                        <a href="/tags/Solution/">#Solution</a>&nbsp;
                     </li>
                 
             </ul>
@@ -786,7 +825,7 @@ mjx-container[display="true"] + br {
                         href="/2024/02/03/Building/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">建站小记</span>
+                                <span class="post-nav-title-item">Blog Building</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -807,7 +846,7 @@ mjx-container[display="true"] + br {
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">Note-Heat-Wave</div>
+        <div class="page-title">Note on &#34;Heat Wave&#34;</div>
         
 
     </div>
@@ -845,7 +884,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            13.8k words in total
+                            11.3k words in total
                         </span>
                     
                 </p>
