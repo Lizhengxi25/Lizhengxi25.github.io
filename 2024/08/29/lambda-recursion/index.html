@@ -18,17 +18,20 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="An esteemed mentor once told me: &quot;The most important thing in research is taste; the articles you write should become paradigms. Regardless of your level, you must have such scholarly confidence and">
+    
+    
+        
+        <meta name="description" content="有位恩师曾对我说过：“做研究最重要的是品位，写的文章要成为范式。不论水平高低，都要有这样的治学信心和野心。”写了半年的博客，除过几篇算法竞赛的题解，没有下笔写一篇关于计算机的文章——没什么拿的出手的小研究以撰写成文。而今天这篇《关于 lambda 表达式的递归》，是基于当前自己很满意的一个小探究。它代表了“品”与“位”：一行代码的简洁是大道至简之品；语言基础的奥妙是追本溯源之位。它并不是从无到">
 <meta property="og:type" content="article">
-<meta property="og:title" content="On Recursion in Lambda Expressions">
+<meta property="og:title" content="关于 lambda 表达式的递归">
 <meta property="og:url" content="http://lizhengxi25.github.io/2024/08/29/lambda-recursion/index.html">
 <meta property="og:site_name" content="James&#39; Blog">
-<meta property="og:description" content="An esteemed mentor once told me: &quot;The most important thing in research is taste; the articles you write should become paradigms. Regardless of your level, you must have such scholarly confidence and">
+<meta property="og:description" content="有位恩师曾对我说过：“做研究最重要的是品位，写的文章要成为范式。不论水平高低，都要有这样的治学信心和野心。”写了半年的博客，除过几篇算法竞赛的题解，没有下笔写一篇关于计算机的文章——没什么拿的出手的小研究以撰写成文。而今天这篇《关于 lambda 表达式的递归》，是基于当前自己很满意的一个小探究。它代表了“品”与“位”：一行代码的简洁是大道至简之品；语言基础的奥妙是追本溯源之位。它并不是从无到">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-08-29T06:32:55.000Z">
-<meta property="article:modified_time" content="2024-11-16T13:28:08.887Z">
+<meta property="article:modified_time" content="2024-11-15T13:23:03.376Z">
 <meta property="article:author" content="James Li">
-<meta property="article:tag" content="Computer Science">
+<meta property="article:tag" content="计算机">
 <meta name="twitter:card" content="summary">
     
     
@@ -41,7 +44,7 @@
     
     <title>
         
-            On Recursion in Lambda Expressions | James&#39; Blog
+            关于 lambda 表达式的递归 | James&#39; Blog
         
     </title>
 
@@ -58,7 +61,7 @@
 
     
         
-<link rel="stylesheet" href="/assets/build/styles.css">
+<link rel="stylesheet" href="/css/build/tailwind.css">
 
     
 
@@ -76,13 +79,13 @@
     
     
         
-<script src="/js/libs/anime.min.js"></script>
+<script src="/js/build/libs/anime.min.js"></script>
 
     
 
     <script id="hexo-configurations">
     window.config = {"hostname":"lizhengxi25.github.io","root":"/","language":"en"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Ⱄⱄ..."},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"James' Blog","subtitle":{"text":["言或自生天趣，事当曲尽人情"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Lizhengxi25","Blog":"https://lizhengxi25.github.io","Friends":"/friends"}}},"search":{"enable":false,"preload":true},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/02/03 09:49:06"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Ⱄⱄ..."},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"James' Blog","subtitle":{"text":["言或自生天趣，事当曲尽人情"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Lizhengxi25","Blog":"https://lizhengxi25.github.io","Friends":"/friends"}}},"search":{"enable":false,"preload":true},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/02/03 09:49:06"};
     window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     window.data = {"masonry":false};
   </script>
@@ -219,23 +222,22 @@ mjx-container[display="true"] + br {
 </style></head>
 
 
-<body>
-<div class="progress-bar-container">
-    
-        <span class="scroll-progress-bar"></span>
-    
 
-    
-        <span class="pjax-progress-bar"></span>
-<!--        <span class="swup-progress-icon">-->
-<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
-<!--        </span>-->
-    
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
 </div>
 
-
-
-    <style>
+<style>
     :root {
         --preloader-background-color: #fff;
         --preloader-text-color: #000;
@@ -384,13 +386,11 @@ mjx-container[display="true"] + br {
 
 <main class="page-container" id="swup">
 
-    
+	
 
-    <div class="main-content-container flex flex-col justify-between min-h-dvh">
-
-
-        <div class="main-content-header">
-            <header class="navbar-container px-6 md:px-12">
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
     <div class="navbar-content transition-navbar ">
         <div class="left">
             
@@ -593,15 +593,15 @@ mjx-container[display="true"] + br {
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">13</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -612,40 +612,37 @@ mjx-container[display="true"] + br {
 </header>
 
 
-        </div>
+		</div>
 
-        <div class="main-content-body">
+		<div class="main-content-body transition-fade-up">
+			
 
-            
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
 
-            <div class="main-content">
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">关于 lambda 表达式的递归</h1>
+			</div>
+			
+		</div>
 
-                
-                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
-    <div class="article-content-container">
-
-        <div class="article-title relative w-full">
-            
-                <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">On Recursion in Lambda Expressions</h1>
-                </div>
-            
-            </div>
-
-        
-            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
-                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
-                    <img src="/images/redefine-avatar.svg">
-                </div>
-                <div class="info flex flex-col justify-between">
-                    <div class="author flex items-center">
-                        <span class="name text-default-text-color text-lg font-semibold">James</span>
-                        
-                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/redefine-avatar.svg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">James</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
         <span class="desktop">2024-08-29 14:32:55</span>
@@ -655,28 +652,12 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-11-16 21:28:08</span>
-            <span class="mobile">2024-11-16 21:28:08</span>
+            <span class="desktop">2024-11-15 21:23:03</span>
+            <span class="mobile">2024-11-15 21:23:03</span>
             <span class="hover-info">Updated</span>
         </span>
     
 
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa-regular fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/Computer-Science/">Computer Science</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
     
     
         <span class="article-tags article-meta-item">
@@ -684,7 +665,7 @@ mjx-container[display="true"] + br {
             <ul>
                 
                     <li>
-                        <a href="/tags/Computer-Science/">Computer Science</a>&nbsp;
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;
                     </li>
                 
             </ul>
@@ -694,7 +675,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.4k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2k Words</span>
         </span>
     
     
@@ -709,47 +690,30 @@ mjx-container[display="true"] + br {
     
 </div>
 
-                    </div>
-                </div>
-            </div>
-        
+				</div>
+			</div>
+		</div>
+		
 
-        
+		
 
 
-        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <p><em>An esteemed mentor once told me: "The most important thing in
-research is taste; the articles you write should become paradigms.
-Regardless of your level, you must have such scholarly confidence and
-ambition." For half a year, I've been writing a blog, but apart from a
-few algorithm competition solutions, I hadn't penned an article about
-computer science—I didn't have any small research worthy of writing.
-Today, this piece "On Recursion in Lambda Expressions" is based on a
-small exploration with which I am quite satisfied. It represents both
-"taste" and "standard": the simplicity of a one-liner code embodies the
-taste of great simplicity; the subtlety of the language's foundation
-reflects the standard of tracing back to the roots. It's not a creation
-ex nihilo but a meticulous investigation.</em></p>
-<p><em>The world currently views computer science predominantly through
-the lens of application. While I certainly acknowledge this perspective
-and understand that application is where its practical value lies, every
-discipline, when researched to perfection, and every craft, when honed
-to mastery, reveals its artistic beauty. On my journey of learning and
-scholarship, I hope to capture and record every piece of beauty along
-the way. As the inaugural piece of my computer science research blog
-series, I hope it serves as a paradigm for myself, demonstrating the
-cultivation I aspire to uphold in the future—the pursuit of
-beauty.</em></p>
-<h2 id="introduction">Introduction</h2>
-<p>The topic of recursion in <code>lambda</code> expressions comes from
-Task 6 of UCB CS61A Homework 3. The original task is as follows:</p>
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p><em>有位恩师曾对我说过：“做研究最重要的是品位，写的文章要成为范式。不论水平高低，都要有这样的治学信心和野心。”写了半年的博客，除过几篇算法竞赛的题解，没有下笔写一篇关于计算机的文章——没什么拿的出手的小研究以撰写成文。而今天这篇《关于
+lambda
+表达式的递归》，是基于当前自己很满意的一个小探究。它代表了“品”与“位”：一行代码的简洁是大道至简之品；语言基础的奥妙是追本溯源之位。它并不是从无到有的发现，而是一份精心的探究。</em></p>
+<p><em>单纯的应用是当下世界对计算机这门学科的认知。我固然承认这一种看法并理解应用是它的现实价值所在。但是，每一门学科研究至已臻化境、每一门技艺打磨到炉火纯青后都会展现它的艺术美。而我希望在我的求学与治学之路上，能够拾起沿途的每一份美感并留以记录。此篇作为我的计算机研究系列博客的处女作，希望它能作为给自己的范式昭示未来能够坚持贯彻的修养——追求美感。</em></p>
+<h2 id="引入">引入</h2>
+<p>有关于 <code>lambda</code> 表达式递归的话题来自 UCB CS61A homework 3
+的任务 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.131ex" height="1.557ex" role="img" focusable="false" viewbox="0 -666 500 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"/></g></g></g></svg></mjx-container></span>。原任务如下：</p>
 <h3 id="q6-anonymous-factorial">Q6: Anonymous Factorial</h3>
 <blockquote>
 <p>This question demonstrates that it's possible to write recursive
 functions without assigning them a name in the global frame.</p>
+</blockquote>
 <p><strong>The recursive factorial function can be written as a single
 expression by using a conditional expression.</strong></p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fact = <span class="keyword">lambda</span> n: <span class="number">1</span> <span class="keyword">if</span> n == <span class="number">1</span> <span class="keyword">else</span> mul(n, fact(sub(n, <span class="number">1</span>)))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fact(<span class="number">5</span>)</span><br><span class="line"><span class="number">120</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fact = <span class="keyword">lambda</span> n: <span class="number">1</span> <span class="keyword">if</span> n == <span class="number">1</span> <span class="keyword">else</span> mul(n, fact(sub(n, <span class="number">1</span>)))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fact(<span class="number">5</span>)</span><br><span class="line"><span class="number">120</span></span><br></pre></td></tr></table></figure></div>
 <p>However, this implementation relies on the fact (no pun intended)
 that <code>fact</code> has a name, to which we refer in the body of
 <code>fact</code>. To write a recursive function, we have always given
@@ -760,125 +724,92 @@ name!</p>
 <p>Write an expression that computes n factorial using only call
 expressions, conditional expressions, and <code>lambda</code>
 expressions (no assignment or <code>def</code> statements).</p>
-<p><strong>Note</strong>: You are not allowed to use
-<code>make_anonymous_factorial</code> in your return expression.</p>
+<blockquote>
+<p>Note: You are not allowed to use make_anonymous_factorial in your
+return expression.</p>
+</blockquote>
 <p>The <code>sub</code> and <code>mul</code> functions from the operator
 module are the only built-in functions required to solve this
 problem.</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> sub, mul</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_anonymous_factorial</span>():</span><br><span class="line">    <span class="string">"""Return the value of an expression that computes factorial.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; make_anonymous_factorial()(5)</span></span><br><span class="line"><span class="string">    120</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; from construct_check import check</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; # ban any assignments or recursion</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; check(HW_SOURCE_FILE, 'make_anonymous_factorial',</span></span><br><span class="line"><span class="string">    ...     ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'FunctionDef', 'Recursion'])</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'YOUR_EXPRESSION_HERE'</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> sub, mul</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_anonymous_factorial</span>():</span><br><span class="line">    <span class="string">"""Return the value of an expression that computes factorial.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; make_anonymous_factorial()(5)</span></span><br><span class="line"><span class="string">    120</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; from construct_check import check</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; # ban any assignments or recursion</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; check(HW_SOURCE_FILE, 'make_anonymous_factorial',</span></span><br><span class="line"><span class="string">    ...     ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'FunctionDef', 'Recursion'])</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'YOUR_EXPRESSION_HERE'</span></span><br></pre></td></tr></table></figure></div>
 <p>Use Ok to test your code:</p>
-<div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 ok -q make_anonymous_factorial</span><br></pre></td></tr></table></figure></div>
-</blockquote>
-<p>In this article, "recursion in <code>lambda</code> expressions"
-refers to recursion within <code>lambda</code> expressions that do not
-contain any assignment operations. In Python, a <code>lambda</code>
-expression is a form of function expression. Because it occupies only
-one line, it greatly enhances code conciseness but inevitably reduces
-code readability and maintainability. Generally, when writing simple
-modules, <code>lambda</code> expressions can reasonably simplify code.
-However, if we consider <code>lambda</code> expressions and the
-recursion discussed in this article from an application perspective,
-we'll find that recursive <code>lambda</code> expressions are not code
-with high readability and maintainability. Nevertheless, recursion in
-<code>lambda</code> expressions is more of a theoretical concept and
-represents a way of thinking: by exploring <code>lambda</code>
-expressions, we can glimpse the ingenious design of the Python language
-itself.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>A recursive <code>lambda</code> expression that recurses ( t ) times,
-performs the function <code>calc()</code> on ( k ) each time, has a
-recursion termination condition <code>condition(k)</code>, and returns
-the value ( ) when the termination condition is true, is as follows:</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k))(<span class="keyword">lambda</span> n, k: (stop_num <span class="keyword">if</span> condition(k) <span class="keyword">else</span> calc(n(n, k - <span class="number">1</span>), k)), t))</span><br><span class="line">lambda_recursion(iteration_times)</span><br></pre></td></tr></table></figure></div>
-<p>The function <code>lambda_recursion</code> is just a demonstration
-(it is optional for the core function recursion).</p>
-<p>More specifically, taking recursive computation of the factorial as
-an example, the recursive <code>lambda</code> expression is as
-follows:</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k))(<span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k), t))</span><br><span class="line">lambda_recursion(iteration_times)</span><br></pre></td></tr></table></figure></div>
-<h2 id="theory">Theory</h2>
-<p>When exploring <code>lambda</code> expressions, an important point is
-the variability of functions in Python. In Python, functions can act as
-variables, meaning they can be assigned, passed to other functions,
-returned by other functions, etc. More specifically, an unexecuted
-function can be treated as a variable, and this variable becomes the
-function itself. For example:</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_func</span>(<span class="params">k</span>):</span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line">f = demo_func</span><br><span class="line"></span><br><span class="line">f(<span class="number">25</span>)</span><br><span class="line"></span><br><span class="line">F = f(demo_func)</span><br><span class="line"></span><br><span class="line">F(<span class="number">25</span>)</span><br></pre></td></tr></table></figure></div>
-<p>This yields:</p>
-<div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">25</span><br><span class="line">25</span><br></pre></td></tr></table></figure></div>
-<h2 id="step-by-step-abstraction">Step-by-Step Abstraction</h2>
-<p>Continuing with the example of recursively computing the factorial,
-let's analyze the recursion in <code>lambda</code> expressions. To
-simplify thinking and reduce debugging complexity, we can first simulate
-the recursion in <code>lambda</code> expressions using assignments and
-<code>def</code>. Since recursion in <code>lambda</code> expressions
-cannot involve assignment operations, a function cannot call itself
-within its own body. Recursion is defined as a function calling itself,
-which is the crux of the difficulty and the apparent contradiction. The
-key to breaking this impasse lies in the clever use of scope. We must be
-clear that within the issue of recursion in <code>lambda</code>
-expressions, a function's scope includes only the elements within the
-function itself. That is, there are no elements in the outer layer or
-the current layer of the function—it's empty. It's easy to prove that
-since assignment operations are restricted, there cannot be any elements
-in the outer layer, and the function's current layer doesn't define the
-function itself. At this point, we can only manipulate the elements
-passed into the function.</p>
-<p>When we focus on the inside of a function, it's easy to overlook the
-function's parameters. This is precisely the key to solving pure
-recursion in <code>lambda</code> expressions. We can pass a function
-into another function and execute the passed-in function within the
-function while passing the function itself as a parameter—this achieves
-recursion. Next, we can write another function with a similar idea, also
-passing in a function and then calling it. However, this newly written
-function will serve as an initiator to start the entire recursion.
-Finally, we can simply encapsulate everything into a final function with
-only one parameter. Here's an example:</p>
-<h3 id="specific-layer">Specific Layer</h3>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">A</span>(<span class="params">n, k</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"in A: n=<span class="subst">{n}</span>, k=<span class="subst">{k}</span>"</span>)</span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> n(n, k - <span class="number">1</span>) * k</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">B</span>(<span class="params">n, k</span>):</span><br><span class="line">    <span class="keyword">return</span> n(n, k)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">C</span>(<span class="params">k</span>):</span><br><span class="line">    <span class="keyword">return</span> B(A, k)</span><br><span class="line"></span><br><span class="line">ANS = C(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(ANS)</span><br></pre></td></tr></table></figure></div>
-<p>Execution results:</p>
-<div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=5</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=4</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=3</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=2</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=1</span><br><span class="line">120</span><br></pre></td></tr></table></figure></div>
-<p>In the code above, function <code>A</code> is the core recursive
-function, where <code>n</code> is passed in as a function, and
-<code>k</code> represents the recursion depth. Function <code>B</code>
-is the initiating function; essentially, it's similar to <code>A</code>
-but without a termination condition. Function <code>C</code> is the
-final function, using functions <code>B</code> and <code>A</code>, and
-has only one parameter—the depth. Note that the functions <code>A</code>
-and <code>B</code> appearing in function <code>C</code> cannot be
-described as being called because functions <code>A</code> and
-<code>B</code> can be entirely written into <code>C</code>. Here, they
-are written separately for demonstration purposes.</p>
-<h3 id="combining-with-lambda-expressions">Combining with Lambda
-Expressions</h3>
-<p>Further abstracting, we can rewrite the functions above into
-<code>lambda</code> expressions:</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k)</span><br><span class="line">b = <span class="keyword">lambda</span> n, k: n(n, k)</span><br><span class="line">c = <span class="keyword">lambda</span> k: b(a, k)</span><br></pre></td></tr></table></figure></div>
-<h3 id="integrating-lambda-expressions">Integrating Lambda
-Expressions</h3>
-<p>Writing the functions defined with <code>def</code> as
-<code>lambda</code> expressions allows us to integrate them into a
-single <code>lambda</code> expression more conveniently. As mentioned
-earlier, functions <code>a</code> and <code>b</code> can be written into
-function <code>c</code>. Therefore, we just need to replace
-<code>b</code> and <code>a</code> in function <code>c</code> with their
-corresponding <code>lambda</code> expressions.</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k))(<span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k), t))</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 ok -q make_anonymous_factorial</span><br></pre></td></tr></table></figure></div>
+<p>本文所指的 <code>lambda</code> 表达式递归是指不含任何赋值操作的
+<code>lambda</code> 表达式递归。在 python 中，<code>lambda</code>
+表达式是函数的一种表达形式，由于只占一行，它大大提高了代码的简洁性，但不可避免地降低了代码的可读性和可维护性。一般地，在编写简单的模块时，可以用
+<code>lambda</code> 表达式合理地简化代码。当然，以应用思维去思考
+<code>lambda</code> 表达式和本文的主题递归便会发现 <code>lambda</code>
+表达式的递归绝不是可读性和可维护性高的代码。不过，<code>lambda</code>
+表达式的递归更多地是一种理论和代表着一种思维：通过对 <code>lambda</code>
+表达式的探究，我们可以窥见 python 语言本身的巧妙的设计。</p>
+<h2 id="结论">结论</h2>
+<p>递归 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.817ex" height="1.441ex" role="img" focusable="false" viewbox="0 -626 361 637"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"/></g></g></g></svg></mjx-container></span> 次、每次对 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.179ex" height="1.595ex" role="img" focusable="false" viewbox="0 -694 521 705"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"/></g></g></g></svg></mjx-container></span> 执行 <code>calc()</code>
+函数运算、递归终止条件为
+<code>condition(k)</code>、递归终止条件为真时返回值为 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.131ex" height="1.507ex" role="img" focusable="false" viewbox="0 -666 500 666"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g></g></g></svg></mjx-container></span> 的 <code>lambda</code>
+表达式递归如下：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (stop_num <span class="keyword">if</span> condition(k) <span class="keyword">else</span> calc(n(n, k - <span class="number">1</span>), k)), t))</span><br><span class="line">lambda_recursion (iritation_times)</span><br></pre></td></tr></table></figure></div>
+<p>函数 <code>lambda_recursion</code>
+只是一个方便展示的演示函数（对于核心的函数递归而言可有可无）。</p>
+<p>更具体些，以递归计算阶乘为例，<code>lambda</code>
+表达式的递归如下：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k), t))</span><br><span class="line">lambda_recursion (iritation_times)</span><br></pre></td></tr></table></figure></div>
+<h2 id="理论">理论</h2>
+<p>在探究 <code>lambda</code> 表达式时，很重要的一个点是 python
+的函数的变量性。也就是说，在 python
+中，函数可以作为一个变量，这就意味着函数可以作为一个变量被赋值、赋值、被传递于另一个函数、被另一个函数返回……更具体些，未执行的函数可以作为一个变量，而这个变量便是成为了这个函数，如：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_func</span> (k)</span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line">f = demo_func</span><br><span class="line"></span><br><span class="line">f(<span class="number">25</span>)</span><br><span class="line"></span><br><span class="line">F = f(demo_func)</span><br><span class="line"></span><br><span class="line">F(<span class="number">25</span>)</span><br></pre></td></tr></table></figure></div>
+<p>有：</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">25</span><br><span class="line">25</span><br></pre></td></tr></table></figure></div>
+<h2 id="逐层抽象">逐层抽象</h2>
+<p>仍以递归解决阶乘问题为例子，展开对 <code>lambda</code>
+表达式递归的分析。为了简化思考和调试的复杂程度，可以先用赋值和
+<code>def</code> 来模拟 <code>lambda</code> 表达式递归。由于
+<code>lambda</code>
+表达式递归中不能出现赋值操作，每一个函数内不能出现对自己的调用。而递归的定义便是一个函数对自己的调用。这正是难点所在，也是看似的矛盾之处。而破局之处便在于对作用域的精妙运用。我们必须清楚，在
+<code>lambda</code>
+表达式递归的问题中，一个函数内的作用域只包含函数内的元素。也就是说，在函数的外层和本层没有任何元素，是空的。不难证明，由于限制了赋值操作，外层不可能有任何元素存在，而函数本层也没有定义这个函数。这时，我们只能着手于对函数内的元素进行操作。</p>
+<p>当我们关注一个函数内部时，我们便很容易忽视函数的参数。而这恰恰是解决纯粹的
+<code>lambda</code>
+表达式递归的最关键之处。我们可以对一个函数传入另一个函数，而在函数内部执行这个被传入的函数，同时将这个函数作为参数传入——这样就做到了递归。接下来，我们可以再写一个类似思路的函数，同样传入一个函数，再调用它。只不过这个新写的函数将作为一个启动器，启动整个递归。最终，在简单封装成一个参数唯一的最终函数即可。例子如下：</p>
+<h3 id="具体层">具体层</h3>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">A</span> (n, k):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"in A: n=<span class="subst">{n}</span>, k=<span class="subst">{k}</span>"</span>)</span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> n(n, k - <span class="number">1</span>) * k</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">B</span> (n, k):</span><br><span class="line">    <span class="keyword">return</span> n(n, k)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">C</span> (k):</span><br><span class="line">    <span class="keyword">return</span> B(A, k)</span><br><span class="line"></span><br><span class="line">ANS = C (<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(ANS)</span><br></pre></td></tr></table></figure></div>
+<p>执行结果如下：</p>
+<div class="code-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=5</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=4</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=3</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=2</span><br><span class="line"><span class="keyword">in</span> A: n=&lt;<span class="keyword">function</span> A at 0x0000015DB5491CA0&gt;, k=1</span><br><span class="line">120</span><br></pre></td></tr></table></figure></div>
+<p>在上面的代码中，函数 <code>A</code> 是核心递归函数，<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.357ex" height="1.025ex" role="img" focusable="false" viewbox="0 -442 600 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/></g></g></g></svg></mjx-container></span> 作为一个函数被传入，<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.179ex" height="1.595ex" role="img" focusable="false" viewbox="0 -694 521 705"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"/></g></g></g></svg></mjx-container></span> 表示递归的层。函数 <code>B</code>
+是启动函数，本质上和 <code>A</code> 一样，只是没有终止条件。函数
+<code>C</code> 是最终函数，使用函数 <code>B</code> 和
+<code>A</code>，只有一个参数——层数。注意，函数 <code>C</code>
+里出现的函数 <code>A</code> 和函数 <code>B</code>
+不能用调用这个词来描述，因为函数 <code>A</code> 和函数 <code>B</code>
+完全可以被写进 <code>C</code>。这里只是为了方便展示才单独写函数
+<code>A</code> 和函数 <code>B</code>。</p>
+<h3 id="结合-lambda-表达式">结合 lambda 表达式</h3>
+<p>进一步抽象，将上面的函数写成 <code>lambda</code>
+表达式的形式，如下。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k)</span><br><span class="line">b = <span class="keyword">lambda</span> n, k: n(n, k)</span><br><span class="line">c = <span class="keyword">lambda</span> k: (b)(a, k)</span><br></pre></td></tr></table></figure></div>
+<h3 id="整合-lambda-表达式">整合 lambda 表达式</h3>
+<p>将用 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="3.475ex" height="2.059ex" role="img" focusable="false" viewbox="0 -705 1536 910"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"/></g><g data-mml-node="mi" transform="translate(520,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"/></g><g data-mml-node="mi" transform="translate(986,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/></g></g></g></svg></mjx-container></span> 定义的函数写成
+<code>lambda</code> 表达式的形式可以更方便地整合成一个
+<code>lambda</code> 表达式。也就是上文所说，函数 <code>a</code> 和函数
+<code>b</code> 可以被写进函数 <code>c</code>。所以只需要把函数
+<code>c</code> 中的 <code>b</code> 和 <code>a</code> 换成它们所对应的
+<code>lambda</code> 表达式即可。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lambda_recursion = (<span class="keyword">lambda</span> t: (<span class="keyword">lambda</span> n, k: n(n, k)) (<span class="keyword">lambda</span> n, k: (<span class="number">1</span> <span class="keyword">if</span> k &lt;= <span class="number">1</span> <span class="keyword">else</span> n(n, k - <span class="number">1</span>) * k), t))</span><br></pre></td></tr></table></figure></div>
 
-        </div>
+		</div>
 
-        
-            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
-                <div class="article-copyright-info-container">
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> On Recursion in Lambda Expressions</li>
+        <li><strong>Title:</strong> 关于 lambda 表达式的递归</li>
         <li><strong>Author:</strong> James</li>
         <li><strong>Created at
                 :</strong> 2024-08-29 14:32:55</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-11-16 21:28:08
+                    :</strong> 2024-11-15 21:23:03
             </li>
         
         <li>
@@ -897,90 +828,76 @@ corresponding <code>lambda</code> expressions.</p>
     </ul>
 </div>
 
-            </div>
-        
+		</div>
+		
 
-        
-            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
-                
-                    <li class="tag-item mx-0.5">
-                        <a href="/tags/Computer-Science/">#Computer Science</a>&nbsp;
-                    </li>
-                
-            </ul>
-        
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">#计算机</a>&nbsp;
+			</li>
+			
+		</ul>
+		
 
-        
+		
 
-        
-            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
-                
-                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2024/09/23/shst-rd-cafe/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">Investigation on the Shortest Path to the Cafeteria Using Vectors</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-                        <a class="next"
-                        rel="next"
-                        href="/2024/06/12/%E3%80%8A%E4%B8%96%E9%97%B4%E5%A7%8B%E7%BB%88%E4%BD%A0%E5%A5%BD%E3%80%8B%E4%B8%8E%E3%80%8A%E5%B0%84%E9%9B%95%E8%8B%B1%E9%9B%84%E4%BC%A0%E3%80%8B/"
-                        >
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">《世间始终你好》与《射雕英雄传》</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2024/09/23/shst-rd-cafe/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Investigation on the shortest road to the cafeteria using vectors</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2024/06/12/%E3%80%8A%E4%B8%96%E9%97%B4%E5%A7%8B%E7%BB%88%E4%BD%A0%E5%A5%BD%E3%80%8B%E4%B8%8E%E3%80%8A%E5%B0%84%E9%9B%95%E8%8B%B1%E9%9B%84%E4%BC%A0%E3%80%8B/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">《世间始终你好》与《射雕英雄传》</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
 
 
-        
-    </div>
+		
+	</div>
 
-    
-        <div class="toc-content-container">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <div class="toc-title">On this page</div>
-        <div class="page-title">On Recursion in Lambda Expressions</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#q6-anonymous-factorial"><span class="nav-text">Q6: Anonymous Factorial</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#theory"><span class="nav-text">Theory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-by-step-abstraction"><span class="nav-text">Step-by-Step Abstraction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#specific-layer"><span class="nav-text">Specific Layer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#combining-with-lambda-expressions"><span class="nav-text">Combining with Lambda
-Expressions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#integrating-lambda-expressions"><span class="nav-text">Integrating Lambda
-Expressions</span></a></li></ol></li></ol>
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">关于 lambda 表达式的递归</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5"><span class="nav-text">引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#q6-anonymous-factorial"><span class="nav-text">Q6: Anonymous Factorial</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%AE%BA"><span class="nav-text">理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%90%E5%B1%82%E6%8A%BD%E8%B1%A1"><span class="nav-text">逐层抽象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%B1%82"><span class="nav-text">具体层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E5%90%88-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">结合 lambda 表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E5%90%88-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">整合 lambda 表达式</span></a></li></ol></li></ol>
 
-    </div>
+	</div>
 </div>
-        </div>
-    
+	</div>
+	
 </div>
+			</div>
 
+			
+		</div>
 
-
-                
-
-            </div>
-
-            
-
-        </div>
-
-        <div class="main-content-footer">
-            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
     <div class="info-container py-3 text-center">
         
         <div class="text-center">
@@ -989,16 +906,16 @@ Expressions</span></a></li></ol></li></ol>
               <span>2024</span>
               -
             
-            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">James</a>
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">James</a>
             
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        12 posts in total
+                        13 posts in total
                     </span>
                     
                         <span>
-                            11.3k words in total
+                            15.3k words in total
                         </span>
                     
                 </p>
@@ -1018,7 +935,7 @@ Expressions</span></a></li></ol></li></ol>
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
             <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
-            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.7.3</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
         </div>
         
         
@@ -1047,91 +964,88 @@ Expressions</span></a></li></ol></li></ol>
         
     </div>  
 </footer>
-        </div>
-    </div>
+		</div>
+	</div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="article-tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="right-bottom-tools page-aside-toggle">
-                <i class="fa-regular fa-outdent"></i>
-            </li>
-        
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
 
-        <!-- go comment -->
-        
-    </ul>
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
 </div>
 
-        </div>
-    
-
-    <div class="right-side-tools-container">
-        <div class="side-tools-container">
-    <ul class="hidden-tools-list">
-        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
-            <i class="fa-regular fa-magnifying-glass-plus"></i>
-        </li>
-
-        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
-            <i class="fa-regular fa-magnifying-glass-minus"></i>
-        </li>
-
-        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
-            <i class="fa-regular fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-
-        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
-            <i class="fa-regular fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="visible-tools-list">
-        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
-            <i class="fa-regular fa-cog fa-spin"></i>
-        </li>
-        
-            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-        
-    </ul>
-</div>
-
-    </div>
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
-
-
-    
+	
 
 </main>
 
 
-    
-<script src="/js/libs/Swup.min.js"></script>
 
-<script src="/js/libs/SwupSlideTheme.min.js"></script>
+<script src="/js/build/libs/Swup.min.js"></script>
 
-<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
 
-<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
 
-<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
 
-<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
 
 <script>
     const swup = new Swup({
@@ -1155,44 +1069,42 @@ Expressions</span></a></li></ol></li></ol>
 
 
 
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
 
+<script src="/js/build/utils.js" type="module"></script>
 
+<script src="/js/build/main.js" type="module"></script>
 
-<script src="/js/tools/imageViewer.js" type="module"></script>
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
 
-<script src="/js/utils.js" type="module"></script>
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
 
-<script src="/js/main.js" type="module"></script>
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
 
-<script src="/js/layouts/navbarShrink.js" type="module"></script>
-
-<script src="/js/tools/scrollTopBottom.js" type="module"></script>
-
-<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
-
-<script src="/js/layouts/categoryList.js" type="module"></script>
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
 
 
 
 
 
     
-<script src="/js/tools/codeBlock.js" type="module"></script>
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
 
 
 
 
     
-<script src="/js/layouts/lazyload.js" type="module"></script>
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
 
 
 
 
     
-<script src="/js/tools/runtime.js"></script>
+<script src="/js/build/tools/runtime.js"></script>
 
     
-<script src="/js/libs/odometer.min.js"></script>
+<script src="/js/build/libs/odometer.min.js"></script>
 
     
 <link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
@@ -1201,10 +1113,10 @@ Expressions</span></a></li></ol></li></ol>
 
 
   
-<script src="/js/libs/Typed.min.js"></script>
+<script src="/js/build/libs/Typed.min.js"></script>
 
   
-<script src="/js/plugins/typed.js" type="module"></script>
+<script src="/js/build/plugins/typed.js" type="module"></script>
 
 
 
@@ -1217,38 +1129,25 @@ Expressions</span></a></li></ol></li></ol>
 
 
     
-<script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
 
-<script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
 
-<script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
-
-
-
-
-<script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
-
-
-<script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
 
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
 
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
 </body>
+
 </html>
