@@ -5,16 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build:css && eleventy --serve",
-    "build": "npm run build:css && eleventy",
+    "start": "eleventy --serve",
+    "build": "eleventy && npm run build:css",
     "build:css": "postcss src/css/main.css -o _site/css/main.css",
     "watch:css": "postcss src/css/main.css -o _site/css/main.css --watch"
   },
-  "keywords": [
-    "eleventy",
-    "tailwind",
-    "academic"
-  ],
+  "keywords": ["eleventy", "tailwind", "academic"],
   "author": {
     "name": "Zhengxi Li",
     "email": "zhengxili1216@gmail.com"
