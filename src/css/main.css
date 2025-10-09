@@ -1,0 +1,434 @@
+/* Main CSS File - Entry point for Tailwind CSS */
+/* This file contains Tailwind directives that get processed by PostCSS */
+/* TAILWIND BASE: Reset styles, element defaults */
+/* Includes Tailwind's base reset (similar to normalize.css) */
+/* Sets consistent defaults across browsers */
+/* @tailwind base; */
+
+/* TAILWIND COMPONENTS: Reusable component classes */
+/* Pre-built component styles (buttons, cards, etc.) */
+/* You can add custom components here using @layer components */
+/* @tailwind components; */
+
+/* TAILWIND UTILITIES: All utility classes */
+/* All the utility classes like .text-center, .bg-blue-500, etc. */
+/* These are generated based on your tailwind.config.js content array */
+@import "tailwindcss";
+/* CUSTOM STYLES: Add your own CSS below */
+/* Layer your custom styles after Tailwind utilities */
+/* Use @layer base, @layer components, or @layer utilities for proper ordering */
+
+@import "./article.css";
+@import "./profile.css";
+
+@layer base {
+    ::selection {
+      background-color: #37383a;
+      color: rgb(226, 220, 220) ;
+      /* text-shadow:#ca3320; */
+    }
+    
+    ::-moz-selection {
+      background-color: #37383a;
+      color: rgb(226, 220, 220) ;
+      /* text-shadow: #ca3320; */
+    }
+}
+
+@layer components {
+    .custom-card {
+        @apply bg-white shadow-lg rounded-lg p-6;
+    }
+    
+    /* Math styling */
+    .math-display {
+        @apply my-6 p-4 bg-gray-50 rounded-lg overflow-x-auto;
+    }
+    
+    .math-inline {
+        @apply mx-1;
+    }
+}
+
+/* Custom math container styling */
+.math-container {
+    @apply bg-white p-6 rounded-lg shadow-md my-8;
+    border-left: 4px solid #667eea;
+}
+
+/* Ensure math formulas are scrollable on mobile */
+.MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Times, -apple-system, Times;
+  font-size: 1.145rem;
+  line-height: 1.618;
+  color: #0d1218;
+  background-color: #f9fafb;
+}
+
+/* #f9fafb */
+
+/* Centered container with constrained width */
+.site-container {
+  max-width: 768px; /* 768px - good readable width */
+  margin: 0 auto;   /* Centers the container */
+  padding: 2rem 1.5rem;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Tablet: Adjust padding */
+@media (max-width: 768px) {
+  .site-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.site-container ul,
+.site-container ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;  /* Creates space for bullets */
+}
+
+.site-container ul {
+    list-style-type: disc;  /* Shows bullet points */
+}
+
+.site-container ol {
+    list-style-type: decimal;  /* Shows numbers */
+}
+
+.site-container li {
+    margin: 0.5rem 0;
+    line-height: 1.75;
+}
+
+/* Nested lists */
+.site-container ul ul {
+    list-style-type: circle;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.site-container ol ol {
+    list-style-type: lower-alpha;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.site-container li > p {
+    margin: 0.25rem 0;
+}
+
+/* Mobile: Smaller padding and font sizes */
+@media (max-width: 640px) {
+  .site-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  h1 {
+    font-size: 1.875rem; /* Smaller on mobile */
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Navigation - can be centered or left-aligned */
+.navigation {
+  display: flex;
+  gap: 2.2rem;
+  padding: 0.1rem 0 1.5rem 0;
+  /* border-bottom: 2px solid #e5e7eb; */
+  margin-bottom: 2rem;
+  margin-top: 0rem;
+  justify-content: center; /*centralize*/
+}
+
+/* Mobile: Smaller navigation gaps */
+@media (max-width: 640px) {
+  .navigation {
+    gap: 1rem;
+    padding: 0.75rem 0 1.5rem 0;
+  }
+}
+
+.navigation a {
+  /* color: #2563eb; */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navigation a:hover {
+  color: #1d4ed8;
+}
+
+/* Main content - left aligned */
+main {
+  text-align: left; /* Keep text left-aligned */
+}
+
+/* Headings - left aligned */
+h1, h2, h3, h4, h5, h6 {
+  text-align: left;
+  margin: 1.2rem 0 1rem 0;
+}
+
+h1 {
+  font-size: 2.14rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 550;
+}
+
+/* Paragraphs - left aligned */
+p {
+  text-align: left;
+  margin: 0.854rem 0 0 0;
+  color: #262627;
+}
+
+/* Mobile: Adjust line height for better readability */
+@media (max-width: 640px) {
+  p {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.7;
+  }
+}
+
+/* Blog list - left aligned within centered container */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  margin-top: 1.618rem;
+}
+
+/* Mobile: Smaller gaps between posts */
+@media (max-width: 640px) {
+  .blog-list {
+    gap: 0rem;
+  }
+}
+
+.blog-post-preview {
+  /* border: 1px solid #e5e7eb; */
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  /* background-color: #ffffff; */
+  transition: all 0.4s ease;
+}
+
+/* Mobile: Reduce padding */
+@media (max-width: 640px) {
+  .blog-post-preview {
+    padding: 1rem;
+  }
+}
+
+.blog-post-preview:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  /* transform: translateY(-2px); */
+  /* border-color: #3b82f6; */
+}
+
+/* Mobile: Disable hover transform (better for touch) */
+@media (max-width: 640px) {
+  .blog-post-preview:hover {
+    transform: none;
+  }
+}
+
+.blog-post-preview h2 {
+  margin: 0 0 0.5rem 0rem;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+/* Mobile: Smaller post titles */
+@media (max-width: 640px) {
+  .blog-post-preview h2 {
+    font-size: 1.25rem;
+  }
+}
+
+.blog-post-preview h2 a {
+  /* color: #1e40af; */
+  text-decoration: none;
+}
+
+.blog-post-preview h2 a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.blog-post-preview time {
+  display: block;
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 0.7rem;
+}
+
+.blog-post-preview p {
+  color: #4b5563;
+  line-height: 1;
+  margin: 0.7rem 0;
+  text-align: left;
+}
+
+.blog-post-preview .read-more {
+  /* color: #2563eb; */
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.2rem;
+  margin-left: 2rem;
+  margin-bottom: 0rem;
+}
+
+.blog-post-preview .read-more:hover {
+  color: #1d4ed8;
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e5e7eb;
+  text-align: left;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Mobile: Smaller footer spacing */
+@media (max-width: 640px) {
+  footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    font-size: 0.8125rem;
+  }
+}
+
+.blog-time {
+  display: block;
+  color: #6b7280;
+  font-size: 0.909rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.post-location {
+  display: block;
+  color: #6b7280;
+  font-size: 0.909rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;    /* Indent the location */
+}
+
+/* Article-specific styling */
+.blog-article {
+    /* Don't add max-width here - let site-container handle it */
+    padding: 0;
+}
+
+.article-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.article-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+
+.article-author {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+
+.profile-section {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.profile-image {
+    flex-shrink: 0;
+    width: 280px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.profile-content {
+    flex: 1;
+}
+/* 
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+} */
+
+.title {
+    font-size: 1.1em;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.bio {
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.site-container p + ul,
+.site-container p + ol {
+    margin-top: 0.4rem;  /* Smaller gap after paragraph */
+}
+
+.site-container li {
+    margin-top: 0rem;
+    /* margin: 0.5rem 0; */
+    line-height: 1.4;
+}

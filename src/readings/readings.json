@@ -1,0 +1,4 @@
+{
+  "layout": "article.njk",
+  "permalink": "/readings/{{ title | slugify }}/"
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-section {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .profile-image {
+            flex-shrink: 0;
+            width: 280px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .title {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .bio {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .contact-info strong {
+            display: inline-block;
+            width: 80px;
+            color: #2c3e50;
+        }
+
+        .research-interests {
+            margin-top: 25px;
+        }
+
+        .research-interests h2 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .research-interests ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .research-interests li {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-image {
+                width: 200px;
+                margin-bottom: 30px;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    {{ content | safe }}
+</body>
+</html>

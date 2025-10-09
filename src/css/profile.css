@@ -1,0 +1,133 @@
+/* Profile Section - Side by Side Layout */
+.profile-section {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin: 2rem 0 3rem 0;
+}
+
+/* Text content on the left */
+.profile-content {
+    flex: 1;  /* Takes up remaining space */
+    min-width: 275px;  /* Allows text to wrap properly */
+}
+
+/* Image on the right */
+.profile-image {
+    margin-top: 5rem;
+    flex-shrink: 0;  /* Prevents image from shrinking */
+    width: 50px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.05rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile text styling */
+.profile-content h1 {
+    font-size: 2.23rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.profile-content .title {
+    font-size: 1.2rem;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.profile-content .affiliation {
+    font-size: 1.125rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.bio {
+    margin: 1.5rem 0;
+}
+
+.bio p {
+    margin: 1rem 0;
+    line-height: 1.75;
+    color: #374151;
+}
+
+/* Contact links */
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.contact-links a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.contact-links a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Research Interests Section */
+.research-interests {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    /* border-top: 2px solid #e5e7eb; */
+}
+
+.research-interests h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+    margin-right: 0;
+}
+
+.research-interests ul {
+    list-style-type: none;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.75rem;
+    row-gap: 1rem;
+}
+
+.research-interests li {
+    padding: 0.75rem 1rem;
+    padding-left: 1rem;
+    
+    background-color: #f3f4f6;
+    border-radius: 0.375rem;
+    color: #374151;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .profile-section {
+        flex-direction: column-reverse;  /* Image goes to top on mobile */
+        gap: 2rem;
+    }
+    
+    .profile-image {
+        width: 130px;
+        margin: 0 auto;  /* Center image on mobile */
+    }
+    
+    .profile-content h1 {
+        font-size: 2rem;
+    }
+    
+    .research-interests ul {
+        grid-template-columns: 1fr;  /* Single column on mobile */
+    }
+}

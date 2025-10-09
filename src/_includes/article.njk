@@ -1,0 +1,24 @@
+---
+layout: base.njk
+---
+<article class="blog-article">
+    <header class="article-header">
+        <h1>{{ title }}</h1>
+        
+        <div class="article-meta">
+            {% if date %}
+            <time datetime="{{ date | dateISO }}">{{ date | dateReadable }}</time>
+            {% endif %}
+            {% if location %}
+            <span class="post-location">{{ location }}</span>
+            {% endif %}
+            {% if author %}
+            <span class="article-author">By {{ author }}</span>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="article-content">
+        {{ content | safe }}
+    </div>
+</article>
