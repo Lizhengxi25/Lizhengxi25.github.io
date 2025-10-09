@@ -149,6 +149,11 @@ body {
   }
 }
 
+.site-container a {
+  color: #64349b;
+  text-decoration: none;
+}
+
 /* Navigation - can be centered or left-aligned */
 .navigation {
   display: flex;
@@ -169,7 +174,7 @@ body {
 }
 
 .navigation a {
-  color: #64349b;
+  /* color: #64349b; */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
@@ -274,7 +279,7 @@ p {
 }
 
 .blog-post-preview h2 a {
-  color: #64349b;
+  /* color: #64349b; */
   text-decoration: none;
 }
 
