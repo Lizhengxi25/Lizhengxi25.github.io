@@ -3,7 +3,7 @@
 # This section is processed by Eleventy before the content
 
 # layout: main.njk              # Use the base.njk layout template
-title: "index"  # Page title (used in <title> tag)
+title: "Zhengxi Li"  # Page title (used in <title> tag)
 layout: base.njk
 # You can add more data here:
 # description: "My awesome website"
