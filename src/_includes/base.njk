@@ -22,32 +22,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="site-container">
-        <nav class="navigation">
-            <a href="/">Home</a>
-            <a href="/projects/">Projects</a>
-            <a href="/blog/">Blog</a>
-            <a href="/readings/">Readings</a>
-            <a href="/contact/">Contact</a>
-        </nav>
-        
-        {# Main content area with Tailwind classes #}
-        {# container: max-width with responsive breakpoints #}
-        {# mx-auto: center horizontally #}
-        {# px-4: horizontal padding #}
-        {# py-8: vertical padding #}
-        <main>
-            {# Inject page content here #}
-            {# | safe filter prevents HTML escaping #}
-            {{ content | safe }}
-        </main>
+    <div class="site-wrapper">
+        <div class="site-container">
+            <nav class="navigation">
+                <a href="/">Home</a>
+                <a href="/projects/">Projects</a>
+                <a href="/blog/">Blog</a>
+                <a href="/readings/">Readings</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+            
+            {# Main content area with Tailwind classes #}
+            {# container: max-width with responsive breakpoints #}
+            {# mx-auto: center horizontally #}
+            {# px-4: horizontal padding #}
+            {# py-8: vertical padding #}
+            <main>
+                {# Inject page content here #}
+                {# | safe filter prevents HTML escaping #}
+                {{ content | safe }}
+            </main>
 
-        {# Footer scripts can be added here #}
-        {% if scripts %}{{ scripts | safe }}{% endif %}
-        
-        <footer>
-            <p>&copy; 2025 Zhengxi Li. All rights reserved.</p>
-        </footer>
+            {# Footer scripts can be added here #}
+            {% if scripts %}{{ scripts | safe }}{% endif %}
+        </div>
     </div>
 </body>
 </html>

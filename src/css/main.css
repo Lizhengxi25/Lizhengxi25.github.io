@@ -72,17 +72,22 @@
 
 body {
   font-family: Times, -apple-system, Times;
-  font-size: 1.145rem;
+  font-size: 1.1rem;
   line-height: 1.618;
   color: #0d1218;
   background-color: #f9fafb;
 }
 
-/* #f9fafb */
+/* Wrapper for sticky footer */
+.site-wrapper {
+    min-height: 100vh;  /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+}
 
 /* Centered container with constrained width */
 .site-container {
-  max-width: 768px; /* 768px - good readable width */
+  max-width: 850px; /* 768px - good readable width */
   margin: 0 auto;   /* Centers the container */
   padding: 2rem 1.5rem;
   background-color: #f9fafb;
@@ -321,7 +326,7 @@ footer {
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 2px solid #e5e7eb;
-  text-align: left;
+  text-align: center;
   color: #6b7280;
   font-size: 0.875rem;
 }
@@ -384,47 +389,6 @@ footer {
 .article-author {
     color: #6b7280;
     font-size: 0.875rem;
-}
-
-
-.profile-section {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
-}
-
-.profile-image {
-    flex-shrink: 0;
-    width: 280px;
-}
-
-.profile-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.profile-content {
-    flex: 1;
-}
-/* 
-h1 {
-    font-size: 2.2em;
-    margin-bottom: 10px;
-    color: #2c3e50;
-} */
-
-.title {
-    font-size: 1.1em;
-    color: #7f8c8d;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.bio {
-    margin-bottom: 25px;
-    text-align: justify;
 }
 
 .site-container p + ul,

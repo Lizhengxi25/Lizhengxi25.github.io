@@ -15,11 +15,19 @@ layout: base.njk
 <!-- Markdown is converted to HTML, then injected into the layout -->
 
 <div class="profile-section">
+    <div class="profile-image">
+        <img src="./images/portrait.jpg" alt="Zhengxi Li">
+    </div>
     <div class="profile-content">
         <h1>Zhengxi Li</h1>
         <p class="title">Undergraduate Student in Artificial Intelligence</p>
         <p class="affiliation">MBZUAI</p>
-        
+        <p class="affiliation">Masdar City, Abu Dhabi, United Arab Emirates<p>
+        <div class="contact-links">
+            <a href="zhengxi.li@mbzuai.ac.ae">Email</a>
+            <a href="https://github.com/Lizhengxi25">GitHub</a>
+            <a href="/cv.pdf">CV</a>
+        </div>
         <div class="bio">
             <p>
                 I am a undergraduate student interested in computer science and mathematics. 
@@ -28,20 +36,9 @@ layout: base.njk
                 applications in real-world problems.
             </p>
         </div>
-        
-        <div class="contact-links">
-            <a href="zhengxi.li@mbzuai.ac.ae">Email</a>
-            <a href="https://github.com/Lizhengxi25">GitHub</a>
-            <a href="/cv.pdf">CV</a>
-        </div>
-    </div>
-    
-    <div class="profile-image">
-        <img src="./images/portrait.jpg" alt="Zhengxi Li">
     </div>
 </div>
-
-<div class="research-interests">
+<!-- <div class="research-interests">
     <h3>Potential Research Interests</h2>
     <ul>
         <li>Machine Learning</li>
@@ -49,4 +46,4 @@ layout: base.njk
         <li>Computer Vision</li>
         <li>Deep Learning</li>
     </ul>
-</div>
+</div> -->

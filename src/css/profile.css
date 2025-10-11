@@ -1,22 +1,24 @@
 /* Profile Section - Side by Side Layout */
 .profile-section {
     display: flex;
-    gap: 2rem;
+    /* gap: 2rem; */
     align-items: flex-start;
     margin: 2rem 0 3rem 0;
 }
 
 /* Text content on the left */
 .profile-content {
-    flex: 1;  /* Takes up remaining space */
-    min-width: 275px;  /* Allows text to wrap properly */
+    flex: 0;  /* Takes up remaining space */
+    min-width: 560px;  /* Allows text to wrap properly */
+    /* margin-left: 2rem; */
 }
 
 /* Image on the right */
 .profile-image {
-    margin-top: 5rem;
+    margin-top: 1.2rem;
     flex-shrink: 0;  /* Prevents image from shrinking */
-    width: 50px;
+    width: 160px;
+    margin-right: auto;
 }
 
 .profile-image img {
@@ -29,7 +31,7 @@
 /* Profile text styling */
 .profile-content h1 {
     font-size: 2.23rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #111827;
     margin-bottom: 0.5rem;
     line-height: 1.2;
@@ -37,15 +39,15 @@
 
 .profile-content .title {
     font-size: 1.2rem;
-    color: #4b5563;
-    margin-bottom: 0.25rem;
+    color: #31353b;
+    margin-bottom: 1rem;
     font-weight: 500;
 }
 
 .profile-content .affiliation {
-    font-size: 1.125rem;
-    color: #6b7280;
-    margin-bottom: 1.5rem;
+    font-size: 1.085rem;
+    color: #5a606b;
+    /* margin-bottom: 0.25rem; */
 }
 
 .bio {
@@ -63,7 +65,7 @@
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
-    margin-top: 1.5rem;
+    margin-top: 1.35rem;
 }
 
 .contact-links a {
