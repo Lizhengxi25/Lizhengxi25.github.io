@@ -9,6 +9,8 @@ const { RegisterHTMLHandler } = require("mathjax-full/js/handlers/html.js");
 const { AssistiveMmlHandler } = require("mathjax-full/js/a11y/assistive-mml.js");
 const { AllPackages } = require("mathjax-full/js/input/tex/AllPackages.js");
 
+// const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.ignores.add("src/**/.*.md");
   eleventyConfig.ignores.add("src/**/.*.html");
@@ -69,6 +71,26 @@ module.exports = function(eleventyConfig) {
       return content; // Return original content if processing fails
     }
   });
+
+  // Syntax highlighting plugin
+  // eleventyConfig.addPlugin(syntaxHighlight, {
+  //   preAttributes: {
+  //     class: ({ language }) => `language-${language}`
+  //   }
+  // });
+
+//   eleventyConfig.addPairedShortcode("code", function(content, language = "") {
+//   const Prism = require("prismjs");
+//   const loadLanguages = require("prismjs/components/");
+  
+//   if (language && language !== "text") {
+//     loadLanguages([language]);
+//   }
+  
+//   let html = Prism.highlight(content, Prism.languages[language] || Prism.languages.markup, language);
+  
+//   return `<pre class="language-${language} line-numbers"><code class="language-${language}">${html}</code></pre>`;
+// });
 
   // IMPORTANT: Copy images to output directory
   eleventyConfig.addPassthroughCopy("src/images");
