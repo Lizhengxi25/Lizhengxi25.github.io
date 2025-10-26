@@ -13,6 +13,10 @@
     /* margin-left: 2rem; */
 }
 
+/* :lang(zh) {
+  font-family: "Kaiti SC", KaiTi, STKaiti,;
+} */
+
 /* Image on the right */
 .profile-image {
     margin-top: 1.2rem;
@@ -30,17 +34,21 @@
 
 /* Profile text styling */
 .profile-content h1 {
-    font-size: 2.23rem;
+    font-size: 2.03rem;
     font-weight: 600;
     color: #111827;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
     line-height: 1.2;
 }
+
+/* h1 span:lang(zh) {
+    font-family: Garamond;
+} */
 
 .profile-content .title {
     font-size: 1.2rem;
     color: #31353b;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     font-weight: 500;
 }
 
@@ -56,7 +64,7 @@
 
 .bio p {
     margin: 1rem 0;
-    line-height: 1.75;
+    line-height: 1.4;
     color: #374151;
 }
 
@@ -65,7 +73,7 @@
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
-    margin-top: 1.35rem;
+    margin-top: 1.4rem;
 }
 
 .contact-links a {

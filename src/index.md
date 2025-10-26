@@ -30,20 +30,14 @@ layout: base.njk
         </div>
         <div class="bio">
             <p>
-                I am a undergraduate student interested in computer science and mathematics. 
-                I always keep open to explore broad range of topics. 
-                Currently, I am particularly interested in computer vision, natural language processing, and their 
-                applications in real-world problems.
+                I am currently an undergraduate student at MBZUAI, class of 2029. Before joining MBZUAI, I graduated from Beijing 101 High School with an International Baccalaureate Diploma Programme.
+
+                Throughout my academic journey, I have been driven by a core philosophy: <b>correct and refine intuitions using theory and experiment</b>.
+                During the past few years, I have investigated the moving mechanisms of balls and applied them to basketball training. Currently, I am particularly interested in LLM reasoning and aspire to contribute meaningful research to the field.
+
+                At the same time, I always keep myself open to exploring a broad range of topics including, but not limited to, multi-agent systems and computer vision.
+                
             </p>
         </div>
     </div>
 </div>
-<!-- <div class="research-interests">
-    <h3>Potential Research Interests</h2>
-    <ul>
-        <li>Machine Learning</li>
-        <li>Natural Language Processing</li>
-        <li>Computer Vision</li>
-        <li>Deep Learning</li>
-    </ul>
-</div> -->
