@@ -21,7 +21,7 @@ layout: base.njk
     <div class="profile-content">
         <h1>Zhengxi Li</h1>
         <p class="title">Undergraduate Student in Artificial Intelligence</p>
-        <p class="affiliation">MBZUAI</p>
+        <p class="affiliation"><a href="https://mbzuai.ac.ae/">MBZUAI</a></p>
         <p class="affiliation">Masdar City, Abu Dhabi, United Arab Emirates<p>
         <div class="contact-links">
             <a href="zhengxi.li@mbzuai.ac.ae">Email</a>
@@ -30,7 +30,7 @@ layout: base.njk
         </div>
         <div class="bio">
             <p>
-                I am currently an undergraduate student at MBZUAI, class of 2029. Before joining MBZUAI, I graduated from Beijing 101 High School with an International Baccalaureate Diploma Programme.
+                I am currently an undergraduate student at MBZUAI, class of 2029. Before joining MBZUAI, I graduated from <a href="https://www.beijing101.com/">Beijing 101 High School</a> with an International Baccalaureate Diploma Programme.
 
                 Throughout my academic journey, I have been driven by a core philosophy: <b>correct and refine intuitions using theory and experiment</b>.
                 During the past few years, I have investigated the moving mechanisms of balls and applied them to basketball training. Currently, I am particularly interested in LLM reasoning and aspire to contribute meaningful research to the field.
