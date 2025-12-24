@@ -32,7 +32,7 @@ layout: base.njk
                 I am currently an undergraduate student at <a href="https://mbzuai.ac.ae/">MBZUAI</a>, class of 2029. Before joining MBZUAI, I graduated from <a href="https://www.beijing101.com/">Beijing 101 High School</a> with an International Baccalaureate Diploma Programme.
 
                 Throughout my academic journey, I have been driven by a core philosophy: <b>correct and refine intuitions using theory and experiment</b>.
-                With a background in mathematics, physics, and computer science, I have investigated the dynamics of ball motion during my high school years. After entering university, I began to focus on artificial intelligence. I am now particularly interested in efficient reasoning in large language models (LLMs) and aspire to make meaningful research contributions to the field.
+                With a background in mathematics, physics, and computer science, I have investigated the dynamics of ball motion during my high school years. After entering university, I began to focus on artificial intelligence. I am now particularly interested in <b>efficient reasoning in large language models (LLMs)</b> and aspire to make meaningful research contributions to the field.
 
                 At the same time, I remain open to exploring a broad range of research topics, including but not limited to security and alignment, multi-agent systems, and computer vision. Besides, I have been a fan of history and literature from a young age and enjoy reading them.
                 
