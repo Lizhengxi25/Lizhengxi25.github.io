@@ -24,18 +24,17 @@ layout: base.njk
         <p class="affiliation"><a href="https://mbzuai.ac.ae/">MBZUAI</a></p>
         <p class="affiliation">Masdar City, Abu Dhabi, United Arab Emirates<p>
         <div class="contact-links">
-            <a href="zhengxi.li@mbzuai.ac.ae">Email</a>
             <a href="https://github.com/Lizhengxi25">GitHub</a>
             <a href="/cv.pdf">CV</a>
         </div>
         <div class="bio">
             <p>
-                I am currently an undergraduate student at MBZUAI, class of 2029. Before joining MBZUAI, I graduated from <a href="https://www.beijing101.com/">Beijing 101 High School</a> with an International Baccalaureate Diploma Programme.
+                I am currently an undergraduate student at <a href="https://mbzuai.ac.ae/">MBZUAI</a>, class of 2029. Before joining MBZUAI, I graduated from <a href="https://www.beijing101.com/">Beijing 101 High School</a> with an International Baccalaureate Diploma Programme.
 
                 Throughout my academic journey, I have been driven by a core philosophy: <b>correct and refine intuitions using theory and experiment</b>.
-                During the past few years, I have investigated the moving mechanisms of balls and applied them to basketball training. Currently, I am particularly interested in LLM reasoning and aspire to contribute meaningful research to the field.
+                With a background in mathematics, physics, and computer science, I have investigated the dynamics of ball motion during my high school years. After entering university, I began to focus on artificial intelligence. I am now particularly interested in efficient reasoning in large language models (LLMs) and aspire to make meaningful research contributions to the field.
 
-                At the same time, I always keep myself open to exploring a broad range of topics including, but not limited to, multi-agent systems and computer vision.
+                At the same time, I remain open to exploring a broad range of research topics, including but not limited to security and alignment, multi-agent systems, and computer vision. Besides, I have been a fan of history and literature from a young age and enjoy reading them.
                 
             </p>
         </div>
