@@ -12,8 +12,9 @@ Reading has always been one of my greatest passions. I especially enjoy Chinese 
 (Different from computer science and mathematics fields where I write blogs in English, as it is the common communicative language, I will prioritize comfortness in writing reading notes)
 
 Currently, I feel comfortable and confident in having written, being writing and being going to write reading notes on:
- - Jin Yong's martial arts novel series
- - Jin Yucheng's _Blossoms Shanghai_ (also TV series produced by Wong Kar-wai).
+ - Jin Yong's martial arts novel series (金庸).
+ - Gu Long's martial arts novel series (古龙).
+ - Jin Yucheng’s novel _Blossoms_ and Wong Kar-wai’s TV series adaptation, _Blossoms Shanghai_ 《繁花》.
 
 <div class="blog-list">
 {% for post in collections.rd %}

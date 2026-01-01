@@ -71,7 +71,7 @@
 }
 
 body {
-  font-family: Times, -apple-system, Times;
+  font-family: Times, -apple-system, Times, "Kaiti", "楷体", "STKaiti", serif;
   font-size: 1.1rem;
   line-height: 1.618;
   color: #0d1218;

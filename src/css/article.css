@@ -2,12 +2,11 @@
 /* This file handles all typography and layout for blog articles */
 
 .article-content {
-    font-family: 
+    font-family:
         Garamond,                    /* English serif font */
-        "Noto Serif SC",
-        "Kaiti SC",
-        KaiTi,
-        STKaiti,
+        "Kaiti",
+        "楷体",
+        "STKaiti",
         serif;
     font-size: 1.0625rem;
     line-height: 1.75;
